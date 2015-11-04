@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_job, only: [:show, :edit, :update, :delete]
+  before_action :set_job,   only: [:show, :edit, :update, :destroy]
+  before_action :set_value, only: [:new,  :edit, :create, :update]
 
   def index
     @jobs = Job.all
@@ -45,5 +46,25 @@ class JobsController < ApplicationController
 
   def set_job
     @job = Job.find(params[:id])
+  end
+
+  def set_value
+    if @job.nil?
+      @title   ="誠徵賢才"
+      @url     ="URL://"
+      @location="地點"
+      @pay     ="時薪/日薪"
+      @company ="徵人單位"
+      @description = "徵人啟事敘述"
+      @button  ="張貼"
+    else
+      @title   =@job.title
+      @url     =@job.url
+      @location=@job.location
+      @pay     =@job.pay
+      @company =@job.company
+      @description =@job.description
+      @button  ="修改張貼"
+    end
   end
 end

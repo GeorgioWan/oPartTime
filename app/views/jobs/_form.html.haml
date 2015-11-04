@@ -1,0 +1,19 @@
+= simple_form_for @job do |f|
+  = f.error_notification
+
+  .form-inputs
+    .row
+      .col-md-3.col-md-offset-4
+        = f.input :title,       label: false, placeholder: @title
+        = f.input :url,         label: false, placeholder: @url
+        = f.input :location,    label: false, placeholder: @location
+        = f.input :pay,         label: false, placeholder: @pay
+        = f.input :company,     label: false, placeholder: @company
+        = f.input :description, label: false, placeholder: @description
+
+  .form-actions
+    .row
+      .col-md-1.col-md-offset-4
+        = link_to '取消', jobs_path, class: 'btn btn-default'
+      .col-md-2.text-right
+        = f.button :submit, @button, class: 'btn btn-primary'

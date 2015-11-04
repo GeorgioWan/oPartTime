@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20151104083719) do
     t.string   "title",       default: "", null: false
     t.text     "description", default: "", null: false
     t.string   "url",         default: "", null: false
-    t.integer  "pay",         default: 0,  null: false
+    t.string   "pay",         default: "", null: false
     t.string   "location",    default: "", null: false
     t.string   "company",     default: "", null: false
     t.datetime "created_at",               null: false

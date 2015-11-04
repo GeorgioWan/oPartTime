@@ -4,7 +4,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :title, null: false, default: ""
       t.text :description, null: false, default: ""
       t.string :url, null: false, default: ""
-      t.integer :pay, null: false, default: 0
+      t.string :pay, null: false, default: ""
       t.string :location, null: false, default: ""
       t.string :company, null: false, default: ""
 
