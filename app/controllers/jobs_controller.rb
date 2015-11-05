@@ -51,12 +51,12 @@ class JobsController < ApplicationController
   def set_value
     if @job.nil?
       @title   ="誠徵賢才"
-      @url     ="URL://"
+      @url     ="相關連結"
       @location="地點"
       @pay     ="時薪/日薪"
       @company ="徵人單位"
       @description = "徵人啟事敘述"
-      @button  ="張貼"
+      @button  ="張貼徵文"
     else
       @title   =@job.title
       @url     =@job.url

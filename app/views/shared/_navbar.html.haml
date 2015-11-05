@@ -1,7 +1,7 @@
-%nav.navbar.navbar-default{role:"navigation"}
+%nav.navbar.navbar-default.shadow-z-1{role:"navigation"}
   .container-fluid
     .navbar-header
-      = link_to root_path, class: "navbar-brand" do
+      = link_to root_path, class: "navbar-brand shadow-z-1" do
         %strong oPartTime
       %button.navbar-toggle{"data-target" => "oPartTime-navbar-collapse", "data-toggle" => "collapse", type: "button"}
         %span.sr-only switch guide
@@ -12,8 +12,9 @@
       %ul.nav.navbar-nav
         %li
           = link_to '找頭路', jobs_path
-        %li
-          = link_to '誠徵人才', new_job_path
+        %li#hire_li.shadow-z-2
+          = link_to new_job_path do
+            %strong= '我要徵人才'
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           - if user_signed_in?

@@ -3,17 +3,24 @@
 
   .form-inputs
     .row
-      .col-md-3.col-md-offset-4
-        = f.input :title,       label: false, placeholder: @title
-        = f.input :url,         label: false, placeholder: @url
-        = f.input :location,    label: false, placeholder: @location
-        = f.input :pay,         label: false, placeholder: @pay
-        = f.input :company,     label: false, placeholder: @company
-        = f.input :description, label: false, placeholder: @description
+      .col-md-5.col-md-offset-3
+        .well
+          = f.input :title,       label: false, placeholder: @title
+          = f.input :url,         label: false, placeholder: @url
+          = f.input :location,    label: false, placeholder: @location
+          = f.input :pay,         label: false, placeholder: @pay
+          = f.input :company,     label: false, placeholder: @company
+          = f.input :description, label: false, placeholder: @description, input_html: { :style=> 'width: 100%;', :rows => 10}
+
 
   .form-actions
     .row
-      .col-md-1.col-md-offset-4
-        = link_to '取消', jobs_path, class: 'btn btn-default'
+      .col-md-3.col-md-offset-3
+        - if @job.id.nil?
+          = link_to '算了...', jobs_path, class: "btn btn-default"
+        - else
+          = link_to '刪除貼文', @job, data: {confirm: "真的不徵了嗎？"}, method: :delete, class: "btn btn-flat btn-danger"
       .col-md-2.text-right
-        = f.button :submit, @button, class: 'btn btn-primary'
+        = f.button :submit, @button, class: 'btn btn-primary shadow-z-2'
+        - if !@job.id.nil?
+          = link_to '不改', :back, class: "btn btn-default"

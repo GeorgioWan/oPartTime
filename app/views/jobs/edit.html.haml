@@ -1,6 +1,5 @@
-%h1 edit
-
+.row
+  .col-md-5.col-md-offset-3.text-center
+    %h1
+      %span 編輯貼文
 = render 'form'
-
-
-= link_to '移除', @job, data: {confirm: "真的不徵了嗎？"}, method: :delete, class: "btn btn-flat btn-xs btn-danger"
