@@ -5,6 +5,7 @@
     .row
       .col-md-5.col-md-offset-3
         .well
+          = f.hidden_field :user_id, value: current_user.id
           = f.input :title,       label: false, placeholder: @title
           = f.input :url,         label: false, placeholder: @url
           = f.input :location,    label: false, placeholder: @location

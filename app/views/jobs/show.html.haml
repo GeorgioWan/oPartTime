@@ -2,4 +2,4 @@
 %p= @job.title
 
 = link_to '返回', jobs_path
-= link_to '編輯貼文', edit_job_path(@job.id), class: 'btn btn-primary'
+= link_to '編輯貼文', edit_job_path(@job.id), class: 'btn btn-primary' if @job.user == current_user
