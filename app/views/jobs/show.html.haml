@@ -1,5 +1,21 @@
-%h1 show
-%p= @job.title
+.row
+  .col-md-8
+    %plan
+      %h2= @job.title
+  .col-md-4.text-right
+    = link_to '', edit_job_path(@job.id), class: 'btn btn-primary btn-fab btn-raised mdi-content-create' if @job.user == current_user
 
-= link_to '返回', jobs_path
-= link_to '編輯貼文', edit_job_path(@job.id), class: 'btn btn-primary' if @job.user == current_user
+.row
+  .col-md-8
+    .well
+      %p= @job.description
+  .col-md-4
+    .well
+      %p 公司名稱
+        = @job.company
+      %p 資訊連結
+        = @job.url
+      %p 薪資
+        = @job.pay
+      %p 工作地點
+        = @job.location

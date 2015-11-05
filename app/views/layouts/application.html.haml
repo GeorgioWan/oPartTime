@@ -4,12 +4,13 @@
     %title oPartTime
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.5/dist/js/alertify.js', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
     .container
       = render 'shared/navbar'
 
-      = render 'shared/notice'
+      = alertify_notice
 
-      .container
+      .container-fluid
         = yield
