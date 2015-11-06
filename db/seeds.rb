@@ -18,6 +18,6 @@ puts '[SUCCES] Create 10 random users.'
 for i in 1..10 do
   Job.create([title: "徵人啟事 - #{i}", company: "#{['Applee', 'Gooogle', 'Microhard', 'SUMSONG', 'O-Studio'].sample}",
               location: "#{['基隆仁愛區','台北信義區','高雄鹽埕區','台南永康區','新北永和區'].sample}", pay: "#{rand(100..350)}",
-              url: "https://example_#{i}.com", description: "錢多、事少、離家近\n 還應徵就對了！", user_id: rand(2..11)])
+              url: "https://example_#{i}.com", description: "錢多、事少、離家近\n還應徵就對了！", user_id: rand(2..11)])
 end
 puts '[SUCCES] Create 10 random jobs.'
