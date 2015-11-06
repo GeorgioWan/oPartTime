@@ -18,68 +18,83 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body{
-  font-family: "Proxima Nova";
+body * {
+  //font-family: Georgia, Serif;
+  font-family: "Century Gothic", sans-serif;
 }
 
+/*****************
+ ****  NAVBAR ****
+ *****************/
 #hire_li {
   background-color: #FFB300;
 }
 
-#job-index-box *{
-  color: #ECEFF1;
+/*****************
+ *** JOB INDEX ***
+ *****************/
+.job-index-container{
+  margin-left: 80px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+#job-index-box{
+  padding-right: 30px;
+  margin-right: -10px;
+  margin-left: -10px;
+  margin-bottom: -10px;
 }
 #job-index-box-heading{
+  color: #009688;
   font-size: 15px;
   padding-bottom: 0px;
   border-bottom: 0px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#607d8b+0,78909c+100 */
-  background: #607d8b; /* Old browsers */
-  background: -moz-linear-gradient(top,  #607d8b 0%, #78909c 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#607d8b), color-stop(100%,#78909c)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #607d8b 0%,#78909c 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #607d8b 0%,#78909c 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #607d8b 0%,#78909c 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  #607d8b 0%,#78909c 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#607d8b', endColorstr='#78909c',GradientType=0 ); /* IE6-9 */
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 #job-index-box-body{
   padding-top: 0px;
   padding-bottom: 5px;
   border-top: 0px;
-  background-color: #78909C;
 }
 #job-index-box-footer{
   font-size: 10px;
   padding-top: 0px;
+  margin-bottom: -10px;
   border-top: 0px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#78909c+0,607d8b+100 */
-  background: #78909c; /* Old browsers */
-  background: -moz-linear-gradient(top,  #78909c 0%, #607d8b 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#78909c), color-stop(100%,#607d8b)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #78909c 0%,#607d8b 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #78909c 0%,#607d8b 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #78909c 0%,#607d8b 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  #78909c 0%,#607d8b 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#78909c', endColorstr='#607d8b',GradientType=0 ); /* IE6-9 */
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#job-index-box-body i {
+  color: #795548;
+  font-size: 20px;
+}
+#job-index-box-body span {
+  color: #795548;
+  font-size: 15px;
+  margin-left: -10px;
 }
 #job-index-box-price{
   color: #FFC107;
   font-size: 40px;
+  margin-left: -20px;
+}
+#job-index-box-footer i {
+  color: #E57373;
+}
+#job-index-box-footer span{
+  color: #795548;
+  margin-left: -10px;
 }
 #job-index-box-favorite{
   position: relative;
-  left: 170px;
+  left: 150px;
   top: -40px;
 }
-#job-index-box-footer .glyphicon-map-marker{
-  color: #E57373;
-}
 
+/*****************
+ *** JOB  SHOW ***
+ *****************/
 .job-show-container {
   margin-top: 20px;
 }
@@ -100,7 +115,7 @@ body{
   margin-top: 10px;
 }
 .job-body-information{
-  margin-left: 40px;
+  margin-left: 30px;
   margin-top: -20px;
 }
 .job-body-information .list-group .list-group-item{

@@ -6,6 +6,7 @@
         = link_to job, target: "_blank", class: "list-group-item", id: "job-index-box-body" do
           %i.glyphicon.glyphicon-usd
             %sapn#job-index-box-price= job.pay
+            %span /hr
         = link_to job, target: "_blank", class: "list-group-item", id: "job-index-box-footer" do
           %i.glyphicon.glyphicon-map-marker
             %span= job.location
