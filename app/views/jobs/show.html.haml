@@ -1,21 +1,43 @@
-.row
-  .col-md-8
-    %plan
-      %h2= @job.title
-  .col-md-4.text-right
-    = link_to '', edit_job_path(@job.id), class: 'btn btn-primary btn-fab btn-raised mdi-content-create' if @job.user == current_user
+.job-show-container
+  .row.job-head-section
+    .col-md-7.col-md-offset-1
+      %h1.job-title= @job.title
+      .job-byline
+        %span.job-byline-user
+          by
+          = link_to @job.user.name, '#'
+        %span.job-byline-dash
+          |
+          %i.glyphicon.glyphicon-time
+          = @job.created_at.strftime("%b %d, %a, %Y")
+          %sanp.badge
+            = time_ago_in_words(@job.created_at)
 
-.row
-  .col-md-8
-    .well
-      %p= @job.description
-  .col-md-4
-    .well
-      %p 公司名稱
-        = @job.company
-      %p 資訊連結
-        = @job.url
-      %p 薪資
-        = @job.pay
-      %p 工作地點
-        = @job.location
+    .col-md-3.text-right.job-edit-button
+      = link_to '', edit_job_path(@job.id), class: 'btn btn-primary btn-fab btn-raised mdi-editor-mode-edit' if @job.user == current_user
+
+  .row.job-body-section
+    .container.col-md-7.col-md-offset-1
+      .job-body-description
+        %pre.shadow-z-1= @job.description
+    .container.col-md-3
+      .job-body-information
+        .list-group
+          .list-group-item
+            .list-group-content
+              %i.glyphicon.glyphicon-usd
+                %sapn.list-body-information-price= @job.pay
+          .list-group-item
+            .list-group-content
+              %i.glyphicon.glyphicon-equalizer
+                %span= @job.company
+          = link_to @job.url, class: "list-group-item", target: "_blank" do
+            .list-group-content
+              %i.glyphicon.glyphicon-globe
+                %span= @job.url
+          .list-group-item
+            .list-group-content
+              %i.glyphicon.glyphicon-map-marker
+                %span= @job.location
+
+

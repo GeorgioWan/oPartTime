@@ -18,10 +18,52 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-  font-family: "Proxima Nova"
+body{
+  font-family: "Proxima Nova";
 }
 
 #hire_li {
   background-color: #FFB300;
+}
+
+.job-show-container {
+  margin-top: 20px;
+}
+.job-head-section {
+  margin-bottom: 20px;
+}
+.job-title {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+.job-byline{
+  color: gray;
+}
+.job-byline-dash{
+  margin-left: 5px;
+}
+.job-edit-button{
+  margin-top: 10px;
+}
+.job-body-information{
+  margin-left: 40px;
+  margin-top: -20px;
+}
+.job-body-information .list-group .list-group-item{
+  margin-top: 10px;
+  border-bottom: 1px solid gray;
+}
+.job-body-information .list-group .list-group-item .list-group-content{
+  color: gray;
+  margin-bottom: 10px;
+}
+.job-body-description pre{
+  font-size: 15px;
+  padding: 15px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+.list-body-information-price{
+  color: #FFA000;
+  font-size: 30px;
 }
