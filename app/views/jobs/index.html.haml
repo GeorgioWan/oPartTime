@@ -1,5 +1,12 @@
-%h1 This is index
-%ul
+.job-index-container
   - @jobs.each do |job|
-    %li
-      = link_to job.title, job, target: "_blank"
+    .col-md-3
+      #job-index-box
+        = link_to job.title, job, target: "_blank", class: "list-group-item", id: "job-index-box-heading"
+        = link_to job, target: "_blank", class: "list-group-item", id: "job-index-box-body" do
+          %i.glyphicon.glyphicon-usd
+            %sapn#job-index-box-price= job.pay
+        = link_to job, target: "_blank", class: "list-group-item", id: "job-index-box-footer" do
+          %i.glyphicon.glyphicon-map-marker
+            %span= job.location
+        %span#job-index-box-favorite= link_to '', '#', class: 'btn btn-primary btn-fab btn-raised mdi-action-favorite'
