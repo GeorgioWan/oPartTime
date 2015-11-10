@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem 'bootstrap-material-design'
+gem 'rails-i18n'
 # Use devise
 gem 'devise'
 gem 'devise-i18n'

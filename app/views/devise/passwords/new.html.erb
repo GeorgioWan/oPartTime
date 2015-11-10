@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-5">
+    <h2>忘記密碼？</h2>
+  </div>
+</div>
+
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <%= f.input :email, label: false, required: true, autofocus: true, placeholder: '請輸入您的信箱' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4 text-center">
+        <%= f.button :submit, "寄送重新設置密碼" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4 text-right">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+<% end %>
