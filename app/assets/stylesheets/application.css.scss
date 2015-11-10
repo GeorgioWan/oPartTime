@@ -132,6 +132,16 @@ body * {
   padding-top: 15px;
   padding-bottom: 20px;
 }
+.job-body-description .panel-danger .panel-heading h4{
+  margin: 0px;
+}
+.job-body-description .panel-danger .panel-heading{
+  background-color: #E57373;
+}
+.job-body-description .panel-danger .panel-body{
+  color: #BF360C;
+  background-color: #EEEEEE;
+}
 .list-body-information-price{
   color: #FFA000;
   font-size: 30px;
