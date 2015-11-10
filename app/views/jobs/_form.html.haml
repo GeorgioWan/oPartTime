@@ -20,7 +20,7 @@
         - if @job.id.nil?
           = link_to '算了...', jobs_path, class: "btn btn-default"
         - else
-          = link_to '刪除貼文', @job, data: {confirm: "真的不徵了嗎？"}, method: :delete, class: "btn btn-flat btn-danger"
+          = link_to '刪除貼文 (或已徵到人)', @job, data: {confirm: "真的不徵了嗎？"}, method: :delete, class: "btn btn-flat btn-danger"
       .col-md-2.text-right
         = f.button :submit, @button, class: 'btn btn-primary shadow-z-2'
         - if !@job.id.nil?
