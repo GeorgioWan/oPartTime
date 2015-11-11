@@ -19,7 +19,9 @@
   .row.job-body-section
     .container.col-md-7.col-md-offset-1
       .job-body-description
-        %pre.shadow-z-1= @job.description
+        %pre.shadow-z-1.wmd-output
+          :preserve
+            #{@job.description}
         .panel.panel-danger
           .panel-heading.text-center
             %h4 oPartTime 提醒您
@@ -30,7 +32,7 @@
               .li ◎ 若遇被要求繳費、購買商品或服務等，請勿進行並撥打反詐騙專線165聯繫警方。
     .container.col-md-3
       .job-body-information
-        .list-group
+        .list-group{"data-spy" => "affix", "data-offset-top" => "150"}
           .list-group-item
             .list-group-content
               %i.glyphicon.glyphicon-usd

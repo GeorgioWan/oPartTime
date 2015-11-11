@@ -14,6 +14,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem 'bootstrap-material-design'
 gem 'rails-i18n'
+# Use Font awesome
+gem 'font-awesome-rails'
 # Use devise
 gem 'devise'
 gem 'devise-i18n'

@@ -50,9 +50,9 @@ class JobsController < ApplicationController
 
   def set_value
     if @job.nil?
-      @title   ="誠徵賢才"
+      @title   ="徵才標題"
       @url     ="相關連結"
-      @location="地點"
+      @location="工作地點"
       @pay     ="時薪/日薪"
       @company ="徵人單位"
       @description = "徵人啟事敘述"

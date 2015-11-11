@@ -17,6 +17,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 @import "pagedown_bootstrap";
 
 body * {
@@ -94,6 +95,28 @@ body * {
 }
 
 /*****************
+ *** JOB  FORM ***
+ *****************/
+#job-form-inputs.form-inputs .affix{
+  top: 25px;
+}
+#job-form-inputs{
+  margin-top: 20px;
+  margin-left: 50px;
+}
+#job-form-actions{
+  margin-top: 15px;
+  margin-left: 30px;
+}
+#job_title{
+  font-size: 18px;
+  font-weight: bold;
+}
+#wmd-help-button-description{
+  background-color: #607D8B;
+}
+
+/*****************
  *** JOB  SHOW ***
  *****************/
 .job-show-container {
@@ -118,6 +141,9 @@ body * {
 .job-body-information{
   margin-left: 30px;
   margin-top: -20px;
+}
+.job-body-information .affix{
+  top: 25px;
 }
 .job-body-information .list-group .list-group-item{
   margin-top: 10px;
