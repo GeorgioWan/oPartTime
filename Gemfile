@@ -20,6 +20,8 @@ gem 'devise-i18n'
 # Use Simple form
 gem 'simple_form'
 gem 'haml', '~> 4.0', '>= 4.0.7'
+# Use Pagedown
+gem 'pagedown-bootstrap-rails'
 group :development, :test do
   gem 'awesome_rails_console'
   gem 'web-console', '~> 2.0'

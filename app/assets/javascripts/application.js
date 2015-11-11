@@ -15,5 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-material-design
+//= require pagedown_bootstrap
+//= require pagedown_init
 //= require turbolinks
 //= require_tree .

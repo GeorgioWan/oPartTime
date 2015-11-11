@@ -116,6 +116,8 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
+    pagedown-bootstrap-rails (2.1.2)
+      railties (> 3.1)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -220,6 +222,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
+  pagedown-bootstrap-rails
   rails (= 4.2.4)
   rails-i18n
   sass-rails (~> 5.0)
