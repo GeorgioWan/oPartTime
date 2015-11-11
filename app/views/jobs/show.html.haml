@@ -41,7 +41,7 @@
             .list-group-content
               %i.glyphicon.glyphicon-equalizer
                 %span= @job.company
-          = link_to "http://#{@job.url}", class: "list-group-item", target: "_blank" do
+          = link_to "#{@job.url}", class: "list-group-item", target: "_blank" do
             .list-group-content
               %i.glyphicon.glyphicon-globe
                 %span= @job.url
