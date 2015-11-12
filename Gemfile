@@ -24,6 +24,8 @@ gem 'simple_form'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 # Use Pagedown
 gem 'pagedown-bootstrap-rails'
+# Use TaiwanCity select
+gem 'taiwan_city'
 group :development, :test do
   gem 'awesome_rails_console'
   gem 'web-console', '~> 2.0'
