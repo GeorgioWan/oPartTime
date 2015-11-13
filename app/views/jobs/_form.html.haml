@@ -8,9 +8,13 @@
           = f.hidden_field :user_id, value: current_user.id
           = f.input :title,       label: false, placeholder: @title,    input_html:{class: 'text-center'}
           = f.input :url,         label: false, placeholder: @url,      input_html:{class: 'text-center'}
-          = f.input :location,    label: false, placeholder: @location, input_html:{class: 'text-center'}
           = f.input :pay,         label: false, placeholder: @pay,      input_html:{class: 'text-center'}
           = f.input :company,     label: false, placeholder: @company,  input_html:{class: 'text-center'}
+          .city-group
+            .col-md-6
+              = f.input :city,  label: false, collection: TaiwanCity.list, input_html:{class: 'city-select city-city'}, prompt: @city
+            .col-md-6
+              = f.input :district,  label: false, collection: TaiwanCity.list(@job.district), input_html:{class: 'city-select city-district'},  prompt: @district
 
       .col-md-8
         .well

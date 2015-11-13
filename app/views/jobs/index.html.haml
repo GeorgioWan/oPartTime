@@ -11,5 +11,5 @@
             %span /hr
         = link_to job, target: "_blank", class: "list-group-item", id: "job-index-box-footer" do
           %i.glyphicon.glyphicon-map-marker
-            %span= job.location
+            %span= get_location(job)
         %span#job-index-box-favorite= link_to '', '#', class: 'btn btn-primary btn-fab btn-raised mdi-action-favorite'

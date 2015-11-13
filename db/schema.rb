@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105075819) do
+ActiveRecord::Schema.define(version: 20151113044328) do
 
   create_table "jobs", force: :cascade do |t|
     t.string   "title",       default: "", null: false
     t.text     "description", default: "", null: false
     t.string   "url",         default: "", null: false
     t.string   "pay",         default: "", null: false
-    t.string   "location",    default: "", null: false
     t.string   "company",     default: "", null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "user_id"
+    t.string   "city",        default: ""
+    t.string   "district",    default: ""
   end
 
   add_index "jobs", ["title"], name: "index_jobs_on_title", unique: true

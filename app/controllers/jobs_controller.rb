@@ -2,6 +2,8 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_job,   only: [:show, :edit, :update, :destroy]
   before_action :set_value, only: [:new,  :edit, :create, :update]
+  before_action :set_location, only: :show
+  helper_method :get_location
 
   def index
     @jobs = Job.all
@@ -41,28 +43,60 @@ class JobsController < ApplicationController
 
   private
   def job_params
-    params.require(:job).permit( :title, :url, :pay, :location, :description, :company, :user_id)
+    params.require(:job).permit( :title, :url, :pay, :description, :company, :user_id, :city, :district)
   end
 
   def set_job
     @job = Job.find(params[:id])
   end
 
+  def set_location
+    TaiwanCity.list.each do |c|
+      if c[1] == @job.city
+        @city=c[0]
+      end
+    end
+
+    TaiwanCity.list(@job.city).each do |d|
+      if d[1] == @job.district
+        @district=d[0]
+      end
+    end
+  end
+
+  def get_location job
+    TaiwanCity.list.each do |c|
+      if c[1] == job.city
+        @city=c[0]
+      end
+    end
+
+    TaiwanCity.list(job.city).each do |d|
+      if d[1] == job.district
+        @district=d[0]
+      end
+    end
+
+    return "#{@city}#{@district}"
+  end
+
   def set_value
     if @job.nil?
       @title   ="徵才標題"
       @url     ="相關連結"
-      @location="工作地點"
       @pay     ="時薪/日薪"
       @company ="徵人單位"
+      @city    ="工作縣市"
+      @district="鄉鎮市區"
       @description = "徵人啟事敘述"
       @button  ="張貼徵文"
     else
       @title   =@job.title
       @url     =@job.url
-      @location=@job.location
       @pay     =@job.pay
       @company =@job.company
+      @city    =@job.city
+      @district=@job.district
       @description =@job.description
       @button  ="修改張貼"
     end
