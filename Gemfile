@@ -26,6 +26,8 @@ gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'pagedown-bootstrap-rails'
 # Use TaiwanCity select
 gem 'taiwan_city'
+# Easy access cookie in js https://github.com/freego/js_cookie_rails
+gem 'js_cookie_rails'
 group :development, :test do
   gem 'awesome_rails_console'
   gem 'web-console', '~> 2.0'

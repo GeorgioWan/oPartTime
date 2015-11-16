@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require js.cookie
 //= require bootstrap-sprockets
 //= require bootstrap-material-design
 //= require taiwan_city/jquery.taiwan_city
