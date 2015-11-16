@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
 
   def guest_name
     @name = cookies[:name].nil? ? ["頹廢浪人","絕世美女","武林高手","丐幫成員","神奇寶貝大師","文學青年","小王子"].sample : cookies[:name]
-    cookies[:name] = @name
+    cookies[:name] = { :value => @name, :expires => 1.minute.from_now }
   end
 end
