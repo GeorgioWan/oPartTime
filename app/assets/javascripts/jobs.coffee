@@ -7,4 +7,3 @@ $ ->
     converter = new Markdown.Converter
     content = $(this).html()
     $(this).html converter.makeHtml(content)
-

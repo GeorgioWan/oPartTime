@@ -1,12 +1,13 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_jobs,  only: :index
   before_action :set_job,   only: [:show, :edit, :update, :destroy]
   before_action :set_value, only: [:new,  :edit, :create, :update]
   before_action :set_location, only: :show
   helper_method :get_location
 
   def index
-    @jobs = Job.all
+    @cities= TaiwanCity.list
   end
 
   def show
@@ -48,6 +49,10 @@ class JobsController < ApplicationController
 
   def set_job
     @job = Job.find(params[:id])
+  end
+
+  def set_jobs
+    @jobs = params[:city_id] ? Job.where(city: params[:city_id]).order("updated_at DESC") : Job.all.order("updated_at DESC")
   end
 
   def set_location

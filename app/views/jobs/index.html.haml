@@ -1,6 +1,15 @@
-.job-index-title-image
+.job-index-title-image.shadow-z-2
   = image_tag 'CityAnd101.jpg', id: 'job-index-title-image'
+
+.job-index-city-tab
+  .ul.nav.nav-pills
+    - @cities.each do |city|
+      = btn_group_link_to city[0], "/#{city[1]}"
+
 .job-index-container
+  - if @jobs.empty?
+    .text-center
+      %h3= "喔！目前沒有兼職工作。"
   - @jobs.each do |job|
     .col-md-3
       #job-index-box
