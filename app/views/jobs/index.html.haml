@@ -11,7 +11,7 @@
     .text-center
       %h3= "喔！目前沒有兼職工作。"
   - @jobs.each do |job|
-    #job-index-box.col-md-3
+    #job-index-box.col-md-3.col-sm-8
       = link_to job, class: "btn btn-block well well-sm", id: "job-index-box-group" do
         #job-index-box-heading= job.title
         #job-index-box-body
@@ -23,4 +23,10 @@
             %span= get_location(job)
       = link_to '', job, target: "_blank", class: 'btn btn-default btn-sm fa fa-link', id: "job-index-box-external-link"
       = link_to '', '#', class: 'btn btn-primary btn-fab mdi-action-favorite', id: "job-index-box-favorite"
+      = link_to "link", job, class: "btn btn-primary", data:{toggle: "modal", target: "#myModal"}
+
+
+
+
+= render 'shared/modal'
 
