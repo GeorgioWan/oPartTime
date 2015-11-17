@@ -45,36 +45,44 @@ body * {
 }
 .job-index-container{
   margin-top: 20px;
-  margin-left: 30px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 #job-index-box{
-  padding-right: 30px;
-  margin-right: -10px;
-  margin-left: -10px;
-  margin-bottom: -10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: -25px;
+}
+#job-index-box-group{
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, rgb(240, 240, 240)),
+    color-stop(0.5, rgb(255, 255, 255)),
+    color-stop(1, rgb(240, 240, 240))
+  );
+  background-image: -o-linear-gradient(bottom, rgb(240, 240, 240) 0%, rgb(255, 255, 255) 50%, rgb(240, 240, 240) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(240, 240, 240) 0%, rgb(255, 255, 255) 50%, rgb(240, 240, 240) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(240, 240, 240) 0%, rgb(255, 255, 255) 50%, rgb(240, 240, 240) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(240, 240, 240) 0%, rgb(255, 255, 255) 50%, rgb(240, 240, 240) 100%);
+  background-image: linear-gradient(to bottom, rgb(240, 240, 240) 0%, rgb(255, 255, 255) 50%, rgb(240, 240, 240) 100%);
 }
 #job-index-box-heading{
   color: #009688;
   font-size: 15px;
-  padding-bottom: 0px;
-  border-bottom: 0px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
 }
 #job-index-box-body{
   padding-top: 0px;
   padding-bottom: 5px;
-  border-top: 0px;
 }
 #job-index-box-footer{
   font-size: 10px;
-  padding-top: 0px;
-  margin-bottom: -10px;
-  border-top: 0px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  margin-bottom: -5px;
 }
 #job-index-box-body i {
   color: #795548;
@@ -99,8 +107,14 @@ body * {
 }
 #job-index-box-favorite{
   position: relative;
-  left: 150px;
-  top: -40px;
+  left: 100px;
+  top: -50px;
+}
+#job-index-box-external-link{
+  color: #795548;
+  position: relative;
+  left: 0px;
+  top: -60px;
 }
 
 /*****************
