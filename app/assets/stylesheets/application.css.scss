@@ -20,15 +20,31 @@
 @import "font-awesome";
 @import "pagedown_bootstrap";
 
-body * {
-  //font-family: Georgia, Serif;
-  font-family: "Century Gothic", sans-serif;
+body{
+  * {
+    //font-family: Georgia, Serif;
+    //font-family: "Century Gothic", sans-serif;
+    font-family: "cwTeXHei", "Century Gothic", sans-serif;
+  }
+  h1{
+    font-family: "cwTeXHei", "Century Gothic", sans-serif;
+  }
+  h2{
+    font-family: "cwTeXHei", "Century Gothic", sans-serif;
+  }
+  h3{
+    font-family: "cwTeXHei", "Century Gothic", sans-serif;
+  }
+  h4{
+    font-family: "cwTeXHei", "Century Gothic", sans-serif;
+  }
 }
 
 /*****************
  ****  NAVBAR ****
  *****************/
 #hire_li {
+  color: white;
   background-color: #FFB300;
 }
 
@@ -79,30 +95,32 @@ body * {
 #job-index-box-body{
   padding-top: 0px;
   padding-bottom: 5px;
+
+  i{
+    color: #795548;
+    font-size: 20px;
+  }
+  span{
+    color: #795548;
+    font-size: 15px;
+    margin-left: -10px;
+  }
 }
 #job-index-box-footer{
-  font-size: 10px;
+  font-size: 12px;
   margin-bottom: -5px;
-}
-#job-index-box-body i {
-  color: #795548;
-  font-size: 20px;
-}
-#job-index-box-body span {
-  color: #795548;
-  font-size: 15px;
-  margin-left: -10px;
+
+  i{
+    color: #E57373;
+  }
+  span{
+    color: #795548;
+    margin-left: -10px;
+  }
 }
 #job-index-box-price{
   color: #FFC107;
-  font-size: 40px;
-  margin-left: -20px;
-}
-#job-index-box-footer i {
-  color: #E57373;
-}
-#job-index-box-footer span{
-  color: #795548;
+  font-size: 50px;
   margin-left: -10px;
 }
 #job-index-box-favorite{
@@ -177,33 +195,41 @@ body * {
 .job-body-information{
   margin-left: 30px;
   margin-top: -20px;
+
+  .affix{
+    top: 25px;
+  }
+  .list-group{
+    .list-group-item{
+      margin-top: 10px;
+      border-bottom: 1px solid gray;
+
+      .list-group-content{
+        color: gray;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
 }
-.job-body-information .affix{
-  top: 25px;
-}
-.job-body-information .list-group .list-group-item{
-  margin-top: 10px;
-  border-bottom: 1px solid gray;
-}
-.job-body-information .list-group .list-group-item .list-group-content{
-  color: gray;
-  margin-bottom: 10px;
-}
-.job-body-description pre{
-  font-size: 15px;
-  padding: 15px;
-  padding-top: 15px;
-  padding-bottom: 20px;
-}
-.job-body-description .panel-danger .panel-heading h4{
-  margin: 0px;
-}
-.job-body-description .panel-danger .panel-heading{
-  background-color: #E57373;
-}
-.job-body-description .panel-danger .panel-body{
-  color: #BF360C;
-  background-color: #EEEEEE;
+.job-body-description{
+  pre{
+    font-size: 15px;
+    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+  }
+
+  .panel-danger{
+    .panel-heading{
+      background-color: #E57373;
+      h4{margin: 0px;}
+    }
+    .panel-body{
+      color: #BF360C;
+      background-color: #EEEEEE;
+    }
+  }
 }
 .list-body-information-price{
   color: #FFA000;
