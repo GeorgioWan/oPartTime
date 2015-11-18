@@ -93,7 +93,7 @@ class JobsController < ApplicationController
     if @job.nil?
       @title   ="徵才標題"
       @url     ="相關連結"
-      @pay     ="時薪/日薪"
+      @pay     ="時薪"
       @company ="徵人單位"
       @city    ="工作縣市"
       @district="鄉鎮市區"

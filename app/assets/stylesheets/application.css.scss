@@ -70,23 +70,7 @@ body{
   margin-bottom: -25px;
 }
 #job-index-box-group{
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(0, rgb(240, 240, 240)),
-    color-stop(0.5, rgb(255, 255, 255)),
-    color-stop(1, rgb(240, 240, 240))
-  );
-  background-image: -o-linear-gradient(bottom, rgb(240, 240, 240) 0%, rgb(255, 255, 255) 50%, rgb(240, 240, 240) 100%);
-  background-image: -moz-linear-gradient(bottom, rgb(240, 240, 240) 0%, rgb(255, 255, 255) 50%, rgb(240, 240, 240) 100%);
-  background-image: -webkit-linear-gradient(bottom, rgb(240, 240, 240) 0%, rgb(255, 255, 255) 50%, rgb(240, 240, 240) 100%);
-  background-image: -ms-linear-gradient(bottom, rgb(240, 240, 240) 0%, rgb(255, 255, 255) 50%, rgb(240, 240, 240) 100%);
-  background-image: linear-gradient(to bottom, rgb(240, 240, 240) 0%, rgb(255, 255, 255) 50%, rgb(240, 240, 240) 100%);
+  background-color: white;
 }
 #job-index-box-heading{
   color: #009688;
