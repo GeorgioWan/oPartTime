@@ -1,0 +1,62 @@
+.job-show-container
+  .row.job-head-section
+    .col-md-7.col-md-offset-1
+      %h1.job-title= @job.title
+      .job-byline
+        %span.job-byline-user
+          by
+          = link_to @job.user.name, '#'
+        %span.job-byline-dash
+          |
+          %i.glyphicon.glyphicon-time
+          = @job.created_at.strftime("%b %d, %a, %Y")
+          %sanp.badge
+            = time_ago_in_words(@job.created_at)
+
+    .col-md-3.text-right.job-edit-button
+      = link_to '', edit_job_path(@job.id), class: 'btn btn-primary btn-fab btn-raised mdi-editor-mode-edit' if @job.user == current_user
+
+  .row.job-body-section
+    .container.col-md-7.col-md-offset-1
+      .job-body-description
+        %pre.shadow-z-1.wmd-output
+          :preserve
+            #{@job.description}
+        .panel.panel-danger
+          .panel-heading.text-center
+            %h4 oPartTime 提醒您
+          .panel-body
+            .ul
+              .li ◎ 尋求職務時，務必留意工資與所需條件是否符合現實及市場價格。
+              .li ◎ 切勿提供個人重要資料，如身分證、銀行郵局帳號、信用卡、密碼等。
+              .li ◎ 若遇被要求繳費、購買商品或服務等，請勿進行並撥打反詐騙專線165聯繫警方。
+    .container.col-md-3
+      .job-body-information
+        .list-group{"data-spy" => "affix", "data-offset-top" => "150"}
+          .list-group-item
+            .list-group-content
+              %i.glyphicon.glyphicon-usd
+                %sapn.list-body-information-price= @job.pay
+          .list-group-item
+            .list-group-content
+              %i.glyphicon.glyphicon-equalizer
+                %span= @job.company
+          = link_to "#{@job.url}", class: "list-group-item", target: "_blank" do
+            .list-group-content
+              %i.glyphicon.glyphicon-globe
+                %span= @job.url
+          .list-group-item
+            .list-group-content
+              %i.glyphicon.glyphicon-map-marker
+                %span= "#{@city}#{@district}"
+
+:javascript
+  $(function() {
+    $('.wmd-output').each(function(i) {
+      var content, converter;
+      converter = new Markdown.Converter;
+      content = $(this).html();
+      $(this).html(converter.makeHtml(content));
+    });
+  });
+
