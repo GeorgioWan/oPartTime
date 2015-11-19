@@ -3,8 +3,9 @@
 
 .job-index-city-tab
   .ul.nav.nav-pills
+    = btn_group_link_to "ALL", root_path
     - @cities.each do |city|
-      = btn_group_link_to city[0], "/#{city[1]}"
+      = btn_group_link_to city[0], "/#{city[1]}" if city != @cities.last
 
 .job-index-container
   - if @jobs.empty?

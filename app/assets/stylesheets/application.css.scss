@@ -51,16 +51,49 @@ body{
 /*****************
  *** JOB INDEX ***
  *****************/
+#back-to-top {
+  position: fixed;
+  bottom: 50px;
+  right: 100px;
+  z-index: 9999;
+  text-align: center;
+  line-height: 30px;
+  background: #e9ebec;
+  color: #444;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.3s ease-out;
+  opacity: 0;
+  &:hover {
+    color: #009688;
+    background: white;
+  }
+  &.show {
+    opacity: 1;
+  }
+}
 .job-index-title-image{
   margin-bottom: 20px;
 }
-.job-index-city-tab li > a{
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+.job-index-city-tab{
+  height: 40px;
+  margin-bottom: 1px;
+  li{
+    &.active{
+      font-size: 16px;
+    }
+    > a{
+      padding: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      &:hover{
+        font-size: 18px;
+      }
+    }
+  }
 }
 .job-index-container{
-  margin-top: 20px;
+
   padding-left: 50px;
   padding-right: 50px;
 }
@@ -180,7 +213,7 @@ body{
   margin-left: 30px;
   margin-top: -20px;
 
-  .affix{
+  &.affix{
     top: 25px;
   }
   .list-group{
