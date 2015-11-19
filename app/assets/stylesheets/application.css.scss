@@ -49,6 +49,44 @@ body{
 }
 
 /*****************
+ *** USER SHOW ***
+ *****************/
+.user-profile{
+  margin-top: 100px;
+}
+.user-profile-heading{
+  span{display:block;}
+  #title{font-size: 18px;}
+  #name{
+    font-size: 70px;
+    margin-top: -20px;
+  }
+  #email{
+    font-size: 20px;
+    margin-top: -23px;
+  }
+  #linkbar{
+    margin-top: 30px;
+    .fa{
+      color: gray;
+      margin: 10px;
+      text-decoration: none;
+    }
+    .fa-twitter:hover{color: #55ACEE;}
+    .fa-facebook-square:hover{color: #47639E;}
+    .fa-google-plus:hover{color: #D84A38;}
+    .fa-globe:hover{color: #009688;}
+  }
+}
+
+.user-profile-body{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+
+
+/*****************
  *** JOB INDEX ***
  *****************/
 #back-to-top {
@@ -93,7 +131,6 @@ body{
   }
 }
 .job-index-container{
-
   padding-left: 50px;
   padding-right: 50px;
 }

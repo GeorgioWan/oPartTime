@@ -1,0 +1,20 @@
+.user-profile
+  .user-profile-heading
+    .row
+      .col-md-12.text-center
+        %span#title 我是
+      .col-md-12.text-center
+        %span#name= @user.name
+      .col-md-12.text-center
+        %span#email= @user.email
+    .row
+      .col-md-12.text-center
+        %span#linkbar
+          = link_to '', '#', class: "fa fa-2x fa-twitter"
+          = link_to '', '#', class: "fa fa-2x fa-facebook-square"
+          = link_to '', '#', class: "fa fa-2x fa-google-plus"
+          = link_to '', '#', class: "fa fa-2x fa-globe"
+
+    %div{"style"=>"width:90%;height:1px;margin:20px auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"}
+  .user-profile-body
+    = render 'jobs/jobslist'

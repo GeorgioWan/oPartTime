@@ -5,7 +5,7 @@
       .job-byline
         %span.job-byline-user
           by
-          = link_to @job.user.name, '#'
+          = link_to @job.user.name, @job.user
         %span.job-byline-dash
           |
           %i.glyphicon.glyphicon-time
