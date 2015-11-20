@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
 
   ### Association
   has_many :jobs
+
+  ### Carrierwave
+  mount_uploader :avatar, AvatarUploader
 end

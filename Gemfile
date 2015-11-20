@@ -28,6 +28,9 @@ gem 'pagedown-bootstrap-rails'
 gem 'taiwan_city'
 # Easy access cookie in js https://github.com/freego/js_cookie_rails
 gem 'js_cookie_rails'
+# Use Carrierwave
+gem 'carrierwave', '~> 0.10.0'
+gem 'rmagick'    , '~> 2.15'
 group :development, :test do
   gem 'awesome_rails_console'
   gem 'web-console', '~> 2.0'

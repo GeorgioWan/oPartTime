@@ -84,6 +84,16 @@ body{
   padding-right: 50px;
 }
 
+/*****************
+ *** USER EDIT ***
+ *****************/
+.user-edit-avatar{
+  border-radius: 80px;
+}
+.user-edit-name{
+  font-size: 25px;
+}
+
 
 
 /*****************
@@ -179,14 +189,8 @@ body{
 }
 #job-index-box-favorite{
   position: relative;
-  left: 100px;
+  left: 160px;
   top: -50px;
-}
-#job-index-box-external-link{
-  color: #795548;
-  position: relative;
-  left: 0px;
-  top: -60px;
 }
 .o-modal-dialog{
   width: 50%;
