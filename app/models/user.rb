@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
 
   ### Association
   has_many :jobs
+  has_many :favorite_job_list, class_name: "FavoriteJob"
+  has_many :favorite_jobs, through: :favorite_job_list, source: :job
 end

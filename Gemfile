@@ -28,6 +28,8 @@ gem 'pagedown-bootstrap-rails'
 gem 'taiwan_city'
 # Easy access cookie in js https://github.com/freego/js_cookie_rails
 gem 'js_cookie_rails'
+# Generate ER diagram https://github.com/voormedia/rails-erd
+gem 'rails-erd'
 group :development, :test do
   gem 'awesome_rails_console'
   gem 'web-console', '~> 2.0'

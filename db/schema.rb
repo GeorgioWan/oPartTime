@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113044328) do
+ActiveRecord::Schema.define(version: 20151123080238) do
+
+  create_table "favorite_jobs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "job_id"
+  end
+
+  add_index "favorite_jobs", ["job_id"], name: "index_favorite_jobs_on_job_id"
+  add_index "favorite_jobs", ["user_id"], name: "index_favorite_jobs_on_user_id"
 
   create_table "jobs", force: :cascade do |t|
     t.string   "title",       default: "", null: false

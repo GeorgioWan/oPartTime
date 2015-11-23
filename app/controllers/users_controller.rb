@@ -1,8 +1,17 @@
 class UsersController < ApplicationController
-  before_action :set_user, :set_jobs
+  before_action :set_user, :set_jobs, except: :favorite
   helper_method :get_location
 
   def show
+  end
+
+  def favorite
+    @jobs = []
+    ids = cookies[:favorite_jobs];
+    if ids != nil
+      @jobs = Job.find(JSON.parse(ids))
+    end
+    render 'jobs/_jobslist'
   end
 
   private
