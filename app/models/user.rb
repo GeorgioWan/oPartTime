@@ -9,4 +9,9 @@ class User < ActiveRecord::Base
 
   ### Carrierwave
   mount_uploader :avatar, AvatarUploader
+
+  ### Validate
+  validates_format_of :twitter, :facebook, :googleplus, :website,
+                      with: /(^$)|(^(http|https):\/\/[a-z0-9]+([\_\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix,
+                      message: "URL 格式不正確"
 end

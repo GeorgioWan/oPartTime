@@ -1,31 +1,11 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: :show
-  before_action :set_user, :set_jobs, only: :show
+  before_action :set_user, :set_jobs, :set_value, only: :show
   helper_method :get_location
 
   def show
   end
 
-  def edit_avatar
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
-  def update_avatar
-    if current_user.update user_params
-      redirect_to users_edit_avatar_path
-    else
-      render :edit_avatar
-    end
-  end
-
   private
-  def user_params
-    params.require(:user).permit(:avatar, :avatar_cache, :remove_avatar)
-  end
-
   def set_user
     @user = User.find(params[:id])
   end
@@ -48,5 +28,12 @@ class UsersController < ApplicationController
     end
 
     return "#{@city}#{@district}"
+  end
+
+  def set_value
+    @twitter = @user.twitter.nil? ? "#" : @user.twitter
+    @facebook = @user.facebook.nil? ? "#" : @user.facebook
+    @googleplus = @user.googleplus.nil? ? "#" : @user.googleplus
+    @website = @user.website.nil? ? "#" : @user.website
   end
 end

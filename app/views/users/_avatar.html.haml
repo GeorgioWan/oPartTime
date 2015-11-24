@@ -1,6 +1,0 @@
-= simple_form_for current_user do |f|
-  = f.input :avatar
-  = f.check_box :remove_avatar
-  = f.hidden_field :avatar_cache
-  = image_tag current_user.avatar
-  = f.button :submit, @button, class: 'btn btn-primary shadow-z-2'

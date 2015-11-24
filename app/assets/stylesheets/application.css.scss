@@ -87,13 +87,51 @@ body{
 /*****************
  *** USER EDIT ***
  *****************/
+/* Hide file input */
+#img-input {
+ display: none;
+}
+/* Custom upload button appearance*/
+#img-label {
+ position: relative;
+ cursor: pointer;
+ z-index: 1;
+ display: inline-block;
+ width: 180px;
+ height: 180px;
+ margin-top: -190px;
+ margin-bottom: 4px;
+ &:hover{
+  border: 2px dashed #009688;
+  border-radius: 50%;
+  animation: fadein 0.3s;
+ }
+}
+@keyframes fadein{
+  from {opacity: 0;}
+  to   {opacity: 1;}
+}
 .user-edit-avatar{
-  border-radius: 80px;
+  width:160px;
+  height:160px;
+  border-radius: 50%;
+}
+.user-edit-avatar-thumb{
+  width:80px;
+  height:80px;
+  border-radius: 50%;
+}
+.user-edit-avatar-pinkie{
+  width:20px;
+  height:20px;
+  border-radius: 50%;
 }
 .user-edit-name{
   font-size: 25px;
 }
-
+.user-edit-mail{
+  margin-top: -5px;
+}
 
 
 /*****************
