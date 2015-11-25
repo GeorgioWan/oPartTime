@@ -7,9 +7,13 @@ class UsersController < ApplicationController
 
   def favorite
     @jobs = []
-    ids = cookies[:favorite_jobs];
-    if ids != nil
-      @jobs = Job.find(JSON.parse(ids))
+    if user_signed_in?
+      @jobs = current_user.favorite_jobs
+    else
+      ids = cookies[:favorite_jobs];
+      if ids != nil
+        @jobs = Job.find(JSON.parse(ids))
+      end
     end
     render 'jobs/_jobslist'
   end
