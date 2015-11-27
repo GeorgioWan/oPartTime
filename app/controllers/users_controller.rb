@@ -1,21 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, :set_jobs, except: :favorite
+  before_action :set_user, :set_jobs, except
   helper_method :get_location
 
   def show
-  end
-
-  def favorite
-    @jobs = []
-    if user_signed_in?
-      @jobs = current_user.favorite_jobs
-    else
-      ids = cookies[:favorite_jobs];
-      if ids != nil
-        @jobs = Job.find(JSON.parse(ids))
-      end
-    end
-    render 'jobs/_jobslist'
   end
 
   private

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
 
   get '/:city_id', to: 'jobs#index'
-  get '/user/favorite', to: 'users#favorite'
+  get '/user/favorite', to: 'favorite_jobs#show'
   post '/user/favorite', to: 'favorite_jobs#add'
 
   mount TaiwanCity::Engine => '/taiwan_city'
