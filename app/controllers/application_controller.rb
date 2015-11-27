@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :guest_name, :set_login_cookie
   before_action :merge_favorite_job_from_cookie, if: :user_signed_in?
+  helper_method :get_location
 
   protected
 
@@ -30,5 +31,21 @@ class ApplicationController < ActionController::Base
       end
     end
     cookies.delete :favorite_jobs
+  end
+
+  def get_location job
+    TaiwanCity.list.each do |c|
+      if c[1] == job.city
+        @city=c[0]
+      end
+    end
+
+    TaiwanCity.list(job.city).each do |d|
+      if d[1] == job.district
+        @district=d[0]
+      end
+    end
+
+    return "#{@city}#{@district}"
   end
 end
