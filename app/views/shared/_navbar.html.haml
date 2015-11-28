@@ -1,13 +1,14 @@
 %nav.navbar.navbar-default.shadow-z-1{role:"navigation"}
-  .container-fluid
-    .navbar-header
-      = link_to root_path, class: "navbar-brand shadow-z-1" do
+  .container
+    .navbar-header{"style"=>"margin-left: 20px;"}
+      = link_to root_path, class: "navbar-brand" do
         %strong oPartTime
       %button.navbar-toggle{"data-target" => "#oPartTime-navbar-collapse", "data-toggle" => "collapse", type: "button"}
         %span.sr-only switch guide
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
+
     #oPartTime-navbar-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li
@@ -30,7 +31,7 @@
                 %b.caret
             %ul.dropdown-menu
               %li
-                = link_to edit_user_registration_path  do
+                = link_to current_user do
                   %i.glyphicon.glyphicon-user
                   我的資料
               %li

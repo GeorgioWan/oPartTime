@@ -38,11 +38,27 @@ body{
   h4{
     font-family: "cwTeXHei", "Century Gothic", sans-serif;
   }
+  h5{
+    font-family: "cwTeXHei", "Century Gothic", sans-serif;
+  }
 }
 
 /*****************
  ****  NAVBAR ****
  *****************/
+.navbar-brand{
+  :hover{
+    animation: nb-hover 0.15s;
+    color: white;
+    font-size: 22px
+  }
+}
+@keyframes nb-hover{
+  0% {font-size: 18px;}
+  40% {font-size: 19px;}
+  100% {font-size: 22px;}
+
+}
 #hire_li {
   color: white;
   background-color: #FFB300;
@@ -52,36 +68,36 @@ body{
  *** USER SHOW ***
  *****************/
 .user-profile{
-  margin-top: 100px;
-}
-.user-profile-heading{
-  span{display:block;}
-  #title{font-size: 18px;}
-  #name{
-    font-size: 70px;
-    margin-top: -20px;
-  }
-  #email{
-    font-size: 20px;
-    margin-top: -23px;
-  }
-  #linkbar{
-    margin-top: 30px;
-    .fa{
-      color: gray;
-      margin: 10px;
-      text-decoration: none;
+  margin-top: 30px;
+  .user-profile-heading{
+    span{display:block;}
+    #name{
+      font-size: 30px;
     }
-    .fa-twitter:hover{color: #55ACEE;}
-    .fa-facebook-square:hover{color: #47639E;}
-    .fa-google-plus:hover{color: #D84A38;}
-    .fa-globe:hover{color: #009688;}
+    #email{
+      font-size: 15px;
+      color: #999999;
+    }
+    #linkbar{
+      font-size: 12px;
+      .fa{
+        color: gray;
+        margin: 10px;
+        text-decoration: none;
+      }
+      .fa-twitter:hover{color: #55ACEE;}
+      .fa-facebook-square:hover{color: #47639E;}
+      .fa-google-plus:hover{color: #D84A38;}
+      .fa-globe:hover{color: #009688;}
+    }
+    #user-line{
+      position:relative;
+      top: -100px;
+      z-index: -1;
+    }
   }
-}
-
-.user-profile-body{
-  padding-left: 50px;
-  padding-right: 50px;
+  .user-profile-body{
+  }
 }
 
 /*****************
@@ -104,12 +120,12 @@ body{
  &:hover{
   border: 2px dashed #009688;
   border-radius: 50%;
-  animation: fadein 0.3s;
+  animation: fadein 0.3s ;
  }
 }
 @keyframes fadein{
-  from {opacity: 0;}
-  to   {opacity: 1;}
+  0% {opacity: 0;}
+  100%   {opacity: 1;}
 }
 .user-edit-avatar{
   width:160px;
@@ -159,76 +175,97 @@ body{
   }
 }
 .job-index-title-image{
+  margin-left: 15px;
+  margin-right: 15px;
   margin-bottom: 20px;
+  #job-index-title-image{
+    display:auto;
+    max-width: 100%;
+  }
 }
 .job-index-city-tab{
   height: 40px;
-  margin-bottom: 1px;
-  li{
-    &.active{
-      font-size: 16px;
-    }
-    > a{
-      padding: 5px;
-      padding-left: 10px;
-      padding-right: 10px;
-      &:hover{
-        font-size: 18px;
+  .nav-pills{
+    text-align:center;
+    > li{
+      float:none;
+      display:inline-block;
+      *display:inline; /* ie7 fix */
+      zoom:1; /* hasLayout ie7 trigger */
+      &.active{
+        font-size: 16px;
+        > a{
+          border: 1px solid #009688;
+          color: #009688;
+          background-color:transparent;
+        }
+      }
+      > a{
+        padding: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        &:hover{
+          animation: largefont 0.3s;
+          font-size: 18px;
+          color: white;
+          background-color:#009688;
+        }
       }
     }
   }
 }
+@keyframes largefont{
+  0% {font-size:14px;}
+  100% {font-size:18px;}
+}
 .job-index-container{
-  padding-left: 50px;
-  padding-right: 50px;
 }
 #job-index-box{
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-bottom: -25px;
-}
-#job-index-box-group{
-  background-color: white;
-}
-#job-index-box-heading{
-  color: #009688;
-  font-size: 15px;
-}
-#job-index-box-body{
-  padding-top: 0px;
-  padding-bottom: 5px;
-
-  i{
-    color: #795548;
-    font-size: 20px;
+  margin: 5px auto;
+  #job-index-box-group{
+    background-color: white;
   }
-  span{
-    color: #795548;
+  #job-index-box-heading{
+    color: #009688;
     font-size: 15px;
-    margin-left: -10px;
   }
-}
-#job-index-box-footer{
-  font-size: 12px;
-  margin-bottom: -5px;
+  #job-index-box-body{
+    padding-top: 0px;
+    padding-bottom: 5px;
 
-  i{
-    color: #E57373;
+    i{
+      color: #795548;
+      font-size: 20px;
+    }
+    span{
+      color: #795548;
+      font-size: 15px;
+      margin-left: -10px;
+    }
   }
-  span{
-    color: #795548;
+  #job-index-box-footer{
+    font-size: 12px;
+    margin-bottom: -5px;
+    i{
+      color: #E57373;
+    }
+    span{
+      color: #795548;
+      margin-left: -10px;
+    }
+  }
+  #job-index-box-price{
+    color: #FFC107;
+    font-size: 50px;
     margin-left: -10px;
   }
-}
-#job-index-box-price{
-  color: #FFC107;
-  font-size: 50px;
-  margin-left: -10px;
-}
-#job-index-box-favorite{
-  position: relative;
-  left: 160px;
-  top: -50px;
+  #job-index-box-favorite{
+    position: absolute;
+    display:inline-block;
+    z-index: 1;
+    bottom: -5px;
+    right: 30px;
+  }
 }
 .o-modal-dialog{
   width: 50%;
@@ -265,10 +302,6 @@ body{
 /*****************
  *** JOB  SHOW ***
  *****************/
-#job-index-title-image{
-  display:auto;
-  max-width: 100%;
-}
 .job-show-container {
   margin-top: 20px;
 }
@@ -328,6 +361,6 @@ body{
   }
 }
 .list-body-information-price{
-  color: #FFA000;
+  color: #FFB300;
   font-size: 30px;
 }
