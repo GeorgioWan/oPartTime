@@ -16,6 +16,10 @@
           = link_to new_job_path do
             %strong= '我要徵人才'
       %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to user_favorite_path do
+            %i.glyphicon.glyphicon-heart
+            那些年喜歡的工作
         %li.dropdown
           - if user_signed_in?
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: '#'}

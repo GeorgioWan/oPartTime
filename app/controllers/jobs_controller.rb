@@ -4,7 +4,6 @@ class JobsController < ApplicationController
   before_action :set_job,   only: [:show, :edit, :update, :destroy]
   before_action :set_value, only: [:new,  :edit, :create, :update]
   before_action :set_location, only: :show
-  helper_method :get_location
 
   def index
     @cities= TaiwanCity.list
@@ -71,22 +70,6 @@ class JobsController < ApplicationController
         @district=d[0]
       end
     end
-  end
-
-  def get_location job
-    TaiwanCity.list.each do |c|
-      if c[1] == job.city
-        @city=c[0]
-      end
-    end
-
-    TaiwanCity.list(job.city).each do |d|
-      if d[1] == job.district
-        @district=d[0]
-      end
-    end
-
-    return "#{@city}#{@district}"
   end
 
   def set_value

@@ -31,6 +31,8 @@ gem 'js_cookie_rails'
 # Use Carrierwave
 gem 'carrierwave', '~> 0.10.0'
 gem 'rmagick'    , '~> 2.15'
+# Generate ER diagram https://github.com/voormedia/rails-erd
+gem 'rails-erd'
 group :development, :test do
   gem 'awesome_rails_console'
   gem 'web-console', '~> 2.0'

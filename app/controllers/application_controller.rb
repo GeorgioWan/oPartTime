@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :guest_name
+  before_action :guest_name, :set_login_cookie
+  before_action :merge_favorite_job_from_cookie, if: :user_signed_in?
+  helper_method :get_location
 
   protected
 
@@ -16,5 +18,35 @@ class ApplicationController < ActionController::Base
   def guest_name
     @name = cookies[:name].nil? ? ["頹廢浪人","絕世美女","武林高手","丐幫成員","神奇寶貝大師","文學青年","小王子"].sample : cookies[:name]
     cookies[:name] = { :value => @name, :expires => 1.minute.from_now }
+  end
+
+  def set_login_cookie
+    cookies[:is_login] = user_signed_in?
+  end
+
+  def merge_favorite_job_from_cookie
+    jobIds = cookies[:favorite_jobs]
+    if jobIds != nil
+      JSON.parse(jobIds).each do |id|
+        FavoriteJob.find_or_create_by user_id: current_user.id, job_id: id
+      end
+    end
+    cookies.delete :favorite_jobs
+  end
+
+  def get_location job
+    TaiwanCity.list.each do |c|
+      if c[1] == job.city
+        @city=c[0]
+      end
+    end
+
+    TaiwanCity.list(job.city).each do |d|
+      if d[1] == job.district
+        @district=d[0]
+      end
+    end
+
+    return "#{@city}#{@district}"
   end
 end
