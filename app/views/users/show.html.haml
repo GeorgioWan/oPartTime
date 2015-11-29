@@ -1,9 +1,28 @@
 .user-profile
   .user-profile-heading
+    / md, lg
+    .hidden-sm.hidden-xs
+      .row
+        .col-md-4.text-right
+          %span#name= @user.name
+          %span#email= @user.email
+        .col-md-4.text-center
+          = image_tag @user.avatar_url(:fist), class: "user-edit-avatar shadow-z-1"
+          = link_to '', edit_user_registration_path, class: 'btn btn-primary btn-fab btn-fab-mini btn-raised fa fa-cog', id: 'user-edit-btn' if @user == current_user
+        .col-md-4.text-left
+          %span#linkbar
+            = link_to '', @twitter, class: "fa fa-2x fa-twitter"
+            = link_to '', @facebook, class: "fa fa-2x fa-facebook-square"
+            = link_to '', @googleplus, class: "fa fa-2x fa-google-plus"
+            = link_to '', @website, class: "fa fa-2x fa-globe"
+      %div#user-line{"style"=>"width:97%;height:1px;margin:20px auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"}
+      
+    / sm, xs
     .hidden-md.hidden-lg
       .row
         .col-sm-12.text-center
           = image_tag @user.avatar_url(:fist), class: "user-edit-avatar shadow-z-1"
+          = link_to '', edit_user_registration_path, class: 'btn btn-primary btn-fab btn-fab-mini btn-raised fa fa-cog', id: 'user-edit-btn' if @user == current_user
         .col-sm-12.text-center
           %span#name= @user.name
         .col-sm-12.text-center
@@ -16,20 +35,5 @@
             = link_to '', @googleplus, class: "fa fa-2x fa-google-plus"
             = link_to '', @website, class: "fa fa-2x fa-globe"
       %div{"style"=>"width:97%;height:1px;margin:20px auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"}
-
-    .hidden-sm.hidden-xs
-      .row
-        .col-md-4.text-right
-          %span#name= @user.name
-          %span#email= @user.email
-        .col-md-4.text-center
-          = image_tag @user.avatar_url(:fist), class: "user-edit-avatar shadow-z-1"
-        .col-md-4.text-left
-          %span#linkbar
-            = link_to '', @twitter, class: "fa fa-2x fa-twitter"
-            = link_to '', @facebook, class: "fa fa-2x fa-facebook-square"
-            = link_to '', @googleplus, class: "fa fa-2x fa-google-plus"
-            = link_to '', @website, class: "fa fa-2x fa-globe"
-      %div#user-line{"style"=>"width:97%;height:1px;margin:20px auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"}
   .user-profile-body
     = render 'jobs/jobslist'

@@ -73,6 +73,8 @@ body{
     span{display:block;}
     #name{
       font-size: 30px;
+      margin-top: 10px;
+      margin-bottom: -10px;
     }
     #email{
       font-size: 15px;
@@ -80,6 +82,10 @@ body{
     }
     #linkbar{
       font-size: 12px;
+      margin-top: 25px;
+      @media screen and (max-width:768px){
+        margin-top: 0px;
+      }
       .fa{
         color: gray;
         margin: 10px;
@@ -89,6 +95,12 @@ body{
       .fa-facebook-square:hover{color: #47639E;}
       .fa-google-plus:hover{color: #D84A38;}
       .fa-globe:hover{color: #009688;}
+    }
+    #user-edit-btn{
+      position:absolute;
+      z-index: 1;
+      bottom: 0px;
+      right: 29%;
     }
     #user-line{
       position:relative;
@@ -270,6 +282,9 @@ body{
 .o-modal-dialog{
   width: 50%;
   margin: 150px auto;
+  @media screen and (max-width:768px){
+    width: 95%;
+  }
 }
 .o-modal-content{
   padding: 15px;
