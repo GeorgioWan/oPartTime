@@ -21,24 +21,7 @@
 @import "pagedown_bootstrap";
 
 body{
-  * {
-    //font-family: Georgia, Serif;
-    //font-family: "Century Gothic", sans-serif;
-    font-family: "cwTeXHei", "Century Gothic", sans-serif;
-  }
-  h1{
-    font-family: "cwTeXHei", "Century Gothic", sans-serif;
-  }
-  h2{
-    font-family: "cwTeXHei", "Century Gothic", sans-serif;
-  }
-  h3{
-    font-family: "cwTeXHei", "Century Gothic", sans-serif;
-  }
-  h4{
-    font-family: "cwTeXHei", "Century Gothic", sans-serif;
-  }
-  h5{
+  *, h1, h2, h3, h4, h5, h6{
     font-family: "cwTeXHei", "Century Gothic", sans-serif;
   }
 }
@@ -73,6 +56,8 @@ body{
     span{display:block;}
     #name{
       font-size: 30px;
+      margin-top: 10px;
+      margin-bottom: -10px;
     }
     #email{
       font-size: 15px;
@@ -80,6 +65,10 @@ body{
     }
     #linkbar{
       font-size: 12px;
+      margin-top: 25px;
+      @media screen and (max-width:768px){
+        margin-top: 0px;
+      }
       .fa{
         color: gray;
         margin: 10px;
@@ -89,6 +78,12 @@ body{
       .fa-facebook-square:hover{color: #47639E;}
       .fa-google-plus:hover{color: #D84A38;}
       .fa-globe:hover{color: #009688;}
+    }
+    #user-edit-btn{
+      position:absolute;
+      z-index: 1;
+      bottom: 0px;
+      right: 29%;
     }
     #user-line{
       position:relative;
@@ -268,11 +263,14 @@ body{
   }
 }
 .o-modal-dialog{
-  width: 50%;
-  margin: 150px auto;
+  width: 55%;
+  margin-top: 5%;
+  @media screen and (max-width:768px){
+    width: 95%;
+  }
 }
 .o-modal-content{
-  padding: 15px;
+  padding-top: 5px;
   border-radius: 5px;
   background-color: #eeeeee;
 }
@@ -280,12 +278,19 @@ body{
 /*****************
  *** JOB  FORM ***
  *****************/
-#job-form-inputs.form-inputs .affix{
-  top: 25px;
-}
 #job-form-inputs{
-  margin-top: 20px;
-  margin-left: 50px;
+  @media screen and (min-width:768px){
+    margin-top: 20px;
+    margin-left: 50px;
+  }
+  #job-form-slide{
+    &.affix{
+      @media screen and (max-width:768px){
+        position: static;
+      }
+      top: 25px;
+    }
+  }
 }
 #job-form-actions{
   margin-top: 15px;
@@ -322,13 +327,17 @@ body{
   margin-top: 10px;
 }
 .job-body-information{
-  margin-left: 30px;
-  margin-top: -20px;
-
-  &.affix{
-    top: 25px;
+  @media screen and (min-width:768px){
+    margin-left: 30px;
+    margin-top: -20px;
   }
   .list-group{
+    &.affix{
+      @media screen and (max-width:768px){
+        position: static;
+      }
+      top: 25px;
+    }
     .list-group-item{
       margin-top: 10px;
       border-bottom: 1px solid gray;

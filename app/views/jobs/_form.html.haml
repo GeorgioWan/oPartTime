@@ -4,7 +4,7 @@
   #job-form-inputs.form-inputs
     .row
       %nav.col-md-3
-        %div{"data-spy" => "affix", "data-offset-top" => "150"}
+        %div#job-form-slide{"data-spy" => "affix", "data-offset-top" => "150"}
           = f.hidden_field :user_id, value: current_user.id
           = f.input :title,       label: false, placeholder: @title,    input_html:{class: 'text-center'}
           = f.input :url,         label: false, placeholder: @url,      input_html:{class: 'text-center'}

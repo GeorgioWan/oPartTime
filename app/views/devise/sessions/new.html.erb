@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-4 col-md-offset-5">
+  <div class="col-md-4 col-md-offset-4 text-center">
     <h2>我要登入</h2>
   </div>
 </div>
@@ -7,7 +7,7 @@
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <div class="row">
-      <div class="col-md-4 col-md-offset-4 well">
+      <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4 well">
         <%= f.input :email, label: false, required: false, autofocus: true, placeholder: '登入帳號 (Email)' %>
         <%= f.input :password, label: false, required: false, placeholder: '密碼' %>
         <div class="text-right">
@@ -19,13 +19,9 @@
 
   <div class="form-actions">
     <div class="row">
-      <div class="col-md-4 col-md-offset-4 text-right">
-        <%= f.button :submit, "Log in", class: 'btn btn-primary' %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4 text-right">
-        <%= render "devise/shared/links" %>
+      <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4 text-right">
+        <div><%= f.button :submit, "Log in", class: 'btn btn-primary' %></div>
+        <div><%= render "devise/shared/links" %></div>
       </div>
     </div>
   </div>
