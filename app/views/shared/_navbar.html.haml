@@ -1,6 +1,6 @@
 %nav.navbar.navbar-default.shadow-z-1{role:"navigation"}
-  .container
-    .navbar-header{"style"=>"margin-left: 20px;"}
+  .container-fluid
+    .navbar-header
       = link_to root_path, class: "navbar-brand" do
         %strong oPartTime
       %button.navbar-toggle{"data-target" => "#oPartTime-navbar-collapse", "data-toggle" => "collapse", type: "button"}
@@ -11,13 +11,13 @@
 
     #oPartTime-navbar-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li
+        %li#li_with_hover
           = link_to '找頭路', jobs_path
-        %li#hire_li.shadow-z-2
+        %li#li_hire
           = link_to new_job_path do
             %strong= '我要徵人才'
       %ul.nav.navbar-nav.navbar-right
-        %li
+        %li#li_with_hover
           = link_to user_favorite_path do
             %i.glyphicon.glyphicon-heart
             那些年喜歡的工作
