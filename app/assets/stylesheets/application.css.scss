@@ -20,6 +20,9 @@
 @import "font-awesome";
 @import "pagedown_bootstrap";
 
+/*****************
+ *****  BODY *****
+ *****************/
 body{
   *, h1, h2, h3, h4, h5, h6{
     font-family: "cwTeXHei", "Century Gothic", sans-serif;
@@ -39,7 +42,7 @@ body{
   @media screen and (min-width: 768px)
   {
     position: absolute !important;
-    right: 50%;
+    right: 47%;
     font-size: 20px;
   }
   &:hover{
@@ -48,6 +51,11 @@ body{
   }
 }
 .navbar-nav{
+  @media screen and (min-width: 768px){
+    .dropdown-menu{
+      margin-top: -4px !important;
+    }
+  }
   #li_with_hover{
     transition: text-shadow 0.3s ease;
     &:hover{
@@ -66,220 +74,8 @@ body{
 }
 
 /*****************
- *** USER SHOW ***
+ ****  MODAL *****
  *****************/
-.user-profile{
-  margin-top: 30px;
-  .user-profile-heading{
-    span{display:block;}
-    #name{
-      font-size: 30px;
-      margin-top: 10px;
-      margin-bottom: -10px;
-    }
-    #email{
-      font-size: 15px;
-      color: #999999;
-    }
-    #linkbar{
-      font-size: 12px;
-      margin-top: 25px;
-      @media screen and (max-width:768px){
-        margin-top: 0px;
-      }
-      .fa{
-        color: gray;
-        margin: 10px;
-        text-decoration: none;
-      }
-      .fa-twitter:hover{color: #55ACEE;}
-      .fa-facebook-square:hover{color: #47639E;}
-      .fa-google-plus:hover{color: #D84A38;}
-      .fa-globe:hover{color: #009688;}
-    }
-    #user-edit-btn{
-      position:absolute;
-      z-index: 1;
-      bottom: 0px;
-      right: 29%;
-    }
-    #user-line{
-      position:relative;
-      top: -100px;
-      z-index: -1;
-    }
-  }
-  .user-profile-body{
-  }
-}
-
-/*****************
- *** USER EDIT ***
- *****************/
-/* Hide file input */
-#img-input {
- display: none;
-}
-/* Custom upload button appearance*/
-#img-label {
- position: relative;
- cursor: pointer;
- z-index: 1;
- display: inline-block;
- width: 180px;
- height: 180px;
- margin-top: -190px;
- margin-bottom: 4px;
- &:hover{
-  border: 2px dashed #009688;
-  border-radius: 50%;
-  animation: fadein 0.3s ;
- }
-}
-@keyframes fadein{
-  0% {opacity: 0;}
-  100%   {opacity: 1;}
-}
-.user-edit-avatar{
-  width:160px;
-  height:160px;
-  border-radius: 50%;
-}
-.user-edit-avatar-thumb{
-  width:80px;
-  height:80px;
-  border-radius: 50%;
-}
-.user-edit-avatar-pinkie{
-  width:20px;
-  height:20px;
-  border-radius: 50%;
-}
-.user-edit-name{
-  font-size: 25px;
-}
-.user-edit-mail{
-  margin-top: -5px;
-}
-
-
-/*****************
- *** JOB INDEX ***
- *****************/
-#back-to-top {
-  position: fixed;
-  bottom: 50px;
-  right: 100px;
-  z-index: 9999;
-  text-align: center;
-  line-height: 30px;
-  background: #e9ebec;
-  color: #444;
-  cursor: pointer;
-  text-decoration: none;
-  transition: opacity 0.3s ease-out;
-  opacity: 0;
-  &:hover {
-    color: #009688;
-    background: white;
-  }
-  &.show {
-    opacity: 1;
-  }
-}
-.job-index-title-image{
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-bottom: 20px;
-  #job-index-title-image{
-    display:auto;
-    max-width: 100%;
-  }
-}
-.job-index-city-tab{
-  height: 40px;
-  .nav-pills{
-    text-align:center;
-    > li{
-      float:none;
-      display:inline-block;
-      *display:inline; /* ie7 fix */
-      zoom:1; /* hasLayout ie7 trigger */
-      &.active{
-        font-size: 16px;
-        > a{
-          border: 1px solid #009688;
-          color: #009688;
-          background-color:transparent;
-        }
-      }
-      > a{
-        padding: 5px;
-        padding-left: 8px;
-        padding-right: 8px;
-        &:hover{
-          animation: largefont 0.3s;
-          font-size: 18px;
-          color: white;
-          background-color:#009688;
-        }
-      }
-    }
-  }
-}
-@keyframes largefont{
-  0% {font-size:14px;}
-  100% {font-size:18px;}
-}
-.job-index-container{
-}
-#job-index-box{
-  margin: 5px auto;
-  #job-index-box-group{
-    background-color: white;
-  }
-  #job-index-box-heading{
-    color: #009688;
-    font-size: 15px;
-  }
-  #job-index-box-body{
-    padding-top: 0px;
-    padding-bottom: 5px;
-
-    i{
-      color: #795548;
-      font-size: 20px;
-    }
-    span{
-      color: #795548;
-      font-size: 15px;
-      margin-left: -10px;
-    }
-  }
-  #job-index-box-footer{
-    font-size: 12px;
-    margin-bottom: -5px;
-    i{
-      color: #E57373;
-    }
-    span{
-      color: #795548;
-      margin-left: -10px;
-    }
-  }
-  #job-index-box-price{
-    color: #FFC107;
-    font-size: 50px;
-    margin-left: -10px;
-  }
-  #job-index-box-favorite{
-    position: absolute;
-    display:inline-block;
-    z-index: 1;
-    bottom: -5px;
-    right: 30px;
-  }
-}
 .o-modal-dialog{
   width: 55%;
   margin-top: 5%;
@@ -293,101 +89,3 @@ body{
   background-color: #eeeeee;
 }
 
-/*****************
- *** JOB  FORM ***
- *****************/
-#job-form-inputs{
-  @media screen and (min-width:768px){
-    margin-top: 20px;
-    margin-left: 50px;
-  }
-  #job-form-slide{
-    &.affix{
-      @media screen and (max-width:768px){
-        position: static;
-      }
-      top: 25px;
-    }
-  }
-}
-#job-form-actions{
-  margin-top: 15px;
-  margin-left: 30px;
-}
-#job_title{
-  font-size: 18px;
-  font-weight: bold;
-}
-#wmd-help-button-description{
-  background-color: #607D8B;
-}
-
-/*****************
- *** JOB  SHOW ***
- *****************/
-.job-show-container {
-  margin-top: 20px;
-}
-.job-head-section {
-  margin-bottom: 20px;
-}
-.job-title {
-  margin-top: 10px;
-  margin-bottom: 0px;
-}
-.job-byline{
-  color: gray;
-}
-.job-byline-dash{
-  margin-left: 5px;
-}
-.job-edit-button{
-  margin-top: 10px;
-}
-.job-body-information{
-  @media screen and (min-width:768px){
-    margin-left: 30px;
-    margin-top: -20px;
-  }
-  .list-group{
-    &.affix{
-      @media screen and (max-width:768px){
-        position: static;
-      }
-      top: 25px;
-    }
-    .list-group-item{
-      margin-top: 10px;
-      border-bottom: 1px solid gray;
-
-      .list-group-content{
-        color: gray;
-        margin-bottom: 10px;
-      }
-    }
-  }
-
-}
-.job-body-description{
-  pre{
-    font-size: 15px;
-    padding: 15px;
-    padding-top: 15px;
-    padding-bottom: 20px;
-  }
-
-  .panel-danger{
-    .panel-heading{
-      background-color: #E57373;
-      h4{margin: 0px;}
-    }
-    .panel-body{
-      color: #BF360C;
-      background-color: #EEEEEE;
-    }
-  }
-}
-.list-body-information-price{
-  color: #FFB300;
-  font-size: 30px;
-}

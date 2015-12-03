@@ -1,3 +1,96 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*****************
+ *** USER SHOW ***
+ *****************/
+.user-profile{
+  margin-top: 30px;
+  .user-profile-heading{
+    span{display:block;}
+    #name{
+      font-size: 30px;
+      margin-top: 10px;
+      margin-bottom: -10px;
+    }
+    #email{
+      font-size: 15px;
+      color: #999999;
+    }
+    #linkbar{
+      font-size: 12px;
+      margin-top: 25px;
+      @media screen and (max-width:768px){
+        margin-top: 0px;
+      }
+      .fa{
+        color: gray;
+        margin: 10px;
+        text-decoration: none;
+      }
+      .fa-twitter:hover{color: #55ACEE;}
+      .fa-facebook-square:hover{color: #47639E;}
+      .fa-google-plus:hover{color: #D84A38;}
+      .fa-globe:hover{color: #009688;}
+    }
+    #user-edit-btn{
+      position:absolute;
+      z-index: 1;
+      bottom: 0px;
+      right: 29%;
+    }
+    #user-line{
+      position:relative;
+      top: -100px;
+      z-index: -1;
+    }
+  }
+  .user-profile-body{
+  }
+}
+
+/*****************
+ *** USER EDIT ***
+ *****************/
+/* Hide file input */
+#img-input {
+ display: none;
+}
+/* Custom upload button appearance*/
+#img-label {
+ position: relative;
+ cursor: pointer;
+ z-index: 1;
+ display: inline-block;
+ width: 180px;
+ height: 180px;
+ margin-top: -190px;
+ margin-bottom: 4px;
+ &:hover{
+  border: 2px dashed #009688;
+  border-radius: 50%;
+  animation: fadein 0.3s ;
+ }
+}
+@keyframes fadein{
+  0% {opacity: 0;}
+  100%   {opacity: 1;}
+}
+.user-edit-avatar{
+  width:160px;
+  height:160px;
+  border-radius: 50%;
+}
+.user-edit-avatar-thumb{
+  width:80px;
+  height:80px;
+  border-radius: 50%;
+}
+.user-edit-avatar-pinkie{
+  width:20px;
+  height:20px;
+  border-radius: 50%;
+}
+.user-edit-name{
+  font-size: 25px !important;
+}
+.user-edit-mail{
+  margin-top: -5px;
+}
