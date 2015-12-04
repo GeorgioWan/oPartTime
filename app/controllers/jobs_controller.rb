@@ -7,6 +7,18 @@ class JobsController < ApplicationController
 
   def index
     @cities= TaiwanCity.list
+    @jobs = Job.all
+    if user_signed_in?
+      fids = current_user.favorite_jobs.collect {|i| i.id}
+    else
+      c = cookies[:favorite_jobs]
+      fids = c == nil ? [] : JSON.parse(c).collect {|i| i.to_i}
+    end
+    @jobs.each {|j| def j.is_favorite?; false end}
+    @jobs.to_a
+      .clone
+      .keep_if {|j| j.id.in? fids}
+      .each {|j| def j.is_favorite?; true end}
   end
 
   def show
