@@ -1,0 +1,12 @@
+.job-index-title-image.shadow-z-2
+  = image_tag 'CityAnd101.jpg', id: 'job-index-title-image'
+
+.job-index-city-tab
+  %ul.nav.nav-pills.col-xs-12.col-sm-12
+    = btn_group_link_to "ALL", root_path
+    - @cities.each do |city|
+      = btn_group_link_to city[0], "/#{city[1]}" if city != @cities.last
+
+.job-index-container
+  = render 'jobslist'
+

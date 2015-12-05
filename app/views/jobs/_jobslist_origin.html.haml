@@ -1,0 +1,17 @@
+- if @jobs.empty?
+  .text-center
+    %h3= "喔！目前沒有兼職工作。"
+- @jobs.each do |job|
+  #job-index-box.col-xs-12.col-sm-6.col-md-6
+    = link_to job, class: "btn btn-block well well-sm", id: "job-index-box-group", remote: true do
+      #job-index-box-heading= job.title
+      #job-index-box-body
+        %i.glyphicon.glyphicon-usd
+          %sapn#job-index-box-price= job.pay
+          %span /hr
+      #job-index-box-footer
+        %i.glyphicon.glyphicon-map-marker
+          %span= get_location(job)
+    = link_to '', '#', class: 'btn btn-primary btn-fab mdi-action-favorite', id: "job-index-box-favorite", jobid: job.id, data:{toggle:"tooltip"}, title: "加入最愛!", remote: true
+
+= link_to '', '#', class: 'btn btn-fab btn-raised mdi-maps-flight hidden-xs hidden-sm', id: "back-to-top"
