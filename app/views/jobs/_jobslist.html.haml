@@ -5,7 +5,7 @@
   %ul#job-index-list.panel.list-group
     - @jobs.each do |job|
       %li.list-group-item
-        .col-md-11
+        .col-xs-10.col-md-11
           #job-index-list-information
             %span#job-index-list-pay
               %i.fa.fa-usd
@@ -19,7 +19,7 @@
             %span
               = "# 張貼於 #{time_ago_in_words(job.created_at)}前 by "
               = link_to "#{job.user.name}", job.user
-        .col-md-1.job-index-list-favorite
+        .col-xs-2.col-md-1.job-index-list-favorite
           %sapn.text-right
             = link_to '', '#', class: 'fa fa-heart', id: "job-index-list-favorite" ,jobid: job.id, data:{toggle:"tooltip"}, title: "加入最愛!", remote: true
   
