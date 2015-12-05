@@ -7,18 +7,6 @@ class JobsController < ApplicationController
 
   def index
     @cities= TaiwanCity.list
-    @jobs = Job.all
-    if user_signed_in?
-      fids = current_user.favorite_jobs.collect {|i| i.id}
-    else
-      c = cookies[:favorite_jobs]
-      fids = c == nil ? [] : JSON.parse(c).collect {|i| i.to_i}
-    end
-    @jobs.each {|j| def j.is_favorite?; false end}
-    @jobs.to_a
-      .clone
-      .keep_if {|j| j.id.in? fids}
-      .each {|j| def j.is_favorite?; true end}
   end
 
   def show
@@ -68,6 +56,26 @@ class JobsController < ApplicationController
 
   def set_jobs
     @jobs = params[:city_id] ? Job.where(city: params[:city_id]).order("updated_at DESC") : Job.all.order("updated_at DESC")
+    set_jobs_favorite_flag @jobs
+  end
+
+  # 替 job instance 新增 is_favorite? method 以判斷使用者是否已將該 job 加入最愛
+  def set_jobs_favorite_flag(jobs)
+    fids = get_favorite_job_ids
+    jobs.each {|j| def j.is_favorite?; false end}
+    jobs.to_a
+      .clone
+      .keep_if {|j| j.id.in? fids}
+      .each {|j| def j.is_favorite?; true end}
+  end
+
+  def get_favorite_job_ids
+    if user_signed_in?
+      current_user.favorite_jobs.collect {|i| i.id}
+    else
+      c = cookies[:favorite_jobs]
+      c == nil ? [] : JSON.parse(c).collect {|i| i.to_i}
+    end
   end
 
   def set_location
