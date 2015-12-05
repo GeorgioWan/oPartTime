@@ -7,6 +7,16 @@ class FavoriteJobsController < ApplicationController
     render nothing: true
   end
   
+  def remove
+    if user_signed_in?
+      fj = FavoriteJob.find_by user_id: current_user.id, job_id: params[:jobId]
+      if fj != nil
+        fj.destroy
+      end
+    end
+    render nothing: true
+  end
+  
   def show
     @jobs = []
     if user_signed_in?

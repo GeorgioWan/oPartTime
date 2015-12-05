@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/:city_id', to: 'jobs#index'
   get '/user/favorite', to: 'favorite_jobs#show'
   post '/user/favorite', to: 'favorite_jobs#add'
+  delete '/user/favorite', to: 'favorite_jobs#remove'
 
   mount TaiwanCity::Engine => '/taiwan_city'
 end
