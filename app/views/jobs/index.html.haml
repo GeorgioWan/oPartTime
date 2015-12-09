@@ -10,9 +10,14 @@
     #grid.job-index-list.tab-pane.fade
       = render 'jobslist_origin'
   .col-md-4
-    .job-index-map
-      .well.text-center
-        %div#t-map
+    .panel.clearfix
+      .job-index-city-map.hidden-xs.hidden-sm
+        = render 'map_svg'
+      .job-index-city-tab
+        %ul.nav.nav-pills.col-xs-12.col-sm-12
+          = btn_group_link_to "ALL", root_path
+          - @cities.each do |city|
+            = btn_group_link_to city[0], "/#{city[1]}" if city != @cities.last
         
 = render 'shared/modal'
 

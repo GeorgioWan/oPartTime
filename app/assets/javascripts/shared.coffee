@@ -1,4 +1,7 @@
 $ ->
+  $('[data-toggle="tooltip"]').tooltip()
+
+$ ->
   $(".dropdown-toggle").click (e) ->
     $(".dropdown-menu").slideToggle("fast")
 

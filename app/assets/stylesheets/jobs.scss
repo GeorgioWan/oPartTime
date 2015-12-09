@@ -32,7 +32,10 @@
   }
 }
 .job-index-city-tab{
-  height: 40px;
+  ul {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
   .nav-pills{
     text-align:center;
     > li{
@@ -46,15 +49,18 @@
           border: 1px solid #009688;
           color: #009688;
           background-color:transparent;
+          &:hover{
+            background-color:#009688;  
+          }
         }
       }
       > a{
         padding: 5px;
         padding-left: 8px;
         padding-right: 8px;
+        transition: transform 0.3s ease;
         &:hover{
-          animation: largefont 0.3s;
-          font-size: 18px;
+          transform: scale(1.2);
           color: white;
           background-color:#009688;
         }
@@ -62,20 +68,8 @@
     }
   }
 }
-@keyframes largefont{
-  0% {font-size:14px;}
-  100% {font-size:18px;}
-}
 .job-index-container{
-  margin-top: 10%;
-  .job-index-map{
-    #t-map{
-      background: url("t-map/t-map-main.png") no-repeat center center;
-      background-size: contain;
-      max-width: 100%;
-      min-height: 400px;
-    }
-  }
+  margin-top: 50px;
 }
 
 /** job grid mode **/
