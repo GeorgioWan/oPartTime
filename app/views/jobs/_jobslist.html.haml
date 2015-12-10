@@ -1,25 +1,28 @@
 - if @jobs.empty?
   .text-center
     %h3= "喔！目前沒有兼職工作。"
-- @jobs.each do |job|
-  #job-index-box.col-xs-12.col-sm-6.col-md-3
-    = link_to job, class: "btn btn-block well well-sm", id: "job-index-box-group", remote: true do
-      #job-index-box-heading= job.title
-      #job-index-box-body
-        %i.glyphicon.glyphicon-usd
-          %sapn#job-index-box-price= job.pay
-          %span /hr
-      #job-index-box-footer
-        %i.glyphicon.glyphicon-map-marker
-          %span= get_location(job)
-    = link_to '', 
-      '#', 
-      class: 'btn btn-primary btn-fab mdi-action-favorite' + (job.is_favorite? ? ' unfavorite' : ' favorite'), 
-      id: "job-index-box-favorite", 
-      jobid: job.id, 
-      data:{toggle:"tooltip"}, 
-      title: (job.is_favorite? ? "從最愛清單中移除!" : "加入最愛!"), 
-      remote: true
+- else
+  %ul#job-index-list.panel.list-group
+    - @jobs.each do |job|
+      %li.list-group-item
+        .col-xs-10.col-md-11
+          #job-index-list-information
+            %span#job-index-list-pay
+              %i.fa.fa-usd
+              = job.pay
+            %span#job-index-list-location
+              %i.fa.fa-map-marker
+              = get_location(job)
+          #job-index-list-title
+            = link_to job.title, job, remote: true
+          #job-index-list-sub-title
+            %span
+              = "# 張貼於 #{time_ago_in_words(job.created_at)}前 by "
+              = link_to "#{job.user.name}", job.user
+        .col-xs-2.col-md-1.job-index-list-favorite
+          %sapn.text-right
+            = link_to '', '#', class: 'fa fa-heart', id: "job-index-list-favorite" ,jobid: job.id, data:{toggle:"tooltip", placement:"bottom", container: 'body'}, title: "加入最愛!", remote: true
+  
+  
 
 = link_to '', '#', class: 'btn btn-fab btn-raised mdi-maps-flight hidden-xs hidden-sm', id: "back-to-top"
-= render 'shared/modal'

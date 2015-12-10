@@ -1,12 +1,23 @@
-.job-index-title-image.shadow-z-2
-  = image_tag 'CityAnd101.jpg', id: 'job-index-title-image'
-
-.job-index-city-tab
-  %ul.nav.nav-pills.col-xs-12.col-sm-12
-    = btn_group_link_to "ALL", root_path
-    - @cities.each do |city|
-      = btn_group_link_to city[0], "/#{city[1]}" if city != @cities.last
-
 .job-index-container
-  = render 'jobslist'
+  .col-md-1
+    = link_to '#list', aria: {controls: "list"}, data: {toggle: "tab"}, class: "btn btn-default" do
+      %i.glyphicon.glyphicon-th-list
+    = link_to '#grid', aria: {controls: "grid"}, data: {toggle: "tab"}, class: "btn btn-default" do
+      %i.glyphicon.glyphicon-th-large
+  .col-md-7.tab-content
+    #list.job-index-list.tab-pane.fade.in.active
+      = render 'jobslist'
+    #grid.job-index-list.tab-pane.fade
+      = render 'jobslist_origin'
+  .col-md-4
+    .panel.clearfix
+      .job-index-city-map.hidden-xs.hidden-sm
+        = render 'map_svg'
+      .job-index-city-tab
+        %ul.nav.nav-pills.col-xs-12.col-sm-12
+          = btn_group_link_to "ALL", root_path
+          - @cities.each do |city|
+            = btn_group_link_to city[0], "/#{city[1]}" if city != @cities.last
+        
+= render 'shared/modal'
 

@@ -1,3 +1,291 @@
-// Place all the styles related to the job controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*****************
+ *** JOB INDEX ***
+ *****************/
+#back-to-top {
+  position: fixed;
+  bottom: 50px;
+  right: 100px;
+  z-index: 9999;
+  text-align: center;
+  line-height: 30px;
+  background: #e9ebec;
+  color: #444;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.3s ease-out;
+  opacity: 0;
+  &:hover {
+    color: #009688;
+    background: white;
+  }
+  &.show {
+    opacity: 1;
+  }
+}
+.job-index-title-image{
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 20px;
+  #job-index-title-image{
+    display:auto;
+    max-width: 100%;
+  }
+}
+.job-index-city-tab{
+  ul {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .nav-pills{
+    text-align:center;
+    > li{
+      float:none;
+      display:inline-block;
+      *display:inline; /* ie7 fix */
+      zoom:1; /* hasLayout ie7 trigger */
+      &.active{
+        font-size: 16px;
+        > a{
+          border: 1px solid #009688;
+          color: #009688;
+          background-color:transparent;
+          &:hover{
+            background-color:#009688;  
+          }
+        }
+      }
+      > a{
+        padding: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        transition: transform 0.3s ease;
+        &:hover{
+          transform: scale(1.2);
+          color: white;
+          background-color:#009688;
+        }
+      }
+    }
+  }
+}
+.job-index-container{
+  margin-top: 50px;
+}
+
+/** job grid mode **/
+#job-index-box{
+  margin: 5px auto;
+  #job-index-box-group{
+    background-color: white;
+  }
+  #job-index-box-heading{
+    color: #009688;
+    font-size: 15px;
+  }
+  #job-index-box-body{
+    padding-top: 0px;
+    padding-bottom: 5px;
+
+    i{
+      color: #795548;
+      font-size: 20px;
+    }
+    span{
+      color: #795548;
+      font-size: 15px;
+      margin-left: -10px;
+    }
+  }
+  #job-index-box-footer{
+    font-size: 12px;
+    margin-bottom: -5px;
+    i{
+      color: #E57373;
+    }
+    span{
+      color: #795548;
+      margin-left: -10px;
+    }
+  }
+  #job-index-box-price{
+    color: #FFC107;
+    font-size: 50px;
+    margin-left: -10px;
+  }
+  #job-index-box-favorite{
+    position: absolute;
+    display:inline-block;
+    z-index: 1;
+    bottom: -5px;
+    right: 30px;
+  }
+}
+/** job list mode **/
+#job-index-list{
+  li {
+    padding: 10px;
+    border: 1px solid #DDD;
+    transition: background-color, box-shadow 0.3s ease;
+    &:hover{
+      background-color: rgba(185, 185, 185, 0.20);
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      
+    }
+  }
+  #job-index-list-information{
+    .job-index-list-information-lable{
+      color: white;
+      background-color: #BDBDBD;
+      padding: 1px 3px 0px 3px;
+      margin: 0px 1px 0px 1px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    #job-index-list-pay{
+      @extend .job-index-list-information-lable;
+      background-color: #FFB300;
+    }
+    #job-index-list-location{
+      @extend .job-index-list-information-lable;
+      background-color: transparent;
+      color: #EC5D52;
+      
+    }
+  }
+  #job-index-list-title{
+    font-size: 20px;
+    font-weight: bold;
+    a{
+      color: black;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      &:hover{
+        color: #009688;
+      }
+    }
+  }
+  #job-index-list-sub-title{
+    color: #878787;
+    font-size: 12px;
+    a{
+      color: #878787;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      &:hover{
+        color: #009688;
+      }
+    }
+  }
+  .job-index-list-favorite{
+    line-height: 65px;
+    #job-index-list-favorite{
+      color: #676767;
+      font-size: 1.6em;
+      text-decoration: none;
+      transition: color 0.1s ease;
+      &:hover{
+        color: #009688;
+      }
+    }
+  }
+}
+
+/*****************
+ *** JOB  FORM ***
+ *****************/
+#job-form-inputs{
+  @media screen and (min-width:768px){
+    margin-top: 20px;
+    margin-left: 50px;
+  }
+  #job-form-slide{
+    &.affix{
+      @media screen and (max-width:768px){
+        position: static;
+      }
+      top: 25px;
+    }
+  }
+}
+#job-form-actions{
+  margin-top: 15px;
+  margin-left: 30px;
+}
+#job_title{
+  font-size: 18px;
+  font-weight: bold;
+}
+#wmd-help-button-description{
+  background-color: #607D8B;
+}
+
+/*****************
+ *** JOB  SHOW ***
+ *****************/
+.job-show-container {
+  margin-top: 20px;
+}
+.job-head-section {
+  margin-bottom: 20px;
+}
+.job-title {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+.job-byline{
+  color: gray;
+}
+.job-byline-dash{
+  margin-left: 5px;
+}
+.job-edit-button{
+  margin-top: 10px;
+}
+.job-body-information{
+  @media screen and (min-width:768px){
+    margin-left: 30px;
+    margin-top: -20px;
+  }
+  .list-group{
+    &.affix{
+      @media screen and (max-width:768px){
+        position: static;
+      }
+      top: 25px;
+    }
+    .list-group-item{
+      margin-top: 10px;
+      border-bottom: 1px solid gray;
+
+      .list-group-content{
+        color: gray;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+}
+.job-body-description{
+  pre{
+    font-size: 15px;
+    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    min-height: 250px;
+  }
+
+  .panel-danger{
+    .panel-heading{
+      background-color: #E57373;
+      h4{margin: 0px;}
+    }
+    .panel-body{
+      color: #BF360C;
+      background-color: #EEEEEE;
+    }
+  }
+}
+.list-body-information-price{
+  color: #FFB300;
+  font-size: 30px;
+}
