@@ -27,6 +27,7 @@ class FavoriteJobsController < ApplicationController
         @jobs = Job.find(JSON.parse(ids))
       end
     end
-    render 'jobs/_jobslist'
+    set_jobs_favorite_flag @jobs
+    render 'users/favorite'
   end
 end

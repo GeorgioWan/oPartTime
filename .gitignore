@@ -36,3 +36,5 @@ bower.json
 
 # Ignore upload images
 /public/uploads
+
+/spring

@@ -59,25 +59,6 @@ class JobsController < ApplicationController
     set_jobs_favorite_flag @jobs
   end
 
-  # 替 job instance 新增 is_favorite? method 以判斷使用者是否已將該 job 加入最愛
-  def set_jobs_favorite_flag(jobs)
-    fids = get_favorite_job_ids
-    jobs.each {|j| def j.is_favorite?; false end}
-    jobs.to_a
-      .clone
-      .keep_if {|j| j.id.in? fids}
-      .each {|j| def j.is_favorite?; true end}
-  end
-
-  def get_favorite_job_ids
-    if user_signed_in?
-      current_user.favorite_jobs.collect {|i| i.id}
-    else
-      c = cookies[:favorite_jobs]
-      c == nil ? [] : JSON.parse(c).collect {|i| i.to_i}
-    end
-  end
-
   def set_location
     TaiwanCity.list.each do |c|
       if c[1] == @job.city

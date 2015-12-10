@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def set_jobs
     @jobs = @user.jobs.order("updated_at DESC")
+    set_jobs_favorite_flag @jobs
   end
   
   def set_value

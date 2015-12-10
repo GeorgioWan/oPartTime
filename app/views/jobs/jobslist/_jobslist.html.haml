@@ -1,0 +1,14 @@
+= render 'shared/modal'
+.col-md-2
+  = link_to '#list', aria: {controls: "list"}, data: {toggle: "tab"}, class: "btn btn-default" do
+    %i.glyphicon.glyphicon-th-list
+  = link_to '#grid', aria: {controls: "grid"}, data: {toggle: "tab"}, class: "btn btn-default" do
+    %i.glyphicon.glyphicon-th-large
+.col-md-10
+  .tab-content
+    #list.job-index-list.tab-pane.fade.in.active
+      = render 'jobs/jobslist/list'
+    #grid.job-index-list.tab-pane.fade
+      = render 'jobs/jobslist/grid'
+      
+= link_to '', '#', class: 'btn btn-fab btn-raised mdi-maps-flight hidden-xs hidden-sm', id: "back-to-top"

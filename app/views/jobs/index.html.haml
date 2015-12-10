@@ -1,14 +1,6 @@
 .job-index-container
-  .col-md-1
-    = link_to '#list', aria: {controls: "list"}, data: {toggle: "tab"}, class: "btn btn-default" do
-      %i.glyphicon.glyphicon-th-list
-    = link_to '#grid', aria: {controls: "grid"}, data: {toggle: "tab"}, class: "btn btn-default" do
-      %i.glyphicon.glyphicon-th-large
-  .col-md-7.tab-content
-    #list.job-index-list.tab-pane.fade.in.active
-      = render 'jobslist'
-    #grid.job-index-list.tab-pane.fade
-      = render 'jobslist_origin'
+  .col-md-8
+    = render 'jobs/jobslist/jobslist'
   .col-md-4
     .panel.clearfix
       .job-index-city-map.hidden-xs.hidden-sm
@@ -18,6 +10,4 @@
           = btn_group_link_to "ALL", root_path
           - @cities.each do |city|
             = btn_group_link_to city[0], "/#{city[1]}" if city != @cities.last
-        
-= render 'shared/modal'
 
