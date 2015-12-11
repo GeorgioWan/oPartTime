@@ -119,7 +119,7 @@
     bottom: -5px;
     right: 30px;
   }
-  .mdi-action-favorite.unfavorite {
+  .fa-btn.mdi-action-favorite.unfavorite {
     background-color: #FB7070 !important;
   }
 }
@@ -190,6 +190,9 @@
         color: #009688;
       }
     }
+  }
+  .fa-btn.fa-heart.unfavorite {
+    color: #FB7070 !important;
   }
 }
 

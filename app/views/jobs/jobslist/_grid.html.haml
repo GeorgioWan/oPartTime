@@ -14,7 +14,7 @@
           %span= get_location(job)
     = link_to '', 
       '#', 
-      class: 'btn btn-primary btn-fab mdi-action-favorite' + (job.is_favorite? ? ' unfavorite' : ' favorite'), 
+      class: 'btn btn-primary btn-fab mdi-action-favorite fa-btn' + (job.is_favorite? ? ' unfavorite' : ' favorite'), 
       id: "job-index-box-favorite", 
       jobid: job.id, 
       data:{toggle:"tooltip"}, 
