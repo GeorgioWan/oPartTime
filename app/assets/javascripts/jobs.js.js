@@ -48,11 +48,12 @@ function removeFavorite(jobId) {
 }
 
 $(document).ready(function() {
-  $(".mdi-action-favorite").on("click", function() {
+  $(".fa-btn").on("click", function() {
+    var jobId = $(this).attr("jobid");
     if ($(this).hasClass("favorite")) 
-      addFavorite($(this).attr("jobid"));
+      addFavorite(jobId);
     else
-      removeFavorite($(this).attr("jobid"));
-    $(this).toggleClass("favorite").toggleClass("unfavorite");
+      removeFavorite(jobId);
+    $(".fa-btn[jobid=" + jobId + "]").toggleClass("favorite").toggleClass("unfavorite");
   });
 });
