@@ -1,0 +1,9 @@
+.devise-find-passwords, .devise-cancel-account{
+  font-size: 13px;
+  color: #A7A7A7;
+  font-style: italic;
+  a{
+    color: rgba(0,150,136,0.5);
+    transition: color 0.3s ease;
+  }
+}

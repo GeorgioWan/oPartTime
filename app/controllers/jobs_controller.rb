@@ -6,7 +6,8 @@ class JobsController < ApplicationController
   before_action :set_location, only: :show
 
   def index
-    @cities= TaiwanCity.list
+    cities= TaiwanCity.list
+    @cities= cities.keep_if{|c| !c.equal? cities.last}
   end
 
   def show

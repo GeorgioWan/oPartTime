@@ -4,10 +4,9 @@
 #back-to-top {
   position: fixed;
   bottom: 50px;
-  right: 100px;
+  right: 160px;
   z-index: 9999;
   text-align: center;
-  line-height: 30px;
   background: #e9ebec;
   color: #444;
   cursor: pointer;
@@ -32,6 +31,10 @@
   }
 }
 .job-index-city-tab{
+  @media screen and (max-width: 768px){
+    padding-top: 15px;
+  }
+  padding-bottom: 15px;
   ul {
     padding-left: 10px;
     padding-right: 10px;
@@ -50,7 +53,7 @@
           color: #009688;
           background-color:transparent;
           &:hover{
-            background-color:#009688;  
+            background-color:#009688;
           }
         }
       }
@@ -70,6 +73,14 @@
 }
 .job-index-container{
   margin-top: 50px;
+  .tab-mode-switch{
+    &.affix{
+      @media screen and (max-width:768px){
+        position: static;
+      }
+      top: 25px;
+    }
+  }
 }
 
 /** job grid mode **/
@@ -125,6 +136,7 @@
 }
 /** job list mode **/
 #job-index-list{
+  margin-bottom: 30px;
   li {
     padding: 10px;
     border: 1px solid #DDD;
@@ -132,7 +144,7 @@
     &:hover{
       background-color: rgba(185, 185, 185, 0.20);
       box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      
+
     }
   }
   #job-index-list-information{
@@ -152,7 +164,7 @@
       @extend .job-index-list-information-lable;
       background-color: transparent;
       color: #EC5D52;
-      
+
     }
   }
   #job-index-list-title{
@@ -237,9 +249,12 @@
 }
 .job-byline{
   color: gray;
-}
-.job-byline-dash{
-  margin-left: 5px;
+  span a {
+    text-decoration: none;
+  }
+  .job-byline-dash{
+    margin-left: 5px;
+  }
 }
 .job-edit-button{
   margin-top: 10px;

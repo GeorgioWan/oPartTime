@@ -32,11 +32,12 @@
             %ul.dropdown-menu
               %li
                 = link_to current_user do
-                  %i.glyphicon.glyphicon-user
+                  %i.fa.fa-user
                   我的資料
+              %li.divider
               %li
                 = link_to destroy_user_session_path, method: :delete, rel: "nofollow" do
-                  %i.glyphicon.glyphicon-log-out
+                  %i.fa.fa-sign-out
                   登出
           - else
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: '#'}
@@ -45,9 +46,10 @@
             %ul.dropdown-menu
               %li
                 = link_to new_user_registration_path  do
-                  %i.glyphicon.glyphicon-plus
+                  %i.fa.fa-user-plus
                   我要加入！
+              %li.divider
               %li
                 = link_to new_user_session_path do
-                  %i.glyphicon.glyphicon-log-in
+                  %i.fa.fa-sign-in
                   登入

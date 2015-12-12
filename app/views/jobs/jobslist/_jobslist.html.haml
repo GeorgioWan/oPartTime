@@ -1,14 +1,22 @@
 = render 'shared/modal'
-.col-md-2
-  = link_to '#list', aria: {controls: "list"}, data: {toggle: "tab"}, class: "btn btn-default" do
-    %i.glyphicon.glyphicon-th-list
-  = link_to '#grid', aria: {controls: "grid"}, data: {toggle: "tab"}, class: "btn btn-default" do
-    %i.glyphicon.glyphicon-th-large
-.col-md-10
+.hidden-xs.hidden-sm
+  .col-md-2
+    .tab-mode-switch{"data-spy" => "affix", "data-offset-top" => "150"}
+      .list
+        = link_to '#list', aria: {controls: "list"}, data: {toggle: "tab"}, class: "btn btn-default" do
+          %i.glyphicon.glyphicon-th-list
+      .grid
+        = link_to '#grid', aria: {controls: "grid"}, data: {toggle: "tab"}, class: "btn btn-default" do
+          %i.glyphicon.glyphicon-th-large
+  .col-md-10
+    .tab-content
+      #list.tab-pane.fade.in.active
+        = render 'jobs/jobslist/list'
+      #grid.tab-pane.fade
+        = render 'jobs/jobslist/grid'
+.hidden-md.hidden-lg
   .tab-content
-    #list.job-index-list.tab-pane.fade.in.active
+    #list.tab-pane.fade.in.active
       = render 'jobs/jobslist/list'
-    #grid.job-index-list.tab-pane.fade
-      = render 'jobs/jobslist/grid'
-      
-= link_to '', '#', class: 'btn btn-fab btn-raised mdi-maps-flight hidden-xs hidden-sm', id: "back-to-top"
+
+= link_to '', '#', class: 'btn btn-fab btn-raised fa fa-space-shuttle fa-rotate-270 hidden-xs hidden-sm', id: "back-to-top"

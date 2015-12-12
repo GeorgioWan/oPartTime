@@ -1,13 +1,13 @@
 .job-index-container
-  .col-md-8
+  .col-xs-12.col-md-8
     = render 'jobs/jobslist/jobslist'
-  .col-md-4
-    .panel.clearfix
+  .col-xs-12.col-md-4
+    .panel
       .job-index-city-map.hidden-xs.hidden-sm
         = render 'map_svg'
-      .job-index-city-tab
+      .job-index-city-tab.clearfix
         %ul.nav.nav-pills.col-xs-12.col-sm-12
           = btn_group_link_to "ALL", root_path
           - @cities.each do |city|
-            = btn_group_link_to city[0], "/#{city[1]}" if city != @cities.last
+            = btn_group_link_to city[0], "/#{city[1]}"
 
