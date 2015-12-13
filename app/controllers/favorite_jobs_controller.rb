@@ -1,13 +1,13 @@
 class FavoriteJobsController < ApplicationController
-  
-  def add
+
+  def create
     if user_signed_in?
       FavoriteJob.find_or_create_by user_id: current_user.id, job_id: params[:jobId]
     end
     render nothing: true
   end
-  
-  def remove
+
+  def destroy
     if user_signed_in?
       fj = FavoriteJob.find_by user_id: current_user.id, job_id: params[:jobId]
       if fj != nil
@@ -16,7 +16,7 @@ class FavoriteJobsController < ApplicationController
     end
     render nothing: true
   end
-  
+
   def show
     @jobs = []
     if user_signed_in?
