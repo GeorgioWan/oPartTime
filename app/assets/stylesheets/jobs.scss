@@ -21,15 +21,6 @@
     opacity: 1;
   }
 }
-.job-index-title-image{
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-bottom: 20px;
-  #job-index-title-image{
-    display:auto;
-    max-width: 100%;
-  }
-}
 #job-index-empty{
   color: white;
   background-color: #E57373;
@@ -89,12 +80,6 @@
 .job-index-container{
   margin-top: 50px;
   .tab-mode-switch{
-    &.affix{
-      @media screen and (max-width:768px){
-        position: static;
-      }
-      top: 25px;
-    }
   }
 }
 
