@@ -63,6 +63,12 @@ body{
     transform: scale(1.1);
   }
 }
+.navbar-brand-favorite{
+  @extend .navbar-brand;
+  color: rgba(255,255,255,0.8) !important;
+  position: absolute;
+  right: 55px;
+}
 .navbar-nav{
   @media screen and (min-width: 768px){
     .dropdown-menu{
@@ -107,6 +113,13 @@ body{
   border-radius: 5px;
   background-color: #eeeeee;
 }
+.o-modal-header{
+  .close{
+    margin-top: -20px;
+    margin-right: -10px;
+    z-index: 9999;
+  }
+}
 
 /******************
  ****  FOOTER *****
@@ -125,21 +138,28 @@ body{
   padding: 30px 30px 15px 30px;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
+  @media screen and (max-width: 768px){
+    font-size: 15px;
+    padding: 25px 0px 15px 0px;
+    .col-xs-12{
+      padding: 0px !important;
+    }
+  }
 
   ul{
     list-style-type: none;
     text-align: center;
     li{
       display: inline;
-      a{
-        text-decoration: none;
-        color: rgba(255, 255, 255, 0.7);
-        padding: 5px 10px 0px 10px;
-        transition: color 0.3s ease;
-        &:hover{
-          color: white;
-        }
-      }
+    }
+  }
+  a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px 0px 10px;
+    transition: color 0.3s ease;
+    &:hover{
+      color: white;
     }
   }
 }

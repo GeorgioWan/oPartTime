@@ -80,6 +80,12 @@
 .job-index-container{
   margin-top: 50px;
   .tab-mode-switch{
+    &.affix{
+      @media screen and (max-width:768px){
+        position: static;
+      }
+      top: 25px;
+    }
   }
 }
 

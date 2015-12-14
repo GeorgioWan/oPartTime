@@ -15,7 +15,7 @@
 - else
   .hidden-xs.hidden-sm
     .col-md-2
-      .tab-mode-switch
+      .tab-mode-switch{"data-spy" => "affix", "data-offset-top" => "150"}
         .list
           = link_to '#list', aria: {controls: "list"}, data: {toggle: "tab"}, class: "btn btn-default" do
             %i.glyphicon.glyphicon-th-list

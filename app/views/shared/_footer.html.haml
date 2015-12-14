@@ -1,7 +1,7 @@
-%footer.footer.hidden-xs
+%footer.footer
   .container
     .footer-inner
-      %ul
+      %ul.hidden-xs
         %li
           %span
             = link_to root_path do
@@ -31,3 +31,16 @@
           %span
             = link_to "#" do
               %i.fa.fa-facebook-square.fa-lg
+
+      .hidden-sm.hidden-md.hidden-lg
+        .col-xs-12.text-center
+          %span
+            = link_to "關於我們", "#"
+            = "‧"
+            = link_to "#" do
+              %i.fa.fa-facebook-square.fa-lg
+            = "‧"
+            = link_to root_path do
+              %i.fa.fa-copyright
+              %span
+                %strong= "oPartTime"

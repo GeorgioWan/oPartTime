@@ -3,6 +3,8 @@
     .navbar-header
       = link_to root_path, class: "navbar-brand" do
         %strong oPartTime
+      = link_to user_favorite_path, class: "navbar-brand-favorite hidden-md hidden-lg" do
+        %i.glyphicon.glyphicon-heart
       %button.navbar-toggle{"data-target" => "#oPartTime-navbar-collapse", "data-toggle" => "collapse", type: "button"}
         %span.sr-only switch guide
         %span.icon-bar
@@ -17,7 +19,7 @@
           = link_to new_job_path do
             %strong= '我要徵人才'
       %ul.nav.navbar-nav.navbar-right
-        %li#li_with_hover
+        %li#li_with_hover.hidden-xs.hidden-sm
           = link_to user_favorite_path do
             %i.glyphicon.glyphicon-heart
             那些年喜歡的工作
