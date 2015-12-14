@@ -1,6 +1,3 @@
-- if @jobs.empty?
-  .text-center
-    %h3= "喔！目前沒有兼職工作。"
 - @jobs.each do |job|
   #job-index-box.col-xs-12.col-sm-6.col-md-6
     = link_to job, class: "btn btn-block well well-sm", id: "job-index-box-group", remote: true do
@@ -12,11 +9,11 @@
       #job-index-box-footer
         %i.glyphicon.glyphicon-map-marker
           %span= get_location(job)
-    = link_to '', 
-      '#', 
-      class: 'btn btn-primary btn-fab mdi-action-favorite fa-btn' + (job.is_favorite? ? ' unfavorite' : ' favorite'), 
-      id: "job-index-box-favorite", 
-      jobid: job.id, 
-      data:{toggle:"tooltip"}, 
-      title: (job.is_favorite? ? "從最愛清單中移除!" : "加入最愛!"), 
+    = link_to '',
+      '#',
+      class: 'btn btn-primary btn-fab mdi-action-favorite fa-btn' + (job.is_favorite? ? ' unfavorite' : ' favorite'),
+      id: "job-index-box-favorite",
+      jobid: job.id,
+      data:{toggle:"tooltip"},
+      title: (job.is_favorite? ? "從最愛清單中移除!" : "加入最愛!"),
       remote: true

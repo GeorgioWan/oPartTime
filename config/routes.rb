@@ -7,8 +7,13 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resource :favorite_job, only: [:show, :create, :destroy], path: 'user/favorite', as: 'user_favorite'
 
-
   get '/:city_id', to: 'jobs#index'
+
+  scope controller: :oparttime do
+    get '/about'   => :about
+    get '/privacy' => :privacy
+    get '/policy'  => :policy
+  end
 
   mount TaiwanCity::Engine => '/taiwan_city'
 end

@@ -1,22 +1,36 @@
 = render 'shared/modal'
-.hidden-xs.hidden-sm
-  .col-md-2
-    .tab-mode-switch{"data-spy" => "affix", "data-offset-top" => "150"}
-      .list
-        = link_to '#list', aria: {controls: "list"}, data: {toggle: "tab"}, class: "btn btn-default" do
-          %i.glyphicon.glyphicon-th-list
-      .grid
-        = link_to '#grid', aria: {controls: "grid"}, data: {toggle: "tab"}, class: "btn btn-default" do
-          %i.glyphicon.glyphicon-th-large
-  .col-md-10
+- if @jobs.empty?
+  - if request.path == "/user/favorite"
+    #job-index-empty.well.text-center.col-md-12
+      %span.empty-block
+        %span.fa-stack
+          %i.fa.fa-circle.fa-stack-2x
+          %i.fa.fa-heart.fa-stack-1x.fa-empty
+        %span.text= "加入幾個有興趣的打工吧！"
+  - else
+    #job-index-empty.well.text-center.col-md-10.col-md-offset-2
+      %span.empty-block
+        %i.fa.fa-2x.fa-exclamation-circle
+        %span.text= "目前沒有兼職工作喲！"
+- else
+  .hidden-xs.hidden-sm
+    .col-md-2
+      .tab-mode-switch{"data-spy" => "affix", "data-offset-top" => "150"}
+        .list
+          = link_to '#list', aria: {controls: "list"}, data: {toggle: "tab"}, class: "btn btn-default" do
+            %i.glyphicon.glyphicon-th-list
+        .grid
+          = link_to '#grid', aria: {controls: "grid"}, data: {toggle: "tab"}, class: "btn btn-default" do
+            %i.glyphicon.glyphicon-th-large
+    .col-md-10
+      .tab-content
+        #list.tab-pane.fade.in.active
+          = render 'jobs/jobslist/list'
+        #grid.tab-pane.fade
+          = render 'jobs/jobslist/grid'
+  .hidden-md.hidden-lg
     .tab-content
       #list.tab-pane.fade.in.active
         = render 'jobs/jobslist/list'
-      #grid.tab-pane.fade
-        = render 'jobs/jobslist/grid'
-.hidden-md.hidden-lg
-  .tab-content
-    #list.tab-pane.fade.in.active
-      = render 'jobs/jobslist/list'
 
 = link_to '', '#', class: 'btn btn-fab btn-raised fa fa-space-shuttle fa-rotate-270 hidden-xs hidden-sm', id: "back-to-top"
