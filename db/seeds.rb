@@ -13,14 +13,19 @@ end
 puts '[SUCCES] Create 10 random users.'
 
 # RANDOM JOB DATA
-for i in 1..10 do
+for i in 1..100 do
+  tlist = TaiwanCity.list
+  tlist = tlist.keep_if{|c| !c.equal? tlist.last} # without last one '離島地區'
+  tc = tlist.sample[1]      # random city id
+  td = TaiwanCity.list(tc).sample[1]  # random district id
+
   Job.create([title:    "徵人啟事 - #{i}",
               company:  "#{['Applee', 'Gooogle', 'Microhard', 'SUMSONG', 'O-Studio'].sample}",
-              city:     "01000",
-              district: "#{['01100','01103','01104','01105'].sample}",
-              pay:      "#{rand(100..350)}",
-              url:      "https://example_#{i}.com",
+              city:     "#{tc}",
+              district: "#{td}",
+              pay:      "#{rand(100..450)}",
+              url:      "https://ooo_#{i}.com",
               description: "錢多、事少、離家近\n還應徵就對了！",
-              user_id: rand(2..11)])
+              user_id: rand(1..11)])
 end
-puts '[SUCCES] Create 10 random jobs.'
+puts '[SUCCES] Create 100 random jobs.'

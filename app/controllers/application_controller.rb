@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
     end
     cookies.delete :favorite_jobs
   end
-  
+
   # 替 job instance 新增 is_favorite? method 以判斷使用者是否已將該 job 加入最愛
   def set_jobs_favorite_flag(jobs)
     fids = get_favorite_job_ids

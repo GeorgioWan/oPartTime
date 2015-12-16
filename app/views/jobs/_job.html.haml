@@ -21,7 +21,7 @@
       .job-body-description
         %pre.shadow-z-1.wmd-output
           :preserve
-            #{@job.description}
+            #{sanitize(@job.description)}
     .container.col-md-3
       .job-body-information
         .list-group{"data-spy" => "affix", "data-offset-top" => "150"}

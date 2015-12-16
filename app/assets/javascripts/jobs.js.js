@@ -48,12 +48,15 @@ function removeFavorite(jobId) {
 }
 
 $(document).ready(function() {
-  $(".fa-btn").on("click", function() {
+  $("ul.panel.list-group").on("click", ".fa-btn", function() {
     var jobId = $(this).attr("jobid");
-    if ($(this).hasClass("favorite")) 
+    if ($(this).hasClass("favorite")) {
       addFavorite(jobId);
-    else
+      $(this).attr("data-original-title", "從最愛清單中移除!");
+    } else {
       removeFavorite(jobId);
+      $(this).attr("data-original-title", "加入最愛!");
+    }
     $(".fa-btn[jobid=" + jobId + "]").toggleClass("favorite").toggleClass("unfavorite");
   });
 });

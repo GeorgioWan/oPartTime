@@ -1,4 +1,12 @@
 class FavoriteJobsController < ApplicationController
+  before_action :set_jobs, only: :show
+
+  def show
+    respond_to do |format|
+      format.html { render 'users/favorite' }
+      format.js { render 'jobs/jobslist/loadjobs' }
+    end
+  end
 
   def create
     if user_signed_in?
@@ -17,7 +25,8 @@ class FavoriteJobsController < ApplicationController
     render nothing: true
   end
 
-  def show
+  private
+  def set_jobs
     @jobs = []
     if user_signed_in?
       @jobs = current_user.favorite_jobs
@@ -27,7 +36,9 @@ class FavoriteJobsController < ApplicationController
         @jobs = Job.find(JSON.parse(ids))
       end
     end
+
+    # handle Kaminari paginate array
+    @jobs = Kaminari.paginate_array(@jobs).page(params[:page]).per(10)
     set_jobs_favorite_flag @jobs
-    render 'users/favorite'
   end
 end

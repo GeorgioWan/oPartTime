@@ -4,6 +4,9 @@ class Job < ActiveRecord::Base
   has_many :favorite_job_list, :class_name => "FavoriteJob"
   has_many :favorite_by, through: :favorite_job_list, source: :user
 
+  ### Kaminari per page
+  paginates_per 15
+
   ### Validate
   validates_presence_of   :title,       message: "您忘了斗大的標題！"
   validates_presence_of   :pay,         message: "工資是多少呢？"

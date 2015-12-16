@@ -21,6 +21,10 @@
     opacity: 1;
   }
 }
+#loding {
+  position: relative;
+  top: -30px;
+}
 #job-index-empty{
   color: white;
   background-color: #E57373;
@@ -79,66 +83,7 @@
 }
 .job-index-container{
   margin-top: 50px;
-  .tab-mode-switch{
-    &.affix{
-      @media screen and (max-width:768px){
-        position: static;
-      }
-      top: 25px;
-    }
-  }
-}
 
-/** job grid mode **/
-#job-index-box{
-  margin: 5px auto;
-  #job-index-box-group{
-    background-color: white;
-  }
-  #job-index-box-heading{
-    color: #009688;
-    font-size: 15px;
-  }
-  #job-index-box-body{
-    padding-top: 0px;
-    padding-bottom: 5px;
-
-    i{
-      color: #795548;
-      font-size: 20px;
-    }
-    span{
-      color: #795548;
-      font-size: 15px;
-      margin-left: -10px;
-    }
-  }
-  #job-index-box-footer{
-    font-size: 12px;
-    margin-bottom: -5px;
-    i{
-      color: #E57373;
-    }
-    span{
-      color: #795548;
-      margin-left: -10px;
-    }
-  }
-  #job-index-box-price{
-    color: #FFC107;
-    font-size: 50px;
-    margin-left: -10px;
-  }
-  #job-index-box-favorite{
-    position: absolute;
-    display:inline-block;
-    z-index: 1;
-    bottom: -5px;
-    right: 30px;
-  }
-  .fa-btn.mdi-action-favorite.unfavorite {
-    background-color: #FB7070 !important;
-  }
 }
 /** job list mode **/
 #job-index-list{

@@ -1,13 +1,19 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_jobs,  only: :index
-  before_action :set_job,   only: [:show, :edit, :update, :destroy]
-  before_action :set_value, only: [:new,  :edit, :create, :update]
+  before_action :authenticate_user!, except: [:index, :show, :loadpage]
+  before_action :set_jobs,     only: [:index, :loadpage]
+  before_action :set_cities,   only: [:index, :loadpage]
+  before_action :set_job,      only: [:show, :edit, :update, :destroy]
+  before_action :set_value,    only: [:new,  :edit, :create, :update]
   before_action :set_location, only: :show
 
   def index
-    cities= TaiwanCity.list
-    @cities= cities.keep_if{|c| !c.equal? cities.last}
+    respond_to do |format|
+      format.html
+      format.js   {render 'jobs/jobslist/loadjobs' }
+    end
+  end
+
+  def loadpage
   end
 
   def show
@@ -57,7 +63,13 @@ class JobsController < ApplicationController
 
   def set_jobs
     @jobs = params[:city_id] ? Job.where(city: params[:city_id]).order("updated_at DESC") : Job.all.order("updated_at DESC")
+    @jobs = @jobs.page(params[:page])
     set_jobs_favorite_flag @jobs
+  end
+
+  def set_cities
+    cities= TaiwanCity.list
+    @cities= cities.keep_if{|c| !c.equal? cities.last}
   end
 
   def set_location
