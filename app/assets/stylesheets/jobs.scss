@@ -56,6 +56,7 @@
       display:inline-block;
       *display:inline; /* ie7 fix */
       zoom:1; /* hasLayout ie7 trigger */
+      margin: 0 5px 10px 5px;
       &.active{
         font-size: 16px;
         > a{
@@ -64,6 +65,13 @@
           background-color:transparent;
           &:hover{
             background-color:#009688;
+            .badge-city{
+              color: #009688;
+              background-color: white;
+            }
+          }
+          .badge-city{
+            display: none;
           }
         }
       }
@@ -76,6 +84,20 @@
           transform: scale(1.2);
           color: white;
           background-color:#009688;
+          transition: display 0.3s ease;
+          .badge-city{
+            color: #009688;
+            background-color: white;
+            border: 1px solid #009688;
+          }
+        }
+        .badge-city{
+          background-color: #FFB300;
+          color: #444444;
+          position: absolute;
+          left: 29px;
+          top: -6px;
+          transform: scale(0.7);
         }
       }
     }
