@@ -5,7 +5,7 @@ class Job < ActiveRecord::Base
   has_many :favorite_by, through: :favorite_job_list, source: :user
 
   ### Kaminari per page
-  paginates_per 15
+  paginates_per 30
 
   ### Validate
   validates_presence_of   :title,       message: "您忘了斗大的標題！"

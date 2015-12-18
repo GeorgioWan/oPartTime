@@ -38,7 +38,7 @@ class FavoriteJobsController < ApplicationController
     end
 
     # handle Kaminari paginate array
-    @jobs = Kaminari.paginate_array(@jobs).page(params[:page]).per(10)
+    @jobs = Kaminari.paginate_array(@jobs).page(params[:page]).per(20)
     set_jobs_favorite_flag @jobs
   end
 end

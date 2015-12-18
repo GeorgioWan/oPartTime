@@ -18,7 +18,7 @@
     #list
       %ul#job-index-list.panel.list-group
         = render partial: 'jobs/jobslist/list', collection: @jobs
-      #loding.text-center
+      #loading.text-center
         = paginate @jobs
 
 = link_to '', '#', class: 'btn btn-fab btn-raised fa fa-space-shuttle fa-rotate-270 hidden-xs hidden-sm', id: "back-to-top"

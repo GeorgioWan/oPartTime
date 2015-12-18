@@ -18,7 +18,7 @@ path.active{
   fill: #009688 !important;
 }
 
-.city-section{
+@mixin land{
   fill: #878787;
 	fill-opacity: 1;
 	stroke: white;
@@ -30,12 +30,15 @@ path.active{
 	}
 }
 
+.city-section{
+}
+
 #taipeiCity, #taipeiCountry, #keelungCity, #taoyuanCountry, 
 #hsinchu, #miaoliCountry, #taichungCity, #nantouCountry, 
 #changhuaCountry, #yunlinCountry, #chiayi, #tainanCity, 
 #kaohsiungCity, #pingtungCountry, #yilan, #hualienCountry, 
 #taitung, #penghu, #kinmen, #lienchiang{
-  @extend .city-section;
+  @include land;
 }
 
 #kinmenFrame, #lienchiangFrame{

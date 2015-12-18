@@ -35,6 +35,9 @@
       z-index: 1;
       bottom: 0px;
       right: 29%;
+      @media screen and (min-width: 500px) and (max-width: 800px){
+        right: 40%;
+      }
     }
     #user-line{
       position:relative;

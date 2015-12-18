@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def set_jobs
     @jobs = @user.jobs.order("updated_at DESC")
     # handle Kaminari paginate array
-    @jobs = Kaminari.paginate_array(@jobs).page(params[:page]).per(10)
+    @jobs = Kaminari.paginate_array(@jobs).page(params[:page]).per(20)
     set_jobs_favorite_flag @jobs
   end
 
