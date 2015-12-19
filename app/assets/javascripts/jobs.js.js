@@ -56,7 +56,9 @@ function undoUnfavortie() {
     job.dom.appendTo(domContainer);
   else
     job.dom.insertBefore(domContainer.children()[job.index]);
+  
   addFavorite(job.id);
+  job.dom.show('fast');
 }
 
 function storeAndRemoveJob(jobId) {
@@ -64,15 +66,15 @@ function storeAndRemoveJob(jobId) {
   job.id = jobId;
   job.dom = $("li.list-group-item[jobId=" + jobId + "]")
   job.index = job.dom.index();
-  job.dom.remove();
+  job.dom.hide('fast', function(){ job.dom.remove(); });
   jobBackup_list.push(job);
 }
 
 function showUndoFJSnackbar() {
   if (preUndoMsgSnackbar != null)
-    preUndoMsgSnackbar.hide();
+    preUndoMsgSnackbar.remove();
   var options =  {
-    content: '<span>你剛剛移除了 1 個喜歡的工作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a class="undo-unfavorite">ლ(́◉◞౪◟◉‵ლ) 復原</a>', // text of the snackbar
+    content: '<span>你剛剛移除了 1 個喜歡的工作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a class="undo-unfavorite" style="text-decoration: none;">ლ(́◉◞౪◟◉‵ლ) 復原</a>', // text of the snackbar
     style: "snackbar", // add a custom class to your snackbar
     timeout: 10 * 1000, // time in milliseconds after the snackbar autohides, 0 is disabled
     htmlAllowed: true // allows HTML as content value
@@ -87,17 +89,21 @@ function showUndoFJSnackbar() {
 $(document).ready(function() {
   $("ul.panel.list-group").on("click", ".fa-btn", function() {
     var jobId = $(this).attr("jobid");
+    $(this).blur();
     if ($(this).hasClass("favorite")) {
       addFavorite(jobId);
       $(this).attr("data-original-title", "從最愛清單中移除!");
+      $(".fa-btn[jobid=" + jobId + "]").toggleClass("favorite").toggleClass("unfavorite");
     } else {
       removeFavorite(jobId);
-      $(this).attr("data-original-title", "加入最愛!");
       if ($(this).parents("li.list-group-item").attr("isremoveable") == "true") {
         storeAndRemoveJob(jobId);
         showUndoFJSnackbar();
+        $("#"+$(this).attr("aria-describedby")).remove(); // remove tooltip when this list remove
+      } else {
+        $(this).attr("data-original-title", "加入最愛!");
+        $(".fa-btn[jobid=" + jobId + "]").toggleClass("favorite").toggleClass("unfavorite");
       }
     }
-    $(".fa-btn[jobid=" + jobId + "]").toggleClass("favorite").toggleClass("unfavorite");
   });
 });

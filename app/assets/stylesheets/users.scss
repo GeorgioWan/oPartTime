@@ -97,3 +97,12 @@
 .user-edit-mail{
   margin-top: -5px;
 }
+
+/*********************
+ *** USER FAVORITE ***
+ *********************/
+#snackbar-container {
+  @media screen and (min-width: 1280px){
+    bottom: 70px !important;
+  }
+}
