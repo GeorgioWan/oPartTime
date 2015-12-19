@@ -1,5 +1,7 @@
 const FAVORITE_JOBS = "favorite_jobs";
 const IS_LOGIN = "is_login";
+var jobBackup_list = new Array();
+var preUndoMsgSnackbar = null;
 
 function isLoggedin() {
   return Cookies.get(IS_LOGIN) != null && Cookies.get(IS_LOGIN) == "true"
@@ -47,6 +49,41 @@ function removeFavorite(jobId) {
   }
 }
 
+function undoUnfavortie() {
+  var job = jobBackup_list.pop();
+  var domContainer = $("ul#job-index-list");
+  if (job.index >= domContainer.children().length)
+    job.dom.appendTo(domContainer);
+  else
+    job.dom.insertBefore(domContainer.children()[job.index]);
+  addFavorite(job.id);
+}
+
+function storeAndRemoveJob(jobId) {
+  var job = new Object();
+  job.id = jobId;
+  job.dom = $("li.list-group-item[jobId=" + jobId + "]")
+  job.index = job.dom.index();
+  job.dom.remove();
+  jobBackup_list.push(job);
+}
+
+function showUndoFJSnackbar() {
+  if (preUndoMsgSnackbar != null)
+    preUndoMsgSnackbar.hide();
+  var options =  {
+    content: '<span>你剛剛移除了 1 個喜歡的工作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a class="undo-unfavorite">ლ(́◉◞౪◟◉‵ლ) 復原</a>', // text of the snackbar
+    style: "snackbar", // add a custom class to your snackbar
+    timeout: 10 * 1000, // time in milliseconds after the snackbar autohides, 0 is disabled
+    htmlAllowed: true // allows HTML as content value
+  }
+  preUndoMsgSnackbar = $.snackbar(options);
+  preUndoMsgSnackbar.on("click", ".undo-unfavorite", function() {
+    undoUnfavortie();
+  });
+  return preUndoMsgSnackbar;
+}
+
 $(document).ready(function() {
   $("ul.panel.list-group").on("click", ".fa-btn", function() {
     var jobId = $(this).attr("jobid");
@@ -56,6 +93,10 @@ $(document).ready(function() {
     } else {
       removeFavorite(jobId);
       $(this).attr("data-original-title", "加入最愛!");
+      if ($(this).parents("li.list-group-item").attr("isremoveable") == "true") {
+        storeAndRemoveJob(jobId);
+        showUndoFJSnackbar();
+      }
     }
     $(".fa-btn[jobid=" + jobId + "]").toggleClass("favorite").toggleClass("unfavorite");
   });

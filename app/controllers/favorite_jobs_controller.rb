@@ -2,6 +2,7 @@ class FavoriteJobsController < ApplicationController
   before_action :set_jobs, only: :show
 
   def show
+    @isRemoveable = true;
     respond_to do |format|
       format.html { render 'users/favorite' }
       format.js { render 'jobs/jobslist/loadjobs' }
