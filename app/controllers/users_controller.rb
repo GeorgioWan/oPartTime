@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
-  before_action :set_user, :set_jobs
-  helper_method :get_location
+  before_action :set_user, :set_jobs, :set_value, only: :show
 
   def show
+    respond_to do |format|
+      format.html
+      format.js { render 'jobs/jobslist/loadjobs' }
+    end
   end
 
   private
@@ -12,21 +15,15 @@ class UsersController < ApplicationController
 
   def set_jobs
     @jobs = @user.jobs.order("updated_at DESC")
+    # handle Kaminari paginate array
+    @jobs = Kaminari.paginate_array(@jobs).page(params[:page]).per(20)
+    set_jobs_favorite_flag @jobs
   end
 
-  def get_location job
-    TaiwanCity.list.each do |c|
-      if c[1] == job.city
-        @city=c[0]
-      end
-    end
-
-    TaiwanCity.list(job.city).each do |d|
-      if d[1] == job.district
-        @district=d[0]
-      end
-    end
-
-    return "#{@city}#{@district}"
+  def set_value
+    @twitter = @user.twitter.nil? ? "#" : @user.twitter
+    @facebook = @user.facebook.nil? ? "#" : @user.facebook
+    @googleplus = @user.googleplus.nil? ? "#" : @user.googleplus
+    @website = @user.website.nil? ? "#" : @user.website
   end
 end

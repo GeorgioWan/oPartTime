@@ -4,16 +4,16 @@
     %title oPartTime
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = javascript_include_tag 'https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.5/dist/js/alertify.js', 'data-turbolinks-track' => true
     = csrf_meta_tags
-    %link{:rel => :stylesheet, :type => :"text/css", :href => "http://fonts.googleapis.com/earlyaccess/cwtexhei.css"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"}
+    %link{:rel => :stylesheet, :type => :"text/css", :href => "https://fonts.googleapis.com/earlyaccess/cwtexhei.css"}
   %body
-    .container
+    .wrap
       = render 'shared/navbar'
-
       = alertify_notice
-
-      .container-fluid
+      
+      #oPartTime-container.container
         = yield
 
-      = link_to '', '#', class: 'btn btn-fab btn-raised mdi-maps-flight', id: "back-to-top"
+    = render 'shared/footer'
+

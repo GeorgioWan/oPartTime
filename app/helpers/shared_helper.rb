@@ -14,7 +14,7 @@ module SharedHelper
 
       js_alertify = ""
       Array(message).each do |msg|
-        js_alertify << "alertify.logPosition('top right'); alertify.#{type}('#{msg}');\n" if msg;
+        js_alertify << "alertify.logPosition('bottom left'); alertify.#{type}('#{msg}');\n" if msg;
       end
       jsReturn = javascript_tag(js_alertify)
     end

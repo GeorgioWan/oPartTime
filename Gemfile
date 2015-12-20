@@ -28,6 +28,14 @@ gem 'pagedown-bootstrap-rails'
 gem 'taiwan_city'
 # Easy access cookie in js https://github.com/freego/js_cookie_rails
 gem 'js_cookie_rails'
+# Use Carrierwave
+gem 'carrierwave', '~> 0.10.0'
+gem 'rmagick'    , '~> 2.15'
+# Generate ER diagram https://github.com/voormedia/rails-erd
+gem 'rails-erd'
+# Use kaminari to pagination
+gem 'kaminari'
+gem 'kaminari-i18n'
 group :development, :test do
   gem 'awesome_rails_console'
   gem 'web-console', '~> 2.0'

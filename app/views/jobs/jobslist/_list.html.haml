@@ -1,0 +1,25 @@
+%li.list-group-item{:jobid => "#{list.id}", :isremoveable => "#{@isRemoveable != nil && @isRemoveable}"}
+  .col-xs-10.col-md-11
+    #job-index-list-information
+      %span#job-index-list-pay
+        %i.fa.fa-usd
+        = list.pay
+      %span#job-index-list-location
+        %i.fa.fa-map-marker
+        = get_location(list)
+    #job-index-list-title
+      = link_to list.title, list, remote: true
+    #job-index-list-sub-title
+      %span
+        = "# 張貼於 #{time_ago_in_words(list.created_at)}前 by "
+        = link_to "#{list.user.name}", list.user
+  .col-xs-2.col-md-1.job-index-list-favorite
+    %sapn.text-right
+      = link_to '',
+      'javascript:;',
+      class: 'fa fa-heart fa-btn' + (list.is_favorite? ? ' unfavorite' : ' favorite'),
+      id: "job-index-list-favorite" ,
+      jobid: list.id,
+      data:{toggle:"tooltip", placement:"bottom", container: 'body'},
+      title: (list.is_favorite? ? "從最愛清單中移除!" : "加入最愛!")
+

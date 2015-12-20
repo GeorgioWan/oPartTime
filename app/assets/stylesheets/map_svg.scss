@@ -1,0 +1,59 @@
+#taiwan{
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+#taiwan-kinmen{
+  position: absolute;
+  top: 80px;
+  left: 30px;
+}
+#taiwan-lienchiang{
+  position: absolute;
+  top: -5px;
+  left: 30px;
+}
+
+path.active{
+  fill: #009688 !important;
+}
+
+@mixin land{
+  fill: #878787;
+	fill-opacity: 1;
+	stroke: white;
+	stroke-width: 1;
+	cursor: pointer;
+	transition: fill 0.2s ease;
+	&:hover{
+	  fill: #FFB300 !important;
+	}
+}
+
+.city-section{
+}
+
+#taipeiCity, #taipeiCountry, #keelungCity, #taoyuanCountry, 
+#hsinchu, #miaoliCountry, #taichungCity, #nantouCountry, 
+#changhuaCountry, #yunlinCountry, #chiayi, #tainanCity, 
+#kaohsiungCity, #pingtungCountry, #yilan, #hualienCountry, 
+#taitung, #penghu, #kinmen, #lienchiang{
+  @include land;
+}
+
+#kinmenFrame, #lienchiangFrame{
+  fill:none;
+  stroke:#000000;
+  stroke-width:3;
+  stroke-linecap:butt;
+  stroke-linejoin:miter;
+  stroke-miterlimit:4;
+  stroke-opacity:0.41568627;
+  stroke-dasharray:non  ;
+}
+
+.sideline
+{
+	fill: none;
+	stroke: transparent;
+}

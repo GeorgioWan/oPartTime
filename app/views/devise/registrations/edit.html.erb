@@ -1,25 +1,65 @@
-<div class="row">
-  <div class="col-md-4 col-md-offset-5">
-    <h2>我的帳戶</h2>
+<div id="page-header">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 text-center">
+      <h2>編輯我的資料</h2>
+    </div>
   </div>
 </div>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-
   <div class="form-inputs">
     <div class="row">
-      <div class="col-md-4 col-md-offset-4 well">
-        <%= f.input :email, label: false, required: true, autofocus: true, placeholder: current_user.email %>
-        <%= f.input :name,  label: false, required: true, autofocus: true, placeholder: current_user.name %>
+      <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4 well">
+        <div class="text-center">
+          <%= f.input :avatar, label: false, input_html: {id: "img-input"} %>
+          <%= f.hidden_field :avatar_cache %>
+          <div class="text-center"><%= image_tag current_user.avatar_url(:fist), class: "preveiw user-edit-avatar shadow-z-1" %></div>
+          <%= f.label " ", id: "img-label", for: "img-input" %>
+          <h5 class="user-edit-mail"><%= current_user.email %></h5>
+        </div>
+        <%= f.input :name,  label: false, required: true, autofocus: true, placeholder: current_user.name, input_html:{class: 'user-edit-name text-center'} %>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingURL">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseURL" aria-expanded="true" aria-controls="collapseURL" style="text-decoration: none;">
+                <span><i class="fa fa-users"></i>&nbsp;社群網站</span>
+              </a>
+            </h4>
+          </div>
+          <div id="collapseURL" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingURL" >
+            <div class="panel-body">
+              <%= f.input :twitter,    label: false, autofocus: true, input_html:{class: 'text-center'},
+                          placeholder: "https://twitter.com/" %>
+              <%= f.input :facebook,   label: false, input_html:{class: 'text-center'},
+                          placeholder: "https://www.facebook.com" %>
+              <%= f.input :googleplus, label: false, input_html:{class: 'text-center'},
+                          placeholder: "https://plus.google.com" %>
+              <%= f.input :website,    label: false, input_html:{class: 'text-center'},
+                          placeholder: "https://oparttime.com" %>
+            </div>
+          </div>
+        </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
 
-        <%= f.input :password, label: false, autocomplete: "off", required: false,
-                    placeholder: '※ 欲變更密碼時填入新密碼' %>
-        <%= f.input :password_confirmation, label: false, required: false,
-                    placeholder: '※ 變更密碼時請再輸入一次新密碼' %>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingPassword">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePassword" aria-expanded="false" aria-controls="collapsePassword" style="text-decoration: none;">
+                <span><i class="fa fa-unlock-alt"></i>&nbsp;變更密碼</span>
+              </a>
+            </h4>
+          </div>
+          <div id="collapsePassword" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPassword" >
+            <div class="panel-body">
+              <%= f.input :password, label: false, autocomplete: "off", required: false, placeholder: '※ 欲變更密碼時填入新密碼' %>
+              <%= f.input :password_confirmation, label: false, required: false, placeholder: '※ 變更密碼時請再輸入一次新密碼' %>
+            </div>
+          </div>
+        </div>
         <%= f.input :current_password, label: false, required: true,
                     placeholder: '目前密碼' %>
       </div>
@@ -28,14 +68,39 @@
 
   <div class="form-actions">
     <div class="row">
-      <div class="col-md-4 col-md-offset-4 text-right">
-        <%= f.button :submit, "Update", class: "btn btn-primary" %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4 text-right">
-        <p>不爽用了？ <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "不要鬧脾氣啦！別走別走嘛！" }, method: :delete %></p>
+      <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4 text-right">
+        <%= f.button :submit, "更新我的資訊", class: "btn btn-primary" %>
+        <div class="devise-cancel-account">
+          <p>不爽用了？ <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "不要鬧脾氣啦！別走別走嘛！" },  method: :delete %></p>
+        </div>
       </div>
     </div>
   </div>
+
+  <script>
+    <!-- custom confirm dialog -->
+    $.rails.allowAction = function(element){
+      if( undefined === element.attr('data-confirm') ){
+          return true;
+      }
+
+      $.rails.showConfirmDialog(element);
+      return false;
+    };
+
+    $.rails.confirmed = function(element){
+        element.removeAttr('data-confirm');
+        element.trigger('click.rails');
+    };
+
+    $.rails.showConfirmDialog = function(element){
+        var msg = element.data('confirm');
+        alertify.confirm(msg, function(e){
+            if(e){
+                $.rails.confirmed(element);
+            }
+        })
+    };
+  </script>
+
 <% end %>

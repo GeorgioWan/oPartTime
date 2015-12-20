@@ -1,8 +1,11 @@
 $ ->
+  $("body").tooltip({ selector: '[data-toggle="tooltip"]' })
+  
+
   $(".dropdown-toggle").click (e) ->
     $(".dropdown-menu").slideToggle("fast")
 
-$ ->
+
   if $('#back-to-top').length
     scrollTrigger = 100
 

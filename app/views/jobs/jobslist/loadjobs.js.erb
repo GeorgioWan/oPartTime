@@ -1,0 +1,7 @@
+$('#job-index-list').append('<%= j render(partial: 'jobs/jobslist/list', collection: @jobs)%>');
+<% if @jobs.next_page %>
+  $('.pagination').replaceWith('<%= j paginate(@jobs) %>');
+<% else %>
+  $('#loading').remove();
+<% end %>
+<% sleep 1 %>

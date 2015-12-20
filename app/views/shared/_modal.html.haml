@@ -1,4 +1,9 @@
 #myModal.modal.fade
   .modal-dialog.o-modal-dialog
     .modal-content.o-modal-content
+      .modal-header.o-modal-header
+        %button.close{"type"=>"button", "data-dismiss"=>"modal", "aria-label"=>"Close"}
+          %span{"aria-hidden"=>"true"}
+            %i.fa.fa-times.hidden-xs.hidden-sm
+            %i.fa.fa-2x.fa-times.hidden-md.hidden-lg
       .modal-body

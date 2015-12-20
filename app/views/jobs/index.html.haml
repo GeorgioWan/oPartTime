@@ -1,12 +1,22 @@
-.job-index-title-image.shadow-z-2
-  = image_tag 'CityAnd101.jpg', id: 'job-index-title-image'
-
-.job-index-city-tab
-  .ul.nav.nav-pills
-    = btn_group_link_to "ALL", root_path
-    - @cities.each do |city|
-      = btn_group_link_to city[0], "/#{city[1]}" if city != @cities.last
-
-.job-index-container
-  = render 'jobslist'
+.row
+  .col-xs-12.hidden-md.hidden-lg
+    .panel
+      .job-index-city-tab.clearfix
+        %ul.nav.nav-pills.col-xs-12.col-sm-12
+          = btn_group_link_to "ALL", root_path, ""
+        %ul.nav.nav-pills.col-xs-12.col-sm-12
+          - @cities.each do |city|
+            = btn_group_link_to city[0], "/#{city[1]}", city[1]
+  .col-xs-12.col-md-8
+    = render 'jobs/jobslist/jobslist'
+  .col-md-4.hidden-xs.hidden-sm
+    .panel
+      .job-index-city-map
+        = render 'map_svg'
+      .job-index-city-tab.clearfix
+        %ul.nav.nav-pills.col-sm-12
+          = btn_group_link_to "ALL", root_path, ""
+        %ul.nav.nav-pills.col-sm-12
+          - @cities.each do |city|
+            = btn_group_link_to city[0], "/#{city[1]}", city[1]
 

@@ -1,0 +1,24 @@
+= render 'shared/modal'
+
+- if @jobs.empty?
+  - if request.path == "/user/favorite"
+    #job-index-empty.well.text-center.col-md-12
+      %span.empty-block
+        %span.fa-stack
+          %i.fa.fa-circle.fa-stack-2x
+          %i.fa.fa-heart.fa-stack-1x.fa-empty
+        %span.text= "加入幾個有興趣的打工吧！"
+  - else
+    #job-index-empty.well.text-center.col-md-10.col-md-offset-2
+      %span.empty-block
+        %i.fa.fa-2x.fa-exclamation-circle
+        %span.text= "目前沒有兼職工作喲！"
+- else
+  .page
+    #list
+      %ul#job-index-list.panel.list-group
+        = render partial: 'jobs/jobslist/list', collection: @jobs
+      #loading.text-center
+        = paginate @jobs
+
+= link_to '', '#', class: 'btn btn-fab btn-raised fa fa-space-shuttle fa-rotate-270 hidden-xs hidden-sm', id: "back-to-top"

@@ -1,35 +1,45 @@
-%nav.navbar.navbar-default.shadow-z-1{role:"navigation"}
+%nav#oPartTime-navbar.navbar.navbar-default.shadow-z-1{role:"navigation"}
   .container-fluid
     .navbar-header
-      = link_to root_path, class: "navbar-brand shadow-z-1" do
+      = link_to root_path, class: "navbar-brand" do
         %strong oPartTime
+      = link_to user_favorite_path, class: "navbar-brand-favorite hidden-sm hidden-md hidden-lg" do
+        %i.glyphicon.glyphicon-heart
       %button.navbar-toggle{"data-target" => "#oPartTime-navbar-collapse", "data-toggle" => "collapse", type: "button"}
         %span.sr-only switch guide
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
+
     #oPartTime-navbar-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li
-          = link_to '找頭路', jobs_path
-        %li#hire_li.shadow-z-2
+        %li#li_with_hover
+          = link_to '找頭路', root_path
+        %li#li_hire.shadow-z-1
           = link_to new_job_path do
             %strong= '我要徵人才'
       %ul.nav.navbar-nav.navbar-right
+        %li#li_with_hover.hidden-xs
+          = link_to user_favorite_path do
+            %i.glyphicon.glyphicon-heart
+            那些年喜歡的工作
         %li.dropdown
           - if user_signed_in?
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: '#'}
-              哈囉！
-              = current_user.name
-              %b.caret
+              %span
+                哈囉！
+                = image_tag current_user.avatar_url(:pinkie), class: "user-edit-avatar-pinkie shadow-z-1"
+                = current_user.name
+                %b.caret
             %ul.dropdown-menu
               %li
-                = link_to edit_user_registration_path  do
-                  %i.glyphicon.glyphicon-user
+                = link_to current_user do
+                  %i.fa.fa-user
                   我的資料
+              %li.divider
               %li
                 = link_to destroy_user_session_path, method: :delete, rel: "nofollow" do
-                  %i.glyphicon.glyphicon-log-out
+                  %i.fa.fa-sign-out
                   登出
           - else
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: '#'}
@@ -38,9 +48,10 @@
             %ul.dropdown-menu
               %li
                 = link_to new_user_registration_path  do
-                  %i.glyphicon.glyphicon-plus
+                  %i.fa.fa-user-plus
                   我要加入！
+              %li.divider
               %li
                 = link_to new_user_session_path do
-                  %i.glyphicon.glyphicon-log-in
+                  %i.fa.fa-sign-in
                   登入

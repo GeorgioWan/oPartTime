@@ -3,17 +3,69 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :guest_name
+  before_action :guest_name, :set_login_cookie
+  before_action :merge_favorite_job_from_cookie, if: :user_signed_in?
+  helper_method :get_location
 
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name
-    devise_parameter_sanitizer.for(:account_update ) << :name
+    devise_parameter_sanitizer.for(:account_update ) << [:name, :avatar, :avatar_cache, :remove_avatar,
+                                                         :twitter, :facebook, :googleplus, :website]
   end
 
   def guest_name
     @name = cookies[:name].nil? ? ["頹廢浪人","絕世美女","武林高手","丐幫成員","神奇寶貝大師","文學青年","小王子"].sample : cookies[:name]
     cookies[:name] = { :value => @name, :expires => 1.minute.from_now }
+  end
+
+  def set_login_cookie
+    cookies[:is_login] = user_signed_in?
+  end
+
+  def merge_favorite_job_from_cookie
+    jobIds = cookies[:favorite_jobs]
+    if jobIds != nil
+      JSON.parse(jobIds).each do |id|
+        FavoriteJob.find_or_create_by user_id: current_user.id, job_id: id
+      end
+    end
+    cookies.delete :favorite_jobs
+  end
+
+  # 替 job instance 新增 is_favorite? method 以判斷使用者是否已將該 job 加入最愛
+  def set_jobs_favorite_flag(jobs)
+    fids = get_favorite_job_ids
+    jobs.each {|j| def j.is_favorite?; false end}
+    jobs.to_a
+      .clone
+      .keep_if {|j| j.id.in? fids}
+      .each {|j| def j.is_favorite?; true end}
+  end
+
+  def get_favorite_job_ids
+    if user_signed_in?
+      current_user.favorite_jobs.collect {|i| i.id}
+    else
+      c = cookies[:favorite_jobs]
+      c == nil ? [] : JSON.parse(c).collect {|i| i.to_i}
+    end
+  end
+
+  def get_location job
+    TaiwanCity.list.each do |c|
+      if c[1] == job.city
+        @city=c[0]
+      end
+    end
+
+    TaiwanCity.list(job.city).each do |d|
+      if d[1] == job.district
+        @district=d[0]
+      end
+    end
+
+    return "#{@city}#{@district}"
   end
 end

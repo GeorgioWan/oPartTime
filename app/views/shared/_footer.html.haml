@@ -1,0 +1,46 @@
+%footer.footer
+  .container
+    .footer-inner
+      %ul.hidden-xs
+        %li
+          %span
+            = link_to root_path do
+              %span= "Copyright"
+              %i.fa.fa-copyright
+              %span
+                = "2015 "
+                %strong= "oPartTime"
+        %li
+          %span= "‧"
+        %li
+          %span
+            = link_to "關於我們", "#"
+        %li
+          %span= "‧"
+        %li
+          %span
+            = link_to "隱私條款", privacy_path
+        %li
+          %span= "‧"
+        %li
+          %span
+            = link_to "使用條款", policy_path
+        %li
+          %span= "‧"
+        %li
+          %span
+            = link_to "#" do
+              %i.fa.fa-facebook-square.fa-lg
+
+      .hidden-sm.hidden-md.hidden-lg
+        .col-xs-12.text-center
+          %span
+            = link_to "關於我們", "#"
+            = "‧"
+            = link_to "#" do
+              %i.fa.fa-facebook-square.fa-lg
+            = "‧"
+            = link_to root_path do
+              %i.fa.fa-copyright
+              %span
+                %strong= "oPartTime"

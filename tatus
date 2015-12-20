@@ -1,0 +1,255 @@
+[33mcommit 70764975f9c22b7cda8d9982b6ff714b7e28cfe8[m
+Author: aiueoH <aiueo.huang.github@gmail.com>
+Date:   Fri Nov 20 12:38:36 2015 +0000
+
+    Save favorite jobs in cookie.
+
+[33mcommit 8afd6b8a75b47a7c8b876515feac2e356651e1c2[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Thu Nov 19 19:14:18 2015 +0800
+
+    :star:add user profile page, edit index page
+
+[33mcommit 20f433e96201f9a5002629f7935bce608c383dd7[m
+Merge: e2dee23 0952b5f
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Thu Nov 19 16:43:44 2015 +0800
+
+    Merge branch 'develop' of https://github.com/GeorgioWan/oPartTime into develop
+
+[33mcommit e2dee23314aefc07c5ad043185a0a818272fd26d[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Thu Nov 19 16:42:07 2015 +0800
+
+    :airplane:add back to top, update city bar
+
+[33mcommit 0952b5f75828ba126055675870551f9688275117[m
+Merge: 04d226e 955b0c1
+Author: aiueoH <aiueoH@users.noreply.github.com>
+Date:   Thu Nov 19 14:59:08 2015 +0800
+
+    Merge pull request #3 from GeorgioWan/fix_keep_guest_name
+    
+    Fix keep random guest name
+
+[33mcommit 955b0c13a46e510888eef3c24eb395ff15367398[m
+Author: aiueoH <aiueo.huang@gmail.com>
+Date:   Thu Nov 19 06:39:37 2015 +0000
+
+    Fix keep random guest name
+    
+    Before fix, use setInterval() in function, the function will be called many times like recursive. I moved that code to document.read(), and it run properly.
+    
+    Rename the function when fix this bug.
+
+[33mcommit 7e16bb8cd2ddb752129f917d319510a1f320a3b5[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Wed Nov 18 18:34:51 2015 +0800
+
+    update
+
+[33mcommit 04d226e1fd200d427dc9db1a976a498056f1e097[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Wed Nov 18 18:03:53 2015 +0800
+
+    :a:use google font - "cwtexhei"
+
+[33mcommit c889a0f5efc13791966007e462850940d5b73dc8[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Wed Nov 18 16:38:55 2015 +0800
+
+    :muscle:Update index - finish popupgit status
+
+[33mcommit 65a842a78fa53bb5037d43800b9d99914ba537f8[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Tue Nov 17 18:36:39 2015 +0800
+
+    updating index
+
+[33mcommit 821e35bb7ba0de7389708f1434bcf3641cb65913[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Tue Nov 17 16:44:59 2015 +0800
+
+    Update index page
+
+[33mcommit 88fb1095a3c0f543d6b7b4fa94bc082ce18d090a[m
+Merge: 1d01a5e ee29aed
+Author: GeorgioWan <georgio.wan@gmail.com>
+Date:   Mon Nov 16 23:08:11 2015 +0800
+
+    Merge pull request #2 from aiueoH/fix_randomname
+    
+    Keep the random guest
+
+[33mcommit 1d01a5e433543d9ac0e737bfc691a4236c4e4f79[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Mon Nov 16 18:21:44 2015 +0800
+
+    add city tab to index page
+
+[33mcommit ee29aed46e6b90973ac6ee9d00b178f311a56692[m
+Author: aiueoH <aiueo.huang@gmail.com>
+Date:   Mon Nov 16 08:52:35 2015 +0000
+
+    Keep the random guest
+    Use javascript to update cookie expire to keep the random guest.
+
+[33mcommit 5b5cf677d517a8d1cfc87ccaa69b52a84d0b0b33[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Fri Nov 13 17:26:57 2015 +0800
+
+    Fix guest name problem with cookies
+
+[33mcommit ce036ceea555f910d03d3f480ca018c2cf2b21fc[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Fri Nov 13 15:27:00 2015 +0800
+
+    :house_with_garden: We could choose city and district now!!
+     - add 'city' and 'district' to JOB
+     - remove 'location' from JOB
+     - add dev:rake
+
+[33mcommit 8d0611f1b446b0190668f0a99827a03807ac7cb9[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Thu Nov 12 18:59:41 2015 +0800
+
+    use taiwan city gem
+
+[33mcommit 3d4ce1626859c79c3fafebb20c1841857e44514b[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Thu Nov 12 17:18:23 2015 +0800
+
+    update index page
+
+[33mcommit 2122b3804df3cefd830b7b6106ef017888746f00[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Wed Nov 11 18:04:01 2015 +0800
+
+    update validte:+1:
+
+[33mcommit 3c144c23d3ee4bc6249ced9c915885370de2de0f[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Wed Nov 11 17:06:38 2015 +0800
+
+    add validation
+
+[33mcommit dbf23b5dd452bff425ebf95ce7f8d2e4a22a7301[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Wed Nov 11 16:34:31 2015 +0800
+
+    :star:use pagedown editor sup markdown(in _form and show page):star:
+
+[33mcommit 2ca8ebe5d691963708e3e39a93e68f8b9f4659ee[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Wed Nov 11 10:45:45 2015 +0800
+
+    add pagedown gem
+
+[33mcommit f32dd98faaec1b1d9b7060bdb389a7c4f2b44858[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Tue Nov 10 18:18:39 2015 +0800
+
+    update account edit, job show and edit page
+
+[33mcommit 8b0a8d0cd657b86d2a0c57b85acc3cd0c65918d9[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Tue Nov 10 16:00:48 2015 +0800
+
+    add notification to show page
+
+[33mcommit 7aad5627bb71e29c26ef7396609b4ccd55456ba3[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Tue Nov 10 15:12:37 2015 +0800
+
+    :moyai: add i18n and update devise part
+
+[33mcommit 3a694fa05d4c52fbaf3cd9f3ab6d3764ec860d5e[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Tue Nov 10 13:52:37 2015 +0800
+
+    add zh-TW file(simple form and devise)
+
+[33mcommit 7e7db8f2378948d8119d85914b22fb81fd4f5e54[m
+Author: GeorgioWan <georgiowan@gmail.com>
+Date:   Sat Nov 7 05:20:31 2015 +0800
+
+    update index page
+
+[33mcommit 5a90c7bae53a10648713da7622b9f09b6c59f600[m
+Author: GeorgioWan <georgiowan@gmail.com>
+Date:   Sat Nov 7 02:26:52 2015 +0800
+
+    :seedling: Add seeds :seedling:
+
+[33mcommit 1fd2532648ea770e593cfd124012affbc116e7d2[m
+Author: GeorgioWan <georgiowan@gmail.com>
+Date:   Sat Nov 7 02:24:23 2015 +0800
+
+    :seeding: Add seeds :seeding:
+
+[33mcommit 863394aadc6dab85640c2f73e4ceb3224500dc4c[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Fri Nov 6 18:48:56 2015 +0800
+
+    update index pag :star:
+
+[33mcommit 2d5c914f631c1118aac14226275184b08c5d394e[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Fri Nov 6 16:32:20 2015 +0800
+
+    :star: update show
+
+[33mcommit 9b4abc70113ae7b88f0ed78f5197f2db5509ac50[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Thu Nov 5 18:38:03 2015 +0800
+
+    add alerttify, edit show and index page :sunny:
+
+[33mcommit e9ebd524f24f62ebd7cc3cddab653abf51f5b62c[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Thu Nov 5 16:29:20 2015 +0800
+
+    add association between jobs and users
+
+[33mcommit c2e78b9fe9e5388998dbf330ac3c16eba83112d1[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Thu Nov 5 15:52:02 2015 +0800
+
+    :+1:update new and edit form
+
+[33mcommit f4067c25a05318c5cdca23926015f98abc0636c5[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Wed Nov 4 20:54:34 2015 +0800
+
+    :thumbsup: Jobs crud is done
+
+[33mcommit c904b08712cafa586eab6ff4acad279569f90ef3[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Wed Nov 4 19:28:50 2015 +0800
+
+    :ghost: Edit ignore
+
+[33mcommit d8d5887d30e8334bd3d6e010dafc5d0d59dc40a1[m
+Merge: 6a82327 efbbb5f
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Wed Nov 4 19:22:47 2015 +0800
+
+    Merge branch 'master' of https://github.com/GeorgioWan/oPartTime
+
+[33mcommit efbbb5f6aa63d166872f13d8e7da3fe2a2c98734[m
+Author: GeorgioWan <georgio.wan@gmail.com>
+Date:   Wed Nov 4 19:16:35 2015 +0800
+
+    Initial commit
+
+[33mcommit 6a823276e7032e98c7283747bbf955e5b52f1755[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Wed Nov 4 19:08:10 2015 +0800
+
+    :metal:
+
+[33mcommit 8081e9bc7dba6d8e92cef74836d630131b22e715[m
+Author: GeorgioWan <georgio.wan@icatchinc.com>
+Date:   Wed Nov 4 15:00:55 2015 +0800
+
+    initial commit

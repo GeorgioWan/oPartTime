@@ -19,5 +19,6 @@
 //= require taiwan_city/jquery.taiwan_city
 //= require pagedown_bootstrap
 //= require pagedown_init
+//= require alertify
 //= require turbolinks
 //= require_tree .
