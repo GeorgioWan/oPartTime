@@ -2,9 +2,9 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :loadpage]
   before_action :set_jobs,     only: [:index, :loadpage]
   before_action :set_cities,   only: [:index, :loadpage]
-  before_action :set_job,      only: [:show, :edit, :update, :destroy]
+  before_action :set_job,      only: [:edit, :update, :destroy]
+  before_action :set_job_and_location, only: :show 
   before_action :set_value,    only: [:new,  :edit, :create, :update]
-  before_action :set_location, only: :show
 
   def index
     respond_to do |format|
@@ -28,7 +28,7 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job=Job.new job_params
+    @job=current_user.jobs.new job_params
     if @job.save
       redirect_to jobs_path
     else
@@ -58,7 +58,7 @@ class JobsController < ApplicationController
   end
 
   def set_job
-    @job = Job.find(params[:id])
+    @job = current_user.jobs.find(params[:id])
   end
 
   def set_jobs
@@ -72,7 +72,8 @@ class JobsController < ApplicationController
     @cities= cities.keep_if{|c| !c.equal? cities.last}
   end
 
-  def set_location
+  def set_job_and_location
+    @job = Job.find(params[:id])
     TaiwanCity.list.each do |c|
       if c[1] == @job.city
         @city=c[0]
