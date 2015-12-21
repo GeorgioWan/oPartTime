@@ -86,9 +86,19 @@ function showUndoFJSnackbar() {
   return preUndoMsgSnackbar;
 }
 
+function favoriteButtonClickAnimate(btn){
+  btn.animate({ turn: '+=180' }, {
+    step: function(now,fx) {
+      btn.css('transform',"rotateY(" + now + "deg)");
+    },
+    duration:'normal'
+  },'linear');
+}
+
 $(document).ready(function() {
   $("ul.panel.list-group").on("click", ".fa-btn", function() {
     var jobId = $(this).attr("jobid");
+    favoriteButtonClickAnimate($(this));
     $(this).blur();
     if ($(this).hasClass("favorite")) {
       addFavorite(jobId);
