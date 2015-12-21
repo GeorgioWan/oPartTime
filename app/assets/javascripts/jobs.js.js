@@ -95,6 +95,31 @@ function favoriteButtonClickAnimate(btn){
   },'linear');
 }
 
+function listMenuButtonClickAnimate(btn){
+  var elem = btn.parents("span").children("span");
+  
+  if (!elem.is(':visible'))  {
+    btn.animate({ turn: '90' }, {
+      step: function(now,fx) {
+        btn.css('transform',"rotate(" + now + "deg)");
+      },
+      duration:'fast'
+    },'ease');
+  } else {
+    btn.animate({ turn: '0' }, {
+      step: function(now,fx) {
+        btn.css('transform',"rotate(" + now + "deg)");
+      },
+      duration:'fast'
+    },'ease');
+  }
+  
+  elem.children("#job-index-list-edit").toggleClass("showE").toggleClass("hideE");
+  elem.children("#job-index-list-delete").toggleClass("showD").toggleClass("hideD");
+  elem.fadeToggle('fast', function(){});
+  
+}
+
 $(document).ready(function() {
   $("ul.panel.list-group").on("click", ".fa-btn", function() {
     var jobId = $(this).attr("jobid");
@@ -115,5 +140,10 @@ $(document).ready(function() {
         $(".fa-btn[jobid=" + jobId + "]").toggleClass("favorite").toggleClass("unfavorite");
       }
     }
+  });
+  
+  $("ul.panel.list-group").on("click", "#job-index-list-ud", function() {
+    var jobId = $(this).attr("jobid");
+    listMenuButtonClickAnimate($(this));
   });
 });

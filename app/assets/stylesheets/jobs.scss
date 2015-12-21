@@ -107,11 +107,12 @@
   li {
     padding: 10px;
     border: 1px solid #DDD;
-    transition: background-color, box-shadow 0.3s ease;
-    &:hover{
-      background-color: rgba(185, 185, 185, 0.20);
-      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+    @media screen and (min-width: 1280px){
+      transition: background-color, box-shadow 0.3s ease;
+      &:hover{
+        background-color: rgba(185, 185, 185, 0.20);
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
     }
   }
   #job-index-list-information{
@@ -158,21 +159,71 @@
       }
     }
   }
-  .job-index-list-favorite{
+  .job-index-list-menu{
     line-height: 65px;
     #job-index-list-favorite{
       color: #676767;
       font-size: 1.6em;
       text-decoration: none;
-      transition: color 0.1s ease;
+      transition: color 0.2s ease;
       &:hover{
         color: #009688;
       }
     }
+    #job-index-list-ud{
+      @extend #job-index-list-favorite;
+      cursor: pointer;
+      font-size: 1.8em;
+    }
+    #job-index-list-edit{
+      @extend #job-index-list-favorite;
+      position: absolute;
+    }
+     #job-index-list-delete{
+      @extend #job-index-list-favorite;
+      position: absolute;
+    }
   }
   .fa-btn.fa-heart.unfavorite {
     color: #FB7070 !important;
+    transition: color 0.2s ease;
+    &:hover{
+      color: #F44336 !important;
+    }
   }
+}
+.showE{
+  animation: showEdit 0.3s linear forwards;
+  left: -80px;
+}
+.hideE{
+  animation: hideEdit 0.3s linear forwards ;
+  left: 0px;
+}
+.showD{
+  animation: showDelete 0.3s linear forwards ;
+  left: -40px;
+}
+.hideD{
+  animation: hideDelete 0.3s linear forwards ;
+  left: 0px;
+}
+@keyframes showEdit{
+  from {left:   0px; transform:rotate(0deg);   visibility: hidden;}
+  to   {left: -80px; transform:rotate(360deg); visibility: visible;}
+}
+@keyframes hideEdit{
+  from {left: -80px; transform:rotate(360deg); visibility: visible;}
+  to   {left:   0px; transform:rotate(0deg);   visibility: hidden;}
+}
+
+@keyframes showDelete{
+  from {left:   0px; transform:rotate(0deg);   visibility: hidden;}
+  to   {left: -40px; transform:rotate(360deg); visibility: visible;}
+}
+@keyframes hideDelete{
+  from {left: -40px; transform:rotate(360deg); visibility: visible;}
+  to   {left:   0px; transform:rotate(0deg);   visibility: hidden;}
 }
 
 /*****************

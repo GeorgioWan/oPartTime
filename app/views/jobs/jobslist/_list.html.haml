@@ -13,13 +13,26 @@
       %span
         = "# 張貼於 #{time_ago_in_words(list.created_at)}前 by "
         = link_to "#{list.user.name}", list.user
-  .col-xs-2.col-md-1.job-index-list-favorite
-    %sapn.text-right
-      = link_to '',
-      'javascript:;',
-      class: 'fa fa-heart fa-btn' + (list.is_favorite? ? ' unfavorite' : ' favorite'),
-      id: "job-index-list-favorite" ,
-      jobid: list.id,
-      data:{toggle:"tooltip", placement:"bottom", container: 'body'},
-      title: (list.is_favorite? ? "從最愛清單中移除!" : "加入最愛!")
+  .col-xs-2.col-md-1.job-index-list-menu
+    %span.text-right
+      - if list.user == current_user
+        %span{style: "display: none;"}
+          = link_to edit_job_path(list.id), id: 'job-index-list-edit', class: 'hideE' do
+            %span.fa-stack
+              %i.fa.fa-circle.fa-stack-2x
+              %i.fa.fa-pencil.fa-stack-1x.fa-inverse
+          = link_to list, data: {confirm: "真的不徵了嗎？"}, method: :delete, id: 'job-index-list-delete', class: 'hideD' do 
+            %span.fa-stack
+              %i.fa.fa-circle.fa-stack-2x
+              %i.fa.fa-trash.fa-stack-1x.fa-inverse
+        %i#job-index-list-ud.fa.fa-chevron-circle-down
+      - else
+        = link_to '',
+        'javascript:;',
+        class: 'fa fa-heart fa-btn' + (list.is_favorite? ? ' unfavorite' : ' favorite'),
+        id: "job-index-list-favorite" ,
+        jobid: list.id,
+        data:{toggle:"tooltip", placement:"bottom", container: 'body'},
+        title: (list.is_favorite? ? "從最愛清單中移除!" : "加入最愛!")
+        
 
