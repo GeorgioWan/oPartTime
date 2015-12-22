@@ -6,17 +6,31 @@
           = btn_group_link_to "ALL", root_path, ""
         %ul.nav.nav-pills.col-xs-12.col-sm-12
           - @cities.each do |city|
-            = btn_group_link_to city[0], "/#{city[1]}", city[1]
+            = btn_group_link_to city[0], "javascript:;", city[1]
+    .popoverHiddenContent{style: "display: none"}
+      .panel
+        .job-index-city-tab
+          .pContent
+            
   .col-xs-12.col-md-8
     = render 'jobs/jobslist/jobslist'
+    
   .col-md-4.hidden-xs.hidden-sm
     .panel
       .job-index-city-map
         = render 'map_svg'
+    
+    .panel
       .job-index-city-tab.clearfix
         %ul.nav.nav-pills.col-sm-12
           = btn_group_link_to "ALL", root_path, ""
         %ul.nav.nav-pills.col-sm-12
           - @cities.each do |city|
-            = btn_group_link_to city[0], "/#{city[1]}", city[1]
+            = btn_group_link_to city[0], "javascript:;", city[1]
 
+    .popoverHiddenContent{style: "display: none"}
+      .panel
+        .job-index-city-tab
+          .pContent
+        
+            

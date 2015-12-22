@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :loadpage]
-  before_action :set_jobs,     only: [:index, :loadpage]
-  before_action :set_cities,   only: [:index, :loadpage]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_jobs,     only: :index
+  before_action :set_cities,   only: :index
   before_action :set_job,      only: [:edit, :update, :destroy]
   before_action :set_job_and_location, only: :show 
   before_action :set_value,    only: [:new,  :edit, :create, :update]
@@ -11,9 +11,6 @@ class JobsController < ApplicationController
       format.html
       format.js   {render 'jobs/jobslist/loadjobs' }
     end
-  end
-
-  def loadpage
   end
 
   def show
@@ -62,7 +59,12 @@ class JobsController < ApplicationController
   end
 
   def set_jobs
-    @jobs = params[:city_id] ? Job.where(city: params[:city_id]).order("updated_at DESC") : Job.all.order("updated_at DESC")
+    if params[:district]
+      @jobs = Job.where(district: params[:district]).order("updated_at DESC")
+    else
+      @jobs = params[:city_id] ? Job.where(city: params[:city_id]).order("updated_at DESC") : Job.all.order("updated_at DESC")
+    end
+    
     @jobs = @jobs.page(params[:page])
     set_jobs_favorite_flag @jobs
   end

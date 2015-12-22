@@ -17,7 +17,12 @@ module JobHelper
   end
   
   def btn_group_link_to text, path, city_id
-    active = request.path == path ? :active : nil
-    content_tag :li, link_to( (trans_text(text) + content_tag(:span, jobs_count(city_id), class: ["badge", "badge-city"])).html_safe, path), class: active
+    if path == "/" || path == "/jobs"
+      active = request.path == path ? :active : nil
+      content_tag :li, link_to( (trans_text(text) + content_tag(:span, jobs_count(city_id), class: ["badge", "badge-city"])).html_safe, path), class: active
+    else
+      active = request.path == "/"+city_id ? :active : nil
+      content_tag :li, link_to( (trans_text(text) + content_tag(:span, jobs_count(city_id), class: ["badge", "badge-city"])).html_safe, path, class: "oPartTime-popover", data: {cityid: city_id}), class: active
+    end
   end
 end
