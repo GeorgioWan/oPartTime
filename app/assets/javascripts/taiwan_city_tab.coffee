@@ -1,5 +1,5 @@
 $ ->
-  $(".oPartTime-popover").click ->
+  $(".oPartTime-city").click ->
     cityId = $(this).data("cityid")
     districts = $.get( ("/taiwan_city/" + cityId), (data) ->
       i = 0
@@ -16,4 +16,4 @@ $ ->
       }))
     )
     
-    $('.popoverHiddenContent').fadeIn('slow')
+    $('.districtsContent').fadeIn('slow')

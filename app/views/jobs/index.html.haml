@@ -7,7 +7,7 @@
         %ul.nav.nav-pills.col-xs-12.col-sm-12
           - @cities.each do |city|
             = btn_group_link_to city[0], "javascript:;", city[1]
-    .popoverHiddenContent{style: "display: none"}
+    .districtsContent{style: "display: none"}
       .panel
         .job-index-city-tab
           .pContent
@@ -28,7 +28,7 @@
           - @cities.each do |city|
             = btn_group_link_to city[0], "javascript:;", city[1]
 
-    .popoverHiddenContent{style: "display: none"}
+    .districtsContent{style: "display: none"}
       .panel
         .job-index-city-tab
           .pContent
