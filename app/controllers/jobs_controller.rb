@@ -5,8 +5,11 @@ class JobsController < ApplicationController
   before_action :set_job,      only: [:edit, :update, :destroy]
   before_action :set_job_and_location, only: :show 
   before_action :set_value,    only: [:new,  :edit, :create, :update]
+  helper_method :get_districts
 
   def index
+    @at_city = params[:city] if params[:city]
+    @at_district = params[:district] if params[:district]
     respond_to do |format|
       format.html
       format.js   {render 'jobs/jobslist/loadjobs' }
@@ -62,7 +65,7 @@ class JobsController < ApplicationController
     if params[:district]
       @jobs = Job.where(district: params[:district]).order("updated_at DESC")
     else
-      @jobs = params[:city_id] ? Job.where(city: params[:city_id]).order("updated_at DESC") : Job.all.order("updated_at DESC")
+      @jobs = params[:city] ? Job.where(city: params[:city]).order("updated_at DESC") : Job.all.order("updated_at DESC")
     end
     
     @jobs = @jobs.page(params[:page])
@@ -87,6 +90,10 @@ class JobsController < ApplicationController
         @district=d[0]
       end
     end
+  end
+  
+  def get_districts city_id
+    return TaiwanCity.list(city_id)
   end
 
   def set_value
