@@ -11,15 +11,15 @@ module JobHelper
   
   def jobs_count city_id
     if !city_id.blank?
-      return Job.where(city: city_id).count if Job.where(city: city_id).count < 999
-      return '999+'
+      count = Job.where(city: city_id,  updated_at: (Time.now - 15.days)..Time.now ).count
+      return count < 999 ? count : '999+'
     end
   end
   
   def jobs_count_d district_id
     if !district_id.blank?
-      return Job.where(district: district_id).count if Job.where(district: district_id).count < 999
-      return '999+'
+      count = Job.where(district: district_id,  updated_at: (Time.now - 15.days)..Time.now ).count
+      return count < 999 ? count : '999+'
     end
   end
   

@@ -142,7 +142,7 @@ $(document).ready(function() {
     }
   });
   
-  $("ul.panel.list-group").on("click", "#job-index-list-ud", function() {
+  $("ul.list-group").on("click", "#job-index-list-ud", function() {
     var jobId = $(this).attr("jobid");
     listMenuButtonClickAnimate($(this));
   });

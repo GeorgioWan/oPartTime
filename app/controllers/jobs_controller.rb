@@ -68,7 +68,9 @@ class JobsController < ApplicationController
       @jobs = params[:city] ? Job.where(city: params[:city]).order("updated_at DESC") : Job.all.order("updated_at DESC")
     end
     
-    @jobs = @jobs.page(params[:page])
+    # Only show the jobs updated in 15 days
+    @jobs = @jobs.where( updated_at: (Time.now - 15.days)..Time.now ).page(params[:page])
+
     set_jobs_favorite_flag @jobs
   end
 
