@@ -9,9 +9,9 @@
         %span.job-byline-dash
           |
           %i.glyphicon.glyphicon-time
-          = @job.created_at.strftime("%b %d, %a, %Y")
+          = @job.updated_at.strftime("%b %d, %a, %Y")
           %sanp.badge
-            = time_ago_in_words(@job.created_at)
+            = time_ago_in_words(@job.updated_at)
 
     .col-md-3.text-right.job-edit-button
       = link_to '', edit_job_path(@job.id), class: 'btn btn-primary btn-fab btn-raised mdi-editor-mode-edit' if @job.user == current_user

@@ -14,9 +14,8 @@ class UsersController < ApplicationController
   end
 
   def set_jobs
-    @jobs = @user.jobs.order("updated_at DESC")
-    # handle Kaminari paginate array
-    @jobs = Kaminari.paginate_array(@jobs).page(params[:page]).per(20)
+    @jobs = params[:takenoff] ? @user.jobs.where.not( updated_at: (Time.now - 15.days)..Time.now ) : @user.jobs.where( updated_at: (Time.now - 15.days)..Time.now )
+    @jobs = @jobs.page(params[:page]).per(20)
     set_jobs_favorite_flag @jobs
   end
 
