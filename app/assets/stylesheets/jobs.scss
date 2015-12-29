@@ -41,9 +41,16 @@
   }
 }
 #oPartTime-accordion{
+  .panel-heading{
+    background-color: #009688;
+  }
   h4.panel-title{
     a{
+      color: rgba(255,255,255,0.8);
       text-decoration: none;
+      &:hover{
+        color: rgba(255,255,255,1);
+      }
     }
   } 
 }
