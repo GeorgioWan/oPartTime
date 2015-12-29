@@ -5,10 +5,13 @@
       .job-byline
         %span.job-byline-user
           by
-          = link_to @job.user.name, @job.user
+          = link_to @job.user do
+            %span
+              = image_tag @job.user.avatar_url(:pinkie), class: "user-edit-avatar-pinkie shadow-z-1"
+              = @job.user.name
         %span.job-byline-dash
           |
-          %i.glyphicon.glyphicon-time
+          %i.fa.fa-clock-o
           = @job.updated_at.strftime("%b %d, %a, %Y")
           %sanp.badge
             = time_ago_in_words(@job.updated_at)
@@ -26,20 +29,24 @@
       .job-body-information
         .list-group{"data-spy" => "affix", "data-offset-top" => "150"}
           .list-group-item
-            .list-group-content
-              %i.glyphicon.glyphicon-usd
+            .list-group-content{data:{toggle:"tooltip", placement:"left", container: 'body'}, title: '時薪'}
+              %i.fa.fa-2x.fa-usd
                 %sapn.list-body-information-price= @job.pay
           .list-group-item
-            .list-group-content
-              %i.glyphicon.glyphicon-equalizer
+            .list-group-content{data:{toggle:"tooltip", placement:"left", container: 'body'}, title: '徵人單位'}
+              %i.fa.fa-building
                 %span= @job.company
-          = link_to "#{@job.url}", class: "list-group-item", target: "_blank" do
-            .list-group-content
-              %i.glyphicon.glyphicon-globe
-                %span= @job.url
           .list-group-item
-            .list-group-content
-              %i.glyphicon.glyphicon-map-marker
+            .list-group-content{data:{toggle:"tooltip", placement:"left", container: 'body'}, title: '僱主網站'}
+              %i.fa.fa-globe
+                %span
+                  - if @job.url.blank?
+                    = "暫無"
+                  - else
+                    = link_to "#{@job.url}", "#{@job.url}", target: "_blank"
+          .list-group-item
+            .list-group-content{data:{toggle:"tooltip", placement:"left", container: 'body'}, title: '工作地點'}
+              %i.fa.fa-map-marker
                 %span= "#{@city}#{@district}"
     .col-md-7.col-md-offset-1
       .job-body-description
