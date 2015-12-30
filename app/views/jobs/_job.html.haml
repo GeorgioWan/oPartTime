@@ -1,3 +1,14 @@
+.fb-root
+:javascript
+  $(function() {
+    $('.wmd-output').each(function(i) {
+      var content, converter;
+      converter = new Markdown.Converter;
+      content = $(this).html();
+      $(this).html(converter.makeHtml(content));
+    });
+  });
+  
 .job-show-container
   .row.job-head-section
     .col-md-7.col-md-offset-1
@@ -15,6 +26,8 @@
           = @job.updated_at.strftime("%b %d, %a, %Y")
           %sanp.badge
             = time_ago_in_words(@job.updated_at)
+        %span
+          .fb-share-button{data: {href: "#{request.original_url}", layout: "button"}}
 
     .col-md-3.text-right.job-edit-button
       = link_to '', edit_job_path(@job.id), class: 'btn btn-primary btn-fab btn-raised mdi-editor-mode-edit' if @job.user == current_user
@@ -48,6 +61,7 @@
             .list-group-content{data:{toggle:"tooltip", placement:"left", container: 'body'}, title: '工作地點'}
               %i.fa.fa-map-marker
                 %span= "#{@city}#{@district}"
+            
     .col-md-7.col-md-offset-1
       .job-body-description
         .panel.panel-danger
@@ -59,13 +73,4 @@
               .li ◎ 切勿提供個人重要資料，如身分證、銀行郵局帳號、信用卡、密碼等。
               .li ◎ 若遇被要求繳費、購買商品或服務等，請勿進行並撥打反詐騙專線165聯繫警方。
 
-:javascript
-  $(function() {
-    $('.wmd-output').each(function(i) {
-      var content, converter;
-      converter = new Markdown.Converter;
-      content = $(this).html();
-      $(this).html(converter.makeHtml(content));
-    });
-  });
 

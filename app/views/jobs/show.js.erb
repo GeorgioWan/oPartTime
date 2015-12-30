@@ -1,4 +1,4 @@
 $modal = $('.modal'),
 $modalBody = $('.modal .modal-body'),
-$modalBody.html("<%= escape_javascript(render @job) %>");
+$modalBody.html("<%= j render @job %>");
 $modal.modal();
