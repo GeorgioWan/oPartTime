@@ -124,6 +124,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    meta-tags (2.1.0)
+      actionpack (>= 3.0.0)
     method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile (0.6.2)
@@ -253,6 +255,7 @@ DEPENDENCIES
   js_cookie_rails
   kaminari
   kaminari-i18n
+  meta-tags
   pagedown-bootstrap-rails
   rails (= 4.2.4)
   rails-erd
