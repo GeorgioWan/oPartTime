@@ -11,6 +11,18 @@ class User < ActiveRecord::Base
 
   ### Carrierwave
   mount_uploader :avatar, AvatarUploader
+  
+  ### Friendly id
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
+  def normalize_friendly_id(input)
+    "#{input.to_s.to_slug.normalize.to_s}"
+  end
+  
+  def should_generate_new_friendly_id?
+    slug.blank? || name_changed?
+  end
 
   ### Validate
   validates_format_of :twitter, :facebook, :googleplus, :website,

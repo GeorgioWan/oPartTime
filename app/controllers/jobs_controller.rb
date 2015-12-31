@@ -8,8 +8,13 @@ class JobsController < ApplicationController
   helper_method :get_districts
 
   def index
+    # meta_tags
+    @page_title = "找頭路"
+    @page_description = "oPartTime 讓您更快速找到心目中的打工"
+    
     @at_city = params[:city] if params[:city]
     @at_district = params[:district] if params[:district]
+    
     respond_to do |format|
       format.html
       format.js   {render 'jobs/jobslist/loadjobs' }
@@ -17,6 +22,13 @@ class JobsController < ApplicationController
   end
 
   def show
+    # meta_tags
+    @page_title = @job.title
+    @page_description = @job.description
+    @page_image = @job.user.avatar_url(:fist)
+    prepare_meta_tags( og: { title: @page_title,
+                             image: @job.user.avatar_url(:fist)})
+    
     respond_to do |format|
       format.html
       format.js
@@ -81,6 +93,7 @@ class JobsController < ApplicationController
 
   def set_job_and_location
     @job = Job.find(params[:id])
+    
     TaiwanCity.list.each do |c|
       if c[1] == @job.city
         @city=c[0]

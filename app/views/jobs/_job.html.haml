@@ -14,19 +14,20 @@
     .col-md-7.col-md-offset-1
       %h1.job-title= @job.title
       .job-byline
-        %span.job-byline-user
+        %span
           by
           = link_to @job.user do
             %span
               = image_tag @job.user.avatar_url(:pinkie), class: "user-edit-avatar-pinkie shadow-z-1"
               = @job.user.name
-        %span.job-byline-dash
-          |
+        %span.job-byline-time
+          = "‧"
           %i.fa.fa-clock-o
           = @job.updated_at.strftime("%b %d, %a, %Y")
           %sanp.badge
             = time_ago_in_words(@job.updated_at)
         %span
+          = "‧"
           .fb-share-button{data: {href: "#{request.original_url}", layout: "button"}}
 
     .col-md-3.text-right.job-edit-button
@@ -56,7 +57,7 @@
                   - if @job.url.blank?
                     = "暫無"
                   - else
-                    = link_to "#{@job.url}", "#{@job.url}", target: "_blank"
+                    = link_to "#{@job.url}", "#{@job.url}", target: "_blank", rel: "nofollow"
           .list-group-item
             .list-group-content{data:{toggle:"tooltip", placement:"left", container: 'body'}, title: '工作地點'}
               %i.fa.fa-map-marker

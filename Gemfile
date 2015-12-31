@@ -31,16 +31,22 @@ gem 'js_cookie_rails'
 # Use Carrierwave
 gem 'carrierwave', '~> 0.10.0'
 gem 'rmagick'    , '~> 2.15'
-# Generate ER diagram https://github.com/voormedia/rails-erd
-gem 'rails-erd'
 # Use kaminari to pagination
 gem 'kaminari'
 gem 'kaminari-i18n'
+# meta-tags let web be seo
+gem 'meta-tags'
+# friendly_id let url more seo
+gem 'friendly_id', '~> 5.1.0'
+gem 'babosa'
+
 group :development, :test do
   gem 'awesome_rails_console'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem "better_errors"
   gem "binding_of_caller"
+  # Generate ER diagram https://github.com/voormedia/rails-erd
+  gem 'rails-erd'
 end
 
