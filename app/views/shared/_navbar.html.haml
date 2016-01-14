@@ -36,6 +36,11 @@
                 = link_to current_user do
                   %i.fa.fa-user
                   我的資料
+              - if current_user.admin
+                %li
+                  = link_to admin_accepted_path do
+                    %i.fa.fa-cog
+                    審核貼文
               %li.divider
               %li
                 = link_to destroy_user_session_path, method: :delete, rel: "nofollow" do

@@ -1,0 +1,37 @@
+/*********************
+ *****  ACCEPTED *****
+ *********************/
+.oparttime-table{
+  th{
+    text-align: center;
+  }
+  td{
+    text-align: center;
+    vertical-align: middle !important;
+  }
+}
+.accepted-status{
+  color: #AAAAAA;
+  padding: 2px 4px;
+  border: 2px solid #CCCCCC;
+  border-radius: 7px;
+  display: inline-block;
+  &.accepted-status-pass{
+    color: #009688;
+    border: 2px solid #009688;
+    animation: passShowup 0.15s ease-in-out forwards;
+  }
+  &.accepted-status-failed{
+    color: #FB7070;
+    border: 2px solid #FB7070;
+    animation: failedShowup 0.15s linear forwards;
+  }
+}
+@keyframes passShowup {
+  from {transform:scale(10) rotate(0deg);}
+  to {transform:scale(1) rotate(-30deg); }
+}
+@keyframes failedShowup {
+  from {transform:scale(10);}
+  to {transform:scale(1);}
+}

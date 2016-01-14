@@ -14,4 +14,5 @@ class OparttimeController < ApplicationController
   def policy
 
   end
+  
 end

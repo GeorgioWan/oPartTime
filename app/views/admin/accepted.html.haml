@@ -1,0 +1,40 @@
+#page-header
+  .row
+    .col-md-4.col-md-offset-4.text-center
+      %h2= '審核貼文'
+
+.row
+  .col-md-8.col-md-offset-2
+    
+    %table.table.table-condensed.table-hover.oparttime-table
+      %thead
+        %tr
+          %th= '審核狀態'
+          %th= '徵才標題'
+          %th= '發文者'
+          %th= '送審日期'
+          %th= '審核'
+      %tbody
+        - @jobs.each do |job|
+          %tr
+            %td{id: "accepted-status-#{job.id}"}
+              %span.accepted-status= job.accepted
+            %td
+              = link_to job.title, job, remote: true
+            %td= job.user.name
+            %td
+              = job.updated_at.strftime("%b %d, %a, %Y")
+              = "‧"
+              = "#{time_ago_in_words(job.updated_at)}前"
+            %td
+              = link_to '退', 'javascript:;', class: "btn btn-xs btn-warning accepted", id: "failed", jobid: "#{job.id}"
+              = link_to '核', 'javascript:;', class: "btn btn-xs btn-info accepted", id: "pass", jobid: "#{job.id}"
+            
+    %ul.pager
+      %li
+        = link_to_previous_page @jobs, '上一頁'
+      %li
+        = link_to_next_page @jobs, '下一頁'
+    
+          
+= render 'shared/modal'
