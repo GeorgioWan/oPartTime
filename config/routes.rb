@@ -20,7 +20,5 @@ Rails.application.routes.draw do
     get '/policy'  => :policy
   end
 
-  get '/:city_id', to: 'jobs#index'
-
   mount TaiwanCity::Engine => '/taiwan_city'
 end

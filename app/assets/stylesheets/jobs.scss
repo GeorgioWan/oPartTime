@@ -40,14 +40,21 @@
     }
   }
 }
+#oPartTime-accordion{
+  .panel-heading{
+    background-color: #009688;
+  }
+  h4.panel-title{
+    a{
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      &:hover{
+        color: rgba(255,255,255,1);
+      }
+    }
+  } 
+}
 .job-index-city-tab{
-  @media screen and (max-width: 1280px){
-    padding-top: 15px;
-  }
-  ul {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
   .nav-pills{
     text-align:center;
     > li{
@@ -69,8 +76,16 @@
               background-color: white;
             }
           }
+          &:focus{
+            background-color:#009688;
+            .badge-city{
+              color: #009688;
+              background-color: white;
+              border: 1px solid #009688;
+            }
+          }
           .badge-city{
-            display: none;
+            left: 33px;
           }
         }
       }
@@ -79,7 +94,7 @@
         padding-left: 8px;
         padding-right: 8px;
         transition: transform 0.3s ease;
-        &:hover{
+        &:hover, &:focus{
           transform: scale(1.2);
           color: white;
           background-color:#009688;
@@ -95,7 +110,67 @@
           position: absolute;
           left: 29px;
           top: -6px;
-          transform: scale(0.7);
+          transform: scale(0.75);
+        }
+      }
+    }
+  }
+}
+.job-index-district-tab{
+  padding-top: 15px;
+  background: #009688;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  .nav-pills{
+    text-align:center;
+    > li{
+      float:none;
+      display:inline-block;
+      *display:inline; /* ie7 fix */
+      zoom:1; /* hasLayout ie7 trigger */
+      margin: 0 5px 10px 5px;
+      &.active{
+        font-size: 16px;
+        > a{
+          border: 1px solid white;
+          color: white;
+          background-color:transparent;
+          &:hover, &:focus{
+            background-color:#009688;
+            .badge-city{
+              color: #009688;
+              background-color: white;
+            }
+          }
+          .badge-city{
+            border: 1px solid white;
+            left: 49px;
+          }
+        }
+      }
+      > a{
+        color: white;
+        padding: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        transition: transform 0.3s ease;
+        &:hover, &:focus{
+          transform: scale(1.2);
+          color: #009688;
+          background-color: white;
+          .badge-city{
+            color: white;
+            background-color: #009688;
+            border: 1px solid white;
+          }
+        }
+        .badge-city{
+          background-color: #FFB300;
+          color: #444444;
+          position: absolute;
+          left: 44px;
+          top: -6px;
+          transform: scale(0.75);
         }
       }
     }
@@ -107,11 +182,12 @@
   li {
     padding: 10px;
     border: 1px solid #DDD;
-    transition: background-color, box-shadow 0.3s ease;
-    &:hover{
-      background-color: rgba(185, 185, 185, 0.20);
-      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+    @media screen and (min-width: 992px){
+      transition: background-color, box-shadow 0.3s ease;
+      &:hover{
+        background-color: rgba(185, 185, 185, 0.20);
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
     }
   }
   #job-index-list-information{
@@ -127,11 +203,19 @@
       @extend .job-index-list-information-lable;
       background-color: #FFB300;
     }
+    #job-index-list-pay-takenoff{
+      @extend .job-index-list-information-lable;
+      background-color: #808080;
+    }
     #job-index-list-location{
       @extend .job-index-list-information-lable;
       background-color: transparent;
       color: #EC5D52;
-
+    }
+    #job-index-list-location-takenoff{
+      @extend .job-index-list-information-lable;
+      background-color: transparent;
+      color: #808080;
     }
   }
   #job-index-list-title{
@@ -158,33 +242,86 @@
       }
     }
   }
-  .job-index-list-favorite{
+  .job-index-list-menu{
     line-height: 65px;
     #job-index-list-favorite{
       color: #676767;
       font-size: 1.6em;
       text-decoration: none;
-      transition: color 0.1s ease;
+      transition: color 0.2s ease;
       &:hover{
         color: #009688;
       }
     }
+    #job-index-list-ud{
+      @extend #job-index-list-favorite;
+      cursor: pointer;
+      font-size: 1.8em;
+    }
+    #job-index-list-edit{
+      @extend #job-index-list-favorite;
+      position: absolute;
+    }
+     #job-index-list-delete{
+      @extend #job-index-list-favorite;
+      position: absolute;
+    }
   }
   .fa-btn.fa-heart.unfavorite {
     color: #FB7070 !important;
+    transition: color 0.2s ease;
+    &:hover{
+      color: #F44336 !important;
+    }
   }
+}
+.showE{
+  animation: showEdit 0.3s linear forwards;
+  left: -80px;
+}
+.hideE{
+  animation: hideEdit 0.3s linear forwards ;
+  left: 0px;
+}
+.showD{
+  animation: showDelete 0.3s linear forwards ;
+  left: -40px;
+}
+.hideD{
+  animation: hideDelete 0.3s linear forwards ;
+  left: 0px;
+}
+@keyframes showEdit{
+  from {left:   0px; transform:rotate(0deg);   visibility: hidden;}
+  to   {left: -80px; transform:rotate(360deg); visibility: visible;}
+}
+@keyframes hideEdit{
+  from {left: -80px; transform:rotate(360deg); visibility: visible;}
+  to   {left:   0px; transform:rotate(0deg);   visibility: hidden;}
+}
+
+@keyframes showDelete{
+  from {left:   0px; transform:rotate(0deg);   visibility: hidden;}
+  to   {left: -40px; transform:rotate(360deg); visibility: visible;}
+}
+@keyframes hideDelete{
+  from {left: -40px; transform:rotate(360deg); visibility: visible;}
+  to   {left:   0px; transform:rotate(0deg);   visibility: hidden;}
+}
+.job-takenoff-btn-group{
+  text-align: right;
 }
 
 /*****************
  *** JOB  FORM ***
  *****************/
 #job-form-inputs{
-  @media screen and (min-width:768px){
+  @media screen and (min-width:992px){
     margin-left: 50px;
   }
   #job-form-slide{
     &.affix{
-      @media screen and (max-width:768px){
+      @media screen and (max-width:992px){
         position: static;
       }
       top: 25px;
@@ -222,7 +359,7 @@
   span a {
     text-decoration: none;
   }
-  .job-byline-dash{
+  .job-byline-time{
     margin-left: 5px;
   }
 }
@@ -230,24 +367,32 @@
   margin-top: 10px;
 }
 .job-body-information{
-  @media screen and (min-width: 1280px){
-    margin-left: 30px;
-    margin-top: -20px;
+  @media screen and (min-width: 992px){
+    padding-left: 15px;
+    margin-top: -15px;
   }
   .list-group{
     &.affix{
-      @media screen and (max-width:768px){
+      @media screen and (max-width:992px){
         position: static;
       }
       top: 25px;
     }
     .list-group-item{
-      margin-top: 10px;
+      margin-top: 15px;
+      padding-left: 40px;
       border-bottom: 1px solid gray;
 
       .list-group-content{
         color: gray;
-        margin-bottom: 10px;
+        margin-bottom: 4px;
+        span{
+          margin-left: 10px;
+          a{
+            color: gray;
+            text-decoration: none;
+          }
+        }
       }
     }
   }

@@ -6,6 +6,18 @@ class Job < ActiveRecord::Base
 
   ### Kaminari per page
   paginates_per 30
+  
+  ### Friendly id
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+  
+  def normalize_friendly_id(input)
+    "#{input.to_s.to_slug.normalize.to_s}"
+  end
+  
+  def should_generate_new_friendly_id?
+    slug.blank? || title_changed?
+  end
 
   ### Validate
   validates_presence_of   :title,       message: "您忘了斗大的標題！"

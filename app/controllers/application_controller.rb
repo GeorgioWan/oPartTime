@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :guest_name, :set_login_cookie
   before_action :merge_favorite_job_from_cookie, if: :user_signed_in?
+  before_action :prepare_meta_tags, if: "request.get?"
+  
   helper_method :get_location
 
   protected
@@ -67,5 +69,36 @@ class ApplicationController < ActionController::Base
     end
 
     return "#{@city}#{@district}"
+  end
+  
+  def prepare_meta_tags(options={})
+
+    site_name   = "oPartTime"
+    title       = "兼差、短期打工、徵人才"
+    description = "oPartTime 讓打工變得更美好！"
+    image       = options[:image] || "your-default-image-url"
+    current_url = request.url
+
+    # Let's prepare a nice set of defaults
+
+    defaults = {
+      site:        site_name,
+      title:       title,
+      image:       image,
+      description: description,
+      canonical:   current_url,
+      keywords:    %w[oPartTime 兼差 徵人 打工 短期打工 臨時工],
+      og:          {url: current_url,
+                    site_name: site_name,
+                    title: title,
+                    image: image,
+                    description: description,
+                    type: 'website'}
+    }
+
+    options.reverse_merge!(defaults)
+    
+    set_meta_tags options
+
   end
 end

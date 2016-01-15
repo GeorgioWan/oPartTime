@@ -1,5 +1,10 @@
 = render 'shared/modal'
 
+-if !@user.nil? && @user == current_user
+  .job-takenoff-btn-group
+    = link_to '公開', @user, class: 'btn btn-sm ' + (params[:takenoff] ? 'btn-default' : 'btn-primary')
+    = link_to '已下架', '?takenoff=show', class: 'btn btn-sm ' + (params[:takenoff] ? 'btn-primary' : 'btn-default')
+      
 - if @jobs.empty?
   - if request.path == "/user/favorite"
     #job-index-empty.well.text-center.col-md-12
@@ -9,14 +14,14 @@
           %i.fa.fa-heart.fa-stack-1x.fa-empty
         %span.text= "加入幾個有興趣的打工吧！"
   - else
-    #job-index-empty.well.text-center.col-md-10.col-md-offset-2
+    #job-index-empty.well.text-center.col-md-12
       %span.empty-block
         %i.fa.fa-2x.fa-exclamation-circle
-        %span.text= "目前沒有兼職工作喲！"
+        %span.text= params[:takenoff] ? "沒有已下架貼文！" : "目前沒有兼職工作喲！"
 - else
   .page
     #list
-      %ul#job-index-list.panel.list-group
+      %ul#job-index-list.list-group{class: ('panel' if !params[:takenoff])}
         = render partial: 'jobs/jobslist/list', collection: @jobs
       #loading.text-center
         = paginate @jobs

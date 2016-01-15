@@ -1,22 +1,34 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :loadpage]
-  before_action :set_jobs,     only: [:index, :loadpage]
-  before_action :set_cities,   only: [:index, :loadpage]
-  before_action :set_job,      only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_jobs,     only: :index
+  before_action :set_cities,   only: :index
+  before_action :set_job,      only: [:edit, :update, :destroy]
+  before_action :set_job_and_location, only: :show 
   before_action :set_value,    only: [:new,  :edit, :create, :update]
-  before_action :set_location, only: :show
+  helper_method :get_districts
 
   def index
+    # meta_tags
+    @page_title = "找頭路"
+    @page_description = "oPartTime 讓您更快速找到心目中的打工"
+    
+    @at_city = params[:city] if params[:city]
+    @at_district = params[:district] if params[:district]
+    
     respond_to do |format|
       format.html
       format.js   {render 'jobs/jobslist/loadjobs' }
     end
   end
 
-  def loadpage
-  end
-
   def show
+    # meta_tags
+    @page_title = @job.title
+    @page_description = @job.description
+    @page_image = @job.user.avatar_url(:fist)
+    prepare_meta_tags( og: { title: @page_title,
+                             image: @job.user.avatar_url(:fist)})
+    
     respond_to do |format|
       format.html
       format.js
@@ -28,7 +40,7 @@ class JobsController < ApplicationController
   end
 
   def create
-    @job=Job.new job_params
+    @job=current_user.jobs.new job_params
     if @job.save
       redirect_to jobs_path
     else
@@ -58,12 +70,19 @@ class JobsController < ApplicationController
   end
 
   def set_job
-    @job = Job.find(params[:id])
+    @job = current_user.jobs.find(params[:id])
   end
 
   def set_jobs
-    @jobs = params[:city_id] ? Job.where(city: params[:city_id]).order("updated_at DESC") : Job.all.order("updated_at DESC")
-    @jobs = @jobs.page(params[:page])
+    if params[:district]
+      @jobs = Job.where(district: params[:district]).order("updated_at DESC")
+    else
+      @jobs = params[:city] ? Job.where(city: params[:city]).order("updated_at DESC") : Job.all.order("updated_at DESC")
+    end
+    
+    # Only show the jobs updated in 15 days
+    @jobs = @jobs.where( updated_at: (Time.now - 15.days)..Time.now ).page(params[:page])
+
     set_jobs_favorite_flag @jobs
   end
 
@@ -72,7 +91,9 @@ class JobsController < ApplicationController
     @cities= cities.keep_if{|c| !c.equal? cities.last}
   end
 
-  def set_location
+  def set_job_and_location
+    @job = Job.find(params[:id])
+    
     TaiwanCity.list.each do |c|
       if c[1] == @job.city
         @city=c[0]
@@ -84,6 +105,10 @@ class JobsController < ApplicationController
         @district=d[0]
       end
     end
+  end
+  
+  def get_districts city_id
+    return TaiwanCity.list(city_id)
   end
 
   def set_value
