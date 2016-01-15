@@ -22,6 +22,6 @@ class AdminController < ApplicationController
   end
   
   def set_jobs
-    @jobs = Job.where( accepted: 'wait' ).order("updated_at DESC").page(params[:page])
+    @jobs = Job.where( accepted: 'wait' ).order("updated_at DESC").page(params[:page]).per(10)
   end
 end

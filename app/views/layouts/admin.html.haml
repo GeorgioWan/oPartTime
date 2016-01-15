@@ -9,11 +9,11 @@
     %link{:rel => :stylesheet, :type => :"text/css", :href => "https://fonts.googleapis.com/earlyaccess/cwtexhei.css"}
   %body
     .wrap
-      = render 'shared/navbar'
+      = render 'admin/shared/navbar'
       = alertify_notice
       
       #oPartTime-container.container
         = yield
 
-    = render 'shared/footer'
+    = render 'admin/shared/footer'
 

@@ -16,7 +16,17 @@ changeAccepted = (acc, jobid, elem_acc)->
       return false
   })
   
+setNavbarAdminFixed = ->
+  if (/ipad/i.test(navigator.userAgent.toLowerCase()))
+    $("#oPartTime-navbar-admin").addClass("navbar-fixed-top")
+  else if (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()))
+      $("#oPartTime-navbar-admin").addClass("navbar-fixed-top")
+  else
+    $("#oPartTime-navbar-admin").removeClass("navbar-fixed-top")
+  
 $ ->
+  setNavbarAdminFixed()
+  
   $("td").on "click", ".accepted", ->
     elem_acc = $(this).parent().parent().children("#accepted-status-" + $(this).attr('jobid')).children('span')
     changeAccepted($(this).attr('id'), $(this).attr('jobid'), elem_acc)
