@@ -13,6 +13,12 @@
           %i.fa.fa-circle.fa-stack-2x
           %i.fa.fa-heart.fa-stack-1x.fa-empty
         %span.text= "加入幾個有興趣的打工吧！"
+    .text-center.col-md-12
+      = "快前往「找頭路」加入幾個有興趣的打工吧，"
+      = link_to "瞭解更多", "javascrtip:;", class: "favorite-knowmore"
+      = "。"
+    #job-favorite-knowmore.text-center.col-md-12
+      = image_tag "knowmore/favorite-add.gif", class: ""
   - else
     #job-index-empty.well.text-center.col-md-12
       %span.empty-block
