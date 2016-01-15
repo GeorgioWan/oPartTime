@@ -3,7 +3,7 @@ class JobsController < ApplicationController
   before_action :set_jobs,     only: :index
   before_action :set_cities,   only: :index
   before_action :set_job,      only: [:edit, :update, :destroy]
-  before_action :set_job_and_location, only: :show 
+  before_action :set_job_and_location, only: :show
   before_action :set_value,    only: [:new,  :edit, :create, :update]
   helper_method :get_districts
 
@@ -42,7 +42,7 @@ class JobsController < ApplicationController
   def create
     @job=current_user.jobs.new job_params
     if @job.save
-      redirect_to jobs_path
+      redirect_to jobs_path, notice: "恭喜，我們會盡快作審核喔！ʕ ᓀ ᴥ ᓂ ʔ"
     else
       render :new
     end
@@ -53,7 +53,7 @@ class JobsController < ApplicationController
 
   def update
     if @job.update job_params
-      redirect_to @job
+      redirect_to @job, notice: "您的貼文已更新，並送出審核囉！"
     else
       render :edit
     end
@@ -61,12 +61,12 @@ class JobsController < ApplicationController
 
   def destroy
     @job.destroy
-    redirect_to jobs_path
+    redirect_to jobs_path, notice: "幫您移除貼文了！ʕ ﹒ ᴥ ﹒ ʔ"
   end
 
   private
   def job_params
-    params.require(:job).permit( :title, :url, :pay, :description, :company, :user_id, :city, :district)
+    params.require(:job).permit( :title, :url, :pay, :description, :company, :user_id, :city, :district, :accepted )
   end
 
   def set_job
@@ -74,10 +74,13 @@ class JobsController < ApplicationController
   end
 
   def set_jobs
+    # Only show the jobs which were pass accepted
+    @jobs = Job.where( accepted: "pass" )
+    
     if params[:district]
-      @jobs = Job.where(district: params[:district]).order("updated_at DESC")
+      @jobs = @jobs.where(district: params[:district]).order("updated_at DESC")
     else
-      @jobs = params[:city] ? Job.where(city: params[:city]).order("updated_at DESC") : Job.all.order("updated_at DESC")
+      @jobs = params[:city] ? @jobs.where(city: params[:city]).order("updated_at DESC") : @jobs.all.order("updated_at DESC")
     end
     
     # Only show the jobs updated in 15 days
@@ -120,7 +123,7 @@ class JobsController < ApplicationController
       @city    ="工作縣市"
       @district="鄉鎮市區"
       @description = "徵人啟事敘述"
-      @button  ="張貼徵文"
+      @button  ="儲存並審核"
     else
       @title   =@job.title
       @url     =@job.url
@@ -129,7 +132,7 @@ class JobsController < ApplicationController
       @city    =@job.city
       @district=@job.district
       @description =@job.description
-      @button  ="修改張貼"
+      @button  ="更新並審核"
     end
   end
 end

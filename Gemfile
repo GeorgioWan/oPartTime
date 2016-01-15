@@ -39,6 +39,8 @@ gem 'meta-tags'
 # friendly_id let url more seo
 gem 'friendly_id', '~> 5.1.0'
 gem 'babosa'
+# Use Cancancan to check user role
+gem 'cancancan', '~> 1.10'
 
 group :development, :test do
   gem 'awesome_rails_console'
