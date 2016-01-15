@@ -1,0 +1,69 @@
+/*******************
+ *****  NAVBAR *****
+ *******************/
+#oPartTime-navbar-admin{
+  @media screen and (min-width: 992px){
+    height: 55px;
+  }
+  background-color: #607D8B !important;
+}
+.badge-admin{
+  background-color: #FB7070 !important;
+  vertical-align: top !important;
+}
+#li_admin{
+  color: white;
+  background-color: #FB7070;
+  transition: box-shadow 0.3s ease;
+  &:hover{
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+ 
+ 
+.footer-admin{
+  height: 75px;
+  width: 100%;
+  background: #607D8B;
+  border-top: 1px solid #9e9e9e;
+  margin-top: -75px;
+  box-shadow: 0 -8px 17px 0px rgba(0, 0, 0, 0.2), 0 -0px 20px 0 rgba(0, 0, 0, 0.19);
+  clear: both;
+}
+/*********************
+ *****  ACCEPTED *****
+ *********************/
+.oparttime-table{
+  th{
+    text-align: center;
+  }
+  td{
+    text-align: center;
+    vertical-align: middle !important;
+  }
+}
+.accepted-status{
+  color: #AAAAAA;
+  padding: 2px 4px;
+  border: 2px solid #CCCCCC;
+  border-radius: 7px;
+  display: inline-block;
+  &.accepted-status-pass{
+    color: #009688;
+    border: 2px solid #009688;
+    animation: passShowup 0.15s ease-in-out forwards;
+  }
+  &.accepted-status-failed{
+    color: #FB7070;
+    border: 2px solid #FB7070;
+    animation: failedShowup 0.15s linear forwards;
+  }
+}
+@keyframes passShowup {
+  from {transform:scale(10) rotate(0deg);}
+  to {transform:scale(1) rotate(-30deg); }
+}
+@keyframes failedShowup {
+  from {transform:scale(10);}
+  to {transform:scale(1);}
+}

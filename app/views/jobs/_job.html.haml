@@ -26,12 +26,13 @@
           = @job.updated_at.strftime("%b %d, %a, %Y")
           %sanp.badge
             = time_ago_in_words(@job.updated_at)
-        %span
-          = "‧"
-          .fb-share-button{data: {href: "#{request.original_url}", layout: "button"}}
+        - if @job.accepted == 'pass'
+          %span
+            = "‧"
+            .fb-share-button{data: {href: "#{request.original_url}", layout: "button"}}
 
     .col-md-3.text-right.job-edit-button
-      = link_to '', edit_job_path(@job.id), class: 'btn btn-primary btn-fab btn-raised mdi-editor-mode-edit' if @job.user == current_user
+      = link_to '', edit_job_path(@job.id), class: 'btn btn-primary btn-fab btn-raised fa fa-pencil' if @job.user == current_user
 
   .row.job-body-section
     .col-md-7.col-md-offset-1

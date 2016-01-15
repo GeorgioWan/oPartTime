@@ -146,4 +146,8 @@ $(document).ready(function() {
     var jobId = $(this).attr("jobid");
     listMenuButtonClickAnimate($(this));
   });
+  
+  $('.favorite-knowmore').click(function(){
+    $('#job-favorite-knowmore').slideToggle();
+  });
 });

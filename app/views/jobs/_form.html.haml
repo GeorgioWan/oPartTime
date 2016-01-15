@@ -5,11 +5,11 @@
     .row
       %nav.col-md-3
         %div#job-form-slide{"data-spy" => "affix", "data-offset-top" => "150"}
-          = f.hidden_field :user_id, value: current_user.id
           = f.input :title,       label: false, placeholder: @title,    input_html:{class: 'text-center'}
           = f.input :url,         label: false, placeholder: @url,      input_html:{class: 'text-center'}
           = f.input :pay,         label: false, placeholder: @pay,      input_html:{class: 'text-center'}
           = f.input :company,     label: false, placeholder: @company,  input_html:{class: 'text-center'}
+          = f.hidden_field :accepted, value: 'wait'
           .city-group
             .col-md-6
               = f.input :city,  label: false, collection: TaiwanCity.list, input_html:{class: 'city-select city-city'}, prompt: @city

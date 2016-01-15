@@ -1,8 +1,9 @@
 # TEST ACCOUNT
 User.create([name:  '9527',
              email: '9527@gmail.com',
-             password: '321321321', password_confirmation: '321321321'])
-puts '[SUCCES] Create test account(email: 9527@gmail.com, password: 321321321)'
+             password: '321321321', password_confirmation: '321321321',
+             admin: true])
+puts '[SUCCES] Create admin account(email: 9527@gmail.com, password: 321321321)'
 
 # RANDOM USER DATA
 for i in 1..10 do
@@ -26,6 +27,7 @@ for i in 1..100 do
               pay:      "#{rand(100..450)}",
               url:      "https://ooo_#{i}.com",
               description: "錢多、事少、離家近\n還應徵就對了！",
-              user_id: rand(1..11)])
+              user_id: rand(1..11)]
+              )
 end
 puts '[SUCCES] Create 100 random jobs.'
