@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
+  root "jobs#index"
+  
   concern :paginatable_index do
     get '(page/:page)', action: :index, on: :collection
   end
   concern :paginatable_show do
     get '(page/:page)', action: :show, on: :collection
   end
-
-  root "jobs#index"
 
   devise_for :users, path_names: {sign_in: 'login', sign_out: 'logout'}
   resources :jobs, concerns: :paginatable_index
