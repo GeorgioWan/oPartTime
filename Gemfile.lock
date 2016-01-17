@@ -151,6 +151,7 @@ GEM
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
+    puma (2.15.3)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -270,6 +271,7 @@ DEPENDENCIES
   meta-tags
   pagedown-bootstrap-rails
   pg
+  puma
   rails (= 4.2.4)
   rails-erd
   rails-i18n

@@ -40,6 +40,8 @@ gem 'meta-tags'
 # friendly_id let url more seo
 gem 'friendly_id', '~> 5.1.0'
 gem 'babosa'
+# Puma for exec Procfile
+gem 'puma'
 
 group :development, :test do
   gem 'sqlite3'
