@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     get '/privacy' => :privacy
     get '/policy'  => :policy
   end
+  
+  scope controller: :admin do
+    get  '/admin/accepted'  => :accepted
+    post '/admin/accepted'  => :update
+  end
 
   mount TaiwanCity::Engine => '/taiwan_city'
 end

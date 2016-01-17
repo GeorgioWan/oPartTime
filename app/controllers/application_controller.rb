@@ -101,4 +101,9 @@ class ApplicationController < ActionController::Base
     set_meta_tags options
 
   end
+  
+  ### CanCan
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_path, alert: "抱歉，請您登入管理員帳號。"
+  end
 end

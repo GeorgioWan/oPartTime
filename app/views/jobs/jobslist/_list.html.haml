@@ -8,7 +8,9 @@
         %i.fa.fa-map-marker
         = get_location(list)
     #job-index-list-title
-      = "［已下架］" if params[:takenoff]
+      - if params[:takenoff]
+        %span.accepted-status{class: ("accepted-status-failed" if list.accepted == "failed")}
+          = list.updated_at < 15.days.ago ? "已過期" : (list.accepted == 'wait' ? "待審核" : "未通過")
       = link_to list.title, list, remote: true
     #job-index-list-sub-title
       %span
