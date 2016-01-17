@@ -139,6 +139,7 @@ GEM
     orm_adapter (0.5.0)
     pagedown-bootstrap-rails (2.1.2)
       railties (> 3.1)
+    pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -181,6 +182,11 @@ GEM
     rails-i18n (4.0.5)
       i18n (~> 0.6)
       railties (~> 4.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.4)
     railties (4.2.4)
       actionpack (= 4.2.4)
       activesupport (= 4.2.4)
@@ -262,9 +268,11 @@ DEPENDENCIES
   kaminari-i18n
   meta-tags
   pagedown-bootstrap-rails
+  pg
   rails (= 4.2.4)
   rails-erd
   rails-i18n
+  rails_12factor
   rmagick (~> 2.15)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
