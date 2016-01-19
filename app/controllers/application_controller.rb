@@ -83,14 +83,14 @@ class ApplicationController < ActionController::Base
 
     defaults = {
       site:        site_name,
-      title:       title,
+      title:       title + " | " + site_name,
       image:       image,
       description: description,
       canonical:   current_url,
       keywords:    %w[oPartTime 兼差 徵人 打工 短期打工 臨時工],
       og:          {url: current_url,
                     site_name: site_name,
-                    title: title,
+                    title: title + " | " + site_name,
                     image: image,
                     description: description,
                     type: 'website'}
