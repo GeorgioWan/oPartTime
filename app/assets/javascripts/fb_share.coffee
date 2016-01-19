@@ -32,6 +32,7 @@ loadFacebookSDK = ->
 
 initializeFacebookSDK = ->
   FB.init
+    appId     : '996631293715815'
     status    : true
     cookie    : true
     xfbml     : true

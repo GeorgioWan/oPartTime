@@ -23,10 +23,11 @@ class JobsController < ApplicationController
 
   def show
     # meta_tags
-    @page_title = @job.title
-    @page_description = @job.description
+    @page_title = @job.title + " | oPartTime"
+    @page_description = "➧ 徵人單位：" + @job.company + "，地點：" + @city + @district + "，時薪：" + @job.pay + "元，詳述請點連結瞭解喲！by "  +  @job.user.name
     @page_image = @job.user.avatar_url(:fist)
     prepare_meta_tags( og: { title: @page_title,
+                             description: @page_description,
                              image: @job.user.avatar_url(:fist)})
     
     respond_to do |format|
