@@ -1,0 +1,15 @@
+require 'resque/status_server'
+require 'json'
+
+rails_root = ENV['RAILS_ROOT'] || File.dirname(__FILE__) + '/../..'
+rails_env = ENV['RAILS_ENV'] || 'development'
+
+resque_config = YAML.load_file(rails_root + '/config/resque.yml')
+
+if rails_env != "production"
+    Resque.redis = resque_config[rails_env]
+else
+    vcap_services = JSON.parse(ENV['VCAP_SERVICES'])
+    credentials = vcap_services["rediscloud"][0]["credentials"]
+    Resque.redis = ":" + credentials["password"] + "@" + credentials["hostname"] + ":" + credentials["port"]
+end
