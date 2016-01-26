@@ -37,4 +37,10 @@ bower.json
 # Ignore upload images
 /public/uploads
 
+# Ignore spring file
 /spring
+/spring-*
+
+# Ignore rails-erd generates pdf or dot
+erd.pdf
+erd.dot

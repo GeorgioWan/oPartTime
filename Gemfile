@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -30,8 +30,8 @@ gem 'taiwan_city'
 # Easy access cookie in js https://github.com/freego/js_cookie_rails
 gem 'js_cookie_rails'
 # Use Carrierwave
-gem 'carrierwave', '~> 0.10.0'
-gem 'rmagick'    , '~> 2.15'
+gem 'carrierwave'
+gem 'rmagick'
 # Use kaminari to pagination
 gem 'kaminari'
 gem 'kaminari-i18n'
