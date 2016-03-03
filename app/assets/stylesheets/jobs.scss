@@ -48,6 +48,17 @@
   }
 }
 #oPartTime-accordion{
+  &.affix{
+    width: 360px;
+    @media screen and (max-width: 1200px){
+      width: 293.3px;
+      top: 65px;
+    }
+    @media screen and (max-width: 992px){
+      position: static;
+    }
+    top: 10px;
+  }
   .panel-heading{
     background-color: #009688;
   }
@@ -332,6 +343,7 @@
         position: static;
       }
       top: 25px;
+      width: 250px;
     }
   }
 }
@@ -378,13 +390,14 @@
     padding-left: 15px;
     margin-top: -15px;
   }
-  .list-group{
-    &.affix{
-      @media screen and (max-width:992px){
-        position: static;
-      }
-      top: 25px;
+  &.affix{
+    @media screen and (max-width: 992px){
+      position: static;
     }
+    top: 25px;
+    width: 247.5px;
+  }
+  .list-group{
     .list-group-item{
       margin-top: 15px;
       border-bottom: 1px solid #ABABAB;
