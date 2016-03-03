@@ -387,16 +387,15 @@
     }
     .list-group-item{
       margin-top: 15px;
-      padding-left: 40px;
-      border-bottom: 1px solid gray;
+      border-bottom: 1px solid #ABABAB;
 
       .list-group-content{
-        color: gray;
+        color: #909090;
         margin-bottom: 4px;
         span{
           margin-left: 10px;
           a{
-            color: gray;
+            color: #909090;
             text-decoration: none;
           }
         }
