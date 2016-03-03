@@ -12,7 +12,7 @@ module JobHelper
   ### 計算該 City 工作張貼數
   def jobs_count city_id
     if !city_id.blank?
-      count = @jobs.where(city: city_id,  updated_at: (Time.now - 15.days)..Time.now ).count
+      count = Job.where(city: city_id,  updated_at: (Time.now - 15.days)..Time.now ).count
       return count < 999 ? count : '999+'
     end
   end
@@ -20,7 +20,7 @@ module JobHelper
   ### 計算該 District 工作張貼數
   def jobs_count_d district_id
     if !district_id.blank?
-      count = @jobs.where(district: district_id,  updated_at: (Time.now - 15.days)..Time.now ).count
+      count = Job.where(district: district_id,  updated_at: (Time.now - 15.days)..Time.now ).count
       return count < 999 ? count : '999+'
     end
   end
