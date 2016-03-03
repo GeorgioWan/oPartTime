@@ -1,7 +1,7 @@
 %nav#oPartTime-navbar.navbar.navbar-default.shadow-z-1{role:"navigation"}
   .container-fluid
     .navbar-header
-      = link_to root_path, class: "navbar-brand" do
+      = link_to root_path, class: "navbar-brand navbar-brand-logo" do
         %strong oPartTime
       = link_to user_favorite_path, class: "navbar-brand-favorite hidden-sm hidden-md hidden-lg" do
         %i.glyphicon.glyphicon-heart
@@ -14,7 +14,7 @@
     #oPartTime-navbar-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li#li_with_hover
-          = link_to '找頭路', root_path
+          = link_to '找頭路', jobs_path
         %li#li_hire.shadow-z-1
           = link_to new_job_path do
             %strong= '我要徵人才'

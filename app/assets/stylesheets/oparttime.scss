@@ -1,4 +1,116 @@
 /**************************
+ ********* NAVBAR *********
+ **************************/
+#oPartTime-navbar-landing{
+  padding-top: 20px;
+  background-color: rgba(255,255,255,0);
+  transition: padding-top, background-color 1s ease-out;
+}
+.oPartTime-navbar-landing{
+  padding-top: 0px !important;
+  background-color: #009688 !important;
+  opacity: .85;
+}
+.landing-sign-up{
+  background-color: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 10px 15px !important;
+  margin: 10px auto;
+  transition: border-width, color, transform 0.3s ease;
+  &:hover{
+    background-color: rgba(255,255,255,0);
+    color: white !important;
+    border-color: rgba(255,255,255,0.65);
+    transform: scale(1.1);
+  }
+}
+.landing-log-in{
+  transition: color, transform 0.3s ease;
+  &:hover{
+    color: white !important;
+    transform: scale(1.1);
+  }
+}
+
+/******************
+ ****  FOOTER *****
+ ******************/
+.footer-startup{
+  background: transparent !important;
+  border-top: none !important;
+  box-shadow: none !important;
+  clear: both;
+}
+
+/**************************
+ ****** STARTUP PAGE ******
+ **************************/
+.oparttime-landing-header{
+  min-height: 100vh;
+  background: linear-gradient(to top, rgb(0, 150, 136) 0%,rgba(123,209,160,0.90) 100%);
+}
+.oparttime-landing-introduce{
+  min-height: 100vh;
+  background-color: #009688;
+}
+.oparttime-landing-container{
+  height: 100vh;
+  padding: 40vh 30px;
+  h1, h2, h3, h4, h5{
+    color: white;
+  }
+}
+.oparttime-scrolldown{
+  position: absolute !important;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  .btn-scrolldown{
+    color: rgba(255, 255, 255, 0.5) !important;
+    transition: color, transform 0.3s ease !important;
+    &:hover{
+      color: rgba(255, 255, 255, 1) !important;
+      transform: scale(1.1);
+    }
+  }
+}
+.btn-findjobs{
+  color: white !important;
+  border-radius: 10px !important;
+  
+  transition: transform 0.3s ease !important;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
+/**************************
+ ***** TYPEDJS CURSOR *****
+ **************************/
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 1s infinite;
+    -moz-animation: blink 1s infinite;
+    animation: blink 1s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+ 
+/**************************
  **** PRIVACY & POLICY ****
  **************************/
 .last-update{
@@ -74,5 +186,61 @@ article.well{
   }
   p{
     margin-top: 25px;
+  }
+}
+
+/*********************
+ **** ANIMATE.CSS ****
+ ********************/
+.fadeInUp{
+  opacity: 0;
+  &.in-view {
+    animation: fadeInUp .7s ease-in both;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.bounceInLeft {
+  opacity: 0;
+  &.in-view {
+    animation: bounceInLeft .7s ease-in both;
+  }
+}
+@keyframes bounceInLeft {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
   }
 }

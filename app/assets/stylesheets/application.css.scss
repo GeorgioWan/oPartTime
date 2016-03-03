@@ -57,16 +57,18 @@ body{
 }
 .navbar-brand{
   transition: color, text-shadow, transform 0.3s ease;
+  &:hover{
+    color: white !important;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    transform: scale(1.1);
+  }
+}
+.navbar-brand-logo{
   @media screen and (min-width: 992px)
   {
     position: absolute !important;
     right: 47%;
     font-size: 20px;
-  }
-  &:hover{
-    color: white !important;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    transform: scale(1.1);
   }
 }
 .navbar-brand-favorite{

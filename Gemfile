@@ -42,8 +42,8 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'babosa'
 # Use Cancancan to check user role
 gem 'cancancan', '~> 1.10'
-# Puma for exec Procfile
-gem 'puma'
+# Typed js
+gem 'typedjq-rails', '~> 0.1.1'
 
 group :development, :test do
   gem 'sqlite3'
@@ -57,6 +57,8 @@ group :development, :test do
 end
 
 group :production do
+  # Puma for exec Procfile
+  gem 'puma'
   gem 'pg'
   gem 'rails_12factor'
 end

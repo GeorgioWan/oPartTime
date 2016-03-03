@@ -61,12 +61,12 @@ module JobHelper
     active = (@at_district == district_id ? :active : nil) if @at_district
     
     if count == 0
-      content_tag :li, link_to( trans_text(text), "/?city=#{city_id}&district=#{district_id}"), class: active
+      content_tag :li, link_to( trans_text(text), "/jobs?city=#{city_id}&district=#{district_id}"), class: active
     else
       content_tag :li, 
                   link_to( (trans_text(text) + 
                             content_tag(:span, count, class: ["badge", "badge-city"])).html_safe, 
-                            "/?city=#{city_id}&district=#{district_id}"), 
+                            "/jobs?city=#{city_id}&district=#{district_id}"), 
                   class: active
     end
   end

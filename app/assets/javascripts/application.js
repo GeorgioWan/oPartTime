@@ -20,5 +20,6 @@
 //= require pagedown_bootstrap
 //= require pagedown_init
 //= require alertify
+//= require typed
 //= require turbolinks
 //= require_tree .

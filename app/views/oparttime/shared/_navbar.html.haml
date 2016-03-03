@@ -1,0 +1,21 @@
+%nav#oPartTime-navbar-landing.navbar.navbar-default.navbar-fixed-top{role:"navigation"}
+  .container
+    .navbar-header
+      = link_to root_path, class: "navbar-brand" do
+        %strong{style:"font-size: 24px;"} oPartTime
+      %button.navbar-toggle{"data-target" => "#oPartTime-navbar-collapse", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only switch guide
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+    #oPartTime-navbar-collapse.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li
+            = link_to "哈囉！#{current_user.name}", jobs_path, class: "landing-sign-up"
+        - else
+          %li
+            = link_to "登入", new_user_session_path, class: "landing-log-in"
+          %li
+            = link_to "我要加入", new_user_registration_path, class: "landing-sign-up"
