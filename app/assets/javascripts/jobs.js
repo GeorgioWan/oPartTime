@@ -120,6 +120,35 @@ function listMenuButtonClickAnimate(btn){
   
 }
 
+function slideAffix(){
+  $('#oPartTime-accordion').affix({
+    offset: {
+      top: 170,
+      bottom: function () {
+        return (this.bottom = $('.footer').outerHeight(true))
+      }
+    }
+  });
+  
+  $('#job-form-slide').affix({
+    offset: {
+      top: 170,
+      bottom: function () {
+        return (this.bottom = $('.footer').outerHeight(true))
+      }
+    }
+  });
+  
+  $('.job-body-information').affix({
+    offset: {
+      top: 170,
+      bottom: function () {
+        return (this.bottom = $('.footer').outerHeight(true))
+      }
+    }
+  });
+}
+
 $(document).ready(function() {
   $("ul.panel.list-group").on("click", ".fa-btn", function() {
     var jobId = $(this).attr("jobid");
@@ -150,4 +179,6 @@ $(document).ready(function() {
   $('.favorite-knowmore').click(function(){
     $('#job-favorite-knowmore').slideToggle();
   });
+  
+  slideAffix();
 });
