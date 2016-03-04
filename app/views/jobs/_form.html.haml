@@ -17,8 +17,9 @@
               = f.input :district,  label: false, collection: TaiwanCity.list(@job.district), input_html:{class: 'city-select city-district'},  prompt: @district
 
       .col-md-8
-        .well
-          = f.input :description, label: false, as: :pagedown, input_html: { preview: true, rows: 10 }
+        .panel
+          = f.input :description, label: false, input_html: { class: "tinymce", preview: true, rows: 15, cols: 120 }
+          = tinymce
 
   #job-form-actions.form-actions
     .row

@@ -17,8 +17,7 @@
 //= require bootstrap-sprockets
 //= require bootstrap-material-design
 //= require taiwan_city/jquery.taiwan_city
-//= require pagedown_bootstrap
-//= require pagedown_init
+//= require tinymce-jquery
 //= require alertify
 //= require turbolinks
 //= require_tree .

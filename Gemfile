@@ -23,8 +23,9 @@ gem 'devise-i18n'
 # Use Simple form
 gem 'simple_form'
 gem 'haml', '~> 4.0', '>= 4.0.7'
-# Use Pagedown
-gem 'pagedown-bootstrap-rails'
+# Use TinyMCE web editor
+gem 'tinymce-rails'
+gem 'tinymce-rails-langs'
 # Use TaiwanCity select
 gem 'taiwan_city'
 # Easy access cookie in js https://github.com/freego/js_cookie_rails
