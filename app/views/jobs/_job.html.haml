@@ -37,9 +37,8 @@
   .row.job-body-section
     .col-md-7.col-md-offset-1
       .job-body-description
-        %pre.shadow-z-1.wmd-output
-          :preserve
-            #{sanitize(@job.description)}
+        .well.shadow-z-1
+          = raw@job.description
     .col-md-3
       .job-body-information
         .list-group

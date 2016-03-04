@@ -1,0 +1,13 @@
+default:
+  language: 'zh_TW'
+  font_formats: 
+    - cwTeXHei=cwexhei
+    - Century Gothic=century gothic, sans-serif
+  menubar: false
+  toolbar:
+    - formatselect | alignleft aligncenter alignright | bullist numlist outdent indent 
+    - bold italic underline | forecolor backcolor | image link unlink
+    - undo redo | preview fullscreen
+  plugins:
+    - image link preview fullscreen textcolor
+  textcolor_rows: "4"
