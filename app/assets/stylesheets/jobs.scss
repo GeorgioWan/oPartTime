@@ -55,6 +55,7 @@
       top: 65px;
     }
     @media screen and (max-width: 992px){
+      width: 100%;
       position: static;
     }
     top: 10px;
@@ -341,6 +342,7 @@
     &.affix{
       @media screen and (max-width:992px){
         position: static;
+        width: 100%;
       }
       top: 25px;
       width: 250px;
@@ -393,6 +395,7 @@
   &.affix{
     @media screen and (max-width: 992px){
       position: static;
+      width: 100%;
     }
     top: 25px;
     width: 247.5px;
