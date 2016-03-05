@@ -52,13 +52,19 @@
 }
 .oparttime-landing-container{
   height: 100vh;
-  padding: 30vh 30px;
+  padding: 24vh 30px;
+  @media screen and (max-width: 768px){
+    padding: 20vh 10px;  
+  }
   h1, h2, h3, h4, h5{
     color: white;
   }
 }
 .oparttime-landing-img{
-  width: 50%;
+  width: 70%;
+  @media screen and (max-width: 768px){
+    width: 100%;
+  }
 }
 .btn-findjobs{
   color: white !important;
