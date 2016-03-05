@@ -17,11 +17,11 @@ sloganTypedAnimation = ->
     cursorChar: "｜"
     startDelay: 1000
     callback: ->
-      $("#oparttime-slogan").delay(3000).fadeOut "slow", ->
+      $("#oparttime-slogan").delay(1800).fadeOut "slow", ->
         $("h2.oparttime-slogan-static").fadeIn "slow", ->
           $("h4.oparttime-slogan-static").fadeIn "slow", ->
             $(".btn-findjobs").fadeIn "slow", ->
-              $(".oparttime-scrolldown").addClass("in-view")
+              $(".oparttime-landing-img").addClass("in-view")
 
 $ ->
   $.material.init()
@@ -30,14 +30,10 @@ $ ->
     sloganTypedAnimation()
     return
     
-  $('.oparttime-landing-pagedown').hide(0).delay(700).fadeIn('fast')
 
   $(window).on 'scroll', ->
     navbarColor()
     return
-  
-  $('.btn-scrolldown').on 'click', ->
-    $('html,body').animate { scrollTop: $($(this).attr("href")).offset().top }, 1000
     
       
   

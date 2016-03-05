@@ -50,30 +50,15 @@
   min-height: 100vh;
   background: linear-gradient(to top, rgb(0, 150, 136) 0%,rgba(123,209,160,0.90) 100%);
 }
-.oparttime-landing-introduce{
-  min-height: 100vh;
-  background-color: #009688;
-}
 .oparttime-landing-container{
   height: 100vh;
-  padding: 40vh 30px;
+  padding: 30vh 30px;
   h1, h2, h3, h4, h5{
     color: white;
   }
 }
-.oparttime-scrolldown{
-  position: absolute !important;
-  bottom: 15px;
-  left: 0;
-  right: 0;
-  .btn-scrolldown{
-    color: rgba(255, 255, 255, 0.5) !important;
-    transition: color, transform 0.3s ease !important;
-    &:hover{
-      color: rgba(255, 255, 255, 1) !important;
-      transform: scale(1.1);
-    }
-  }
+.oparttime-landing-img{
+  width: 50%;
 }
 .btn-findjobs{
   color: white !important;
