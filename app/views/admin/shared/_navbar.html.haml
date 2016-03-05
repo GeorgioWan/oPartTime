@@ -1,7 +1,7 @@
 %nav#oPartTime-navbar-admin.navbar.navbar-default.shadow-z-1{role:"navigation"}
   .container-fluid
     .navbar-header
-      = link_to admin_accepted_path, class: "navbar-brand" do
+      = link_to admin_accepted_path, class: "navbar-brand navbar-brand-logo" do
         %strong oPartTime
         %span.badge.badge-admin= "admin"
       %button.navbar-toggle{"data-target" => "#oPartTime-navbar-collapse", "data-toggle" => "collapse", type: "button"}
@@ -13,7 +13,7 @@
     #oPartTime-navbar-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li#li_admin.shadow-z-1
-          = link_to root_path do
+          = link_to jobs_path do
             .fa.fa-chevron-left= " Go Back"
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown

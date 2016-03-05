@@ -233,6 +233,7 @@ GEM
       tinymce-rails (~> 4.0)
     turbolinks (2.5.3)
       coffee-rails
+    typedjq-rails (0.1.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -289,6 +290,7 @@ DEPENDENCIES
   tinymce-rails
   tinymce-rails-langs
   turbolinks
+  typedjq-rails (~> 0.1.1)
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
 

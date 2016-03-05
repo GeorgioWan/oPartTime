@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "jobs#index"
+  root "oparttime#index"
   
   concern :paginatable_index do
     get '(page/:page)', action: :index, on: :collection

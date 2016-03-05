@@ -1,4 +1,4 @@
-%footer.footer
+%footer.footer{class: ("footer-startup" if request.path == root_path)}
   .container
     .footer-inner
       %ul.hidden-xs
@@ -8,7 +8,8 @@
               %span= "Copyright"
               %i.fa.fa-copyright
               %span
-                = "2015 "
+                = "2016 "
+                %i.fa.fa-heart
                 %strong= "oPartTime"
         %li
           %span= "‧"
