@@ -7,7 +7,7 @@ default:
   toolbar:
     - formatselect | alignleft aligncenter alignright | bullist numlist outdent indent 
     - bold italic underline | forecolor backcolor | image link unlink
-    - undo redo | preview fullscreen
+    - undo redo | fullscreen
   plugins:
-    - image link preview fullscreen textcolor
+    - image link fullscreen textcolor
   textcolor_rows: "4"
