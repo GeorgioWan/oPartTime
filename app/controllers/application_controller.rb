@@ -11,10 +11,19 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  ### Devise
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:account_update ) << [:name, :avatar, :avatar_cache, :remove_avatar,
                                                          :twitter, :facebook, :googleplus, :website]
+  end
+  
+  def after_sign_in_path_for(resource)  # Redirect to jobs when sign in
+    jobs_path
+  end
+  
+  def after_sign_out_path_for(resource_or_scope) # Redirect to jobs when sign out
+    request.referrer
   end
 
   def guest_name
