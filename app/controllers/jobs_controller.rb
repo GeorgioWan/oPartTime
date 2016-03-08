@@ -117,23 +117,23 @@ class JobsController < ApplicationController
 
   def set_value
     if @job.nil?
-      @title   ="徵才標題"
+      @title   ="徵才標題*"
       @url     ="相關連結"
-      @pay     ="時薪"
-      @company ="徵人單位"
-      @city    ="工作縣市"
-      @district="鄉鎮市區"
-      @description = "徵人啟事敘述"
+      @pay     ="時薪*"
+      @company ="徵人單位*"
+      @city    ="工作縣市*"
+      @district="鄉鎮市區*"
+      @description = "徵人啟事敘述*"
       @button  ="儲存並審核"
     else
-      @title   =@job.title
-      @url     =@job.url
-      @pay     =@job.pay
-      @company =@job.company
-      @city    =@job.city
-      @district=@job.district
-      @description =@job.description
-      @button  ="更新並審核"
+      @title   =  @job.title
+      @url     =  @job.url.blank? ? "相關連結" : @job.url
+      @pay     =  @job.pay
+      @company =  @job.company.blank? ? "徵人單位" : @job.company
+      @city    =  @job.city
+      @district=  @job.district
+      @description =  @job.description
+      @button  =  "更新並審核"
     end
   end
 end
