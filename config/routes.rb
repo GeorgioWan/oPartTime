@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "jobs#index"
+  root "oparttime#index"
   
   concern :paginatable_index do
     get '(page/:page)', action: :index, on: :collection
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get '(page/:page)', action: :show, on: :collection
   end
 
-  devise_for :users, path_names: {sign_in: 'login', sign_out: 'logout'}
+  devise_for :users, path_names: {sign_in: 'login', sign_out: 'logout'}, controllers: {registrations: 'users/registrations'}
   resources :jobs, concerns: :paginatable_index
   resources :users, only: :show, concerns: :paginatable_show
   resource :favorite_job, only: [:index, :create, :destroy], path: 'user/favorite', as: 'user_favorite', concerns: :paginatable_show

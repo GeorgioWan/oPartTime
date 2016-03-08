@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.2.3'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -23,15 +23,16 @@ gem 'devise-i18n'
 # Use Simple form
 gem 'simple_form'
 gem 'haml', '~> 4.0', '>= 4.0.7'
-# Use Pagedown
-gem 'pagedown-bootstrap-rails'
+# Use TinyMCE web editor
+gem 'tinymce-rails'
+gem 'tinymce-rails-langs'
 # Use TaiwanCity select
 gem 'taiwan_city'
 # Easy access cookie in js https://github.com/freego/js_cookie_rails
 gem 'js_cookie_rails'
 # Use Carrierwave
-gem 'carrierwave', '~> 0.10.0'
-gem 'rmagick'    , '~> 2.15'
+gem 'carrierwave'
+gem 'rmagick'
 # Use kaminari to pagination
 gem 'kaminari'
 gem 'kaminari-i18n'
@@ -42,8 +43,8 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'babosa'
 # Use Cancancan to check user role
 gem 'cancancan', '~> 1.10'
-# Puma for exec Procfile
-gem 'puma'
+# Typed js
+gem 'typedjq-rails', '~> 0.1.1'
 
 group :development, :test do
   gem 'sqlite3'
@@ -57,6 +58,8 @@ group :development, :test do
 end
 
 group :production do
+  # Puma for exec Procfile
+  gem 'puma'
   gem 'pg'
   gem 'rails_12factor'
 end

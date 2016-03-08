@@ -1,7 +1,7 @@
 class OparttimeController < ApplicationController
 
-  def startup
-
+  def index
+    render layout: "landing"
   end
 
   def about

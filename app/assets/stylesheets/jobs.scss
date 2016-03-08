@@ -48,6 +48,18 @@
   }
 }
 #oPartTime-accordion{
+  &.affix{
+    width: 360px;
+    @media screen and (max-width: 1200px){
+      width: 293.3px;
+      top: 65px;
+    }
+    @media screen and (max-width: 992px){
+      width: 100%;
+      position: static;
+    }
+    top: 10px;
+  }
   .panel-heading{
     background-color: #009688;
   }
@@ -330,8 +342,10 @@
     &.affix{
       @media screen and (max-width:992px){
         position: static;
+        width: 100%;
       }
       top: 25px;
+      width: 250px;
     }
   }
 }
@@ -378,25 +392,26 @@
     padding-left: 15px;
     margin-top: -15px;
   }
-  .list-group{
-    &.affix{
-      @media screen and (max-width:992px){
-        position: static;
-      }
-      top: 25px;
+  &.affix{
+    @media screen and (max-width: 992px){
+      position: static;
+      width: 100%;
     }
+    top: 25px;
+    width: 247.5px;
+  }
+  .list-group{
     .list-group-item{
       margin-top: 15px;
-      padding-left: 40px;
-      border-bottom: 1px solid gray;
+      border-bottom: 1px solid #ABABAB;
 
       .list-group-content{
-        color: gray;
+        color: #909090;
         margin-bottom: 4px;
         span{
           margin-left: 10px;
           a{
-            color: gray;
+            color: #909090;
             text-decoration: none;
           }
         }
@@ -406,7 +421,7 @@
 
 }
 .job-body-description{
-  pre{
+  .well{
     font-size: 15px;
     padding: 15px;
     padding-top: 15px;

@@ -1,7 +1,7 @@
 module MapSvgHelper
   def active_path id, city, drawpath
     
-    city_path = "/?city=#{city}"
+    city_path = "/jobs?city=#{city}"
     if @at_city
       active = @at_city == city ? :active : nil
     end

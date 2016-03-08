@@ -1,0 +1,75 @@
+default:
+  language: 'zh_TW'
+  content_css : "/assets/tinymce_opt.css"
+  menubar: false
+  toolbar:
+    - formatselect | alignleft aligncenter alignright | bullist numlist outdent indent 
+    - bold italic underline | forecolor backcolor | image link unlink | template
+    - undo redo | fullscreen
+  plugins:
+    - image link fullscreen textcolor colorpicker template
+  
+  templates: 
+    -
+      title: 'PTT 打工板發文格式'
+      description: '一鍵套用 PTT 打工板發文格式樣版喲！'
+      content: >
+        <h4 class= "text-center">
+          <span style="color: #ffffff; background-color: #ff0000;">本人已同意一切遵循現行法律，並確知文責自負</span><br />
+          <span style="color: #ffffff; background-color: #0000ff;">&uarr;此行若刪除，文章就會被刪除</span>
+        </h4>
+        
+        <p>
+          <span style="color: #fa4163;">★</span><span style="color: #33cccc;">《工作期間》</span><br />
+          <span style="color: green;">※以下三項子欄位必填，禁止面議或超過法定每日工時上限</span><br />
+          <span style="color: green;">※工時欄位除每日工時外還需列出每週／每月大約工作天數或總工時</span>
+        </p>
+        <p>工作日期&amp;排班方式：</p>
+        <p>每日工作&amp;休息時間︰</p>
+        <p>休息有無計薪&amp;供餐：</p>
+        
+        <p>
+          <span style="color: #fa4163;">★</span><span style="color: #33cccc;">《工作待遇》</span><br />
+          <span style="color: green;">※以下五項子欄位必填，禁止面議並符合法定最低時薪120/hr</span><br />
+          <span style="color: green;">※本欄所稱之平常日為星期一 ~ 日，國定假日日期請參考各地方勞工局公告</span>
+        </p>
+        <p>平常日薪資　：</p>
+        <p>國定假日薪資︰</p>
+        <p>超時加班費　：</p>
+        <p>勞健保、勞退：</p>
+        <p>薪資發放日　：</p>
+        
+        <p>
+          <span style="color: #fa4163;">★</span><span style="color: #33cccc;">《工作內容》</span><br />
+          <span style="color: green;">※以下兩項子欄位必填並請盡量詳細描述，不可模糊籠統/span><br />
+        </p>
+        <p>工作地點：</p>
+        <p>工作內容︰</p>
+        
+        <p>
+          <span style="color: #fa4163;">★</span><span style="color: #33cccc;">《事業登記資料》</span><br />
+          <span style="color: green;">※統編、單位名稱、地址欄位必填，農林漁牧醫藥補教業者需加填相關字號</span><br />
+          <span style="color: green;">※填寫資料以政府單位可查詢之公開資料為準，經比對不符者視同未填</span>
+        </p>
+        <p>統一編號：</p>
+        <p>單位名稱︰</p>
+        <p>單位地址：</p>
+        
+        <p>
+          <span style="color: #fa4163;">★</span><span style="color: #33cccc;">《聯絡資訊》</span><br />
+          <span style="color: green;">※以下三項子欄位必填，電話需含區碼，姓氏只接受中、英文寫法</span><br />
+          <span style="color: green;">※Email跟國內市話、手機擇一填寫，不接受這三者以外的連絡方式</span>
+        </p>
+        <p>聯絡人姓氏 ：</p>
+        <p>Email／電話︰</p>
+        <p>是否回信給報名者：</p>
+        
+        <p>
+          <span style="color: #33cccc;">◎《其他資訊》</span><br />
+          <span style="color: green;">※限定性別、外貌等條件違反就業服務法，受訓期間需正常支薪</span><br />
+        </p>
+        <p>需求人數：</p>
+        <p>通知方式︰</p>
+        <p>面試時間：</p>
+        <p>受訓時間：</p>
+        <p>截止時間：</p>

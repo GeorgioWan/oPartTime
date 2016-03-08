@@ -1,3 +1,12 @@
+backToTop = ->
+  scrollTrigger = 100
+  scrollTop = $(window).scrollTop()
+  if scrollTop > scrollTrigger
+    $('#back-to-top').addClass 'show'
+  else
+    $('#back-to-top').removeClass 'show'
+  return
+      
 $ ->
   # Tooltip binding
   $("body").tooltip({ selector: '[data-toggle="tooltip"]' })
@@ -8,17 +17,9 @@ $ ->
 
   # Back to top
   if $('#back-to-top').length
-    scrollTrigger = 100
-
-    backToTop = ->
-      scrollTop = $(window).scrollTop()
-      if scrollTop > scrollTrigger
-        $('#back-to-top').addClass 'show'
-      else
-        $('#back-to-top').removeClass 'show'
-      return
 
     backToTop()
+    
     $(window).on 'scroll', ->
       backToTop()
       return

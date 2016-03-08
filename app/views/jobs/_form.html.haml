@@ -4,7 +4,7 @@
   #job-form-inputs.form-inputs
     .row
       %nav.col-md-3
-        %div#job-form-slide{"data-spy" => "affix", "data-offset-top" => "150"}
+        %div#job-form-slide
           = f.input :title,       label: false, placeholder: @title,    input_html:{class: 'text-center'}
           = f.input :url,         label: false, placeholder: @url,      input_html:{class: 'text-center'}
           = f.input :pay,         label: false, placeholder: @pay,      input_html:{class: 'text-center'}
@@ -17,8 +17,9 @@
               = f.input :district,  label: false, collection: TaiwanCity.list(@job.district), input_html:{class: 'city-select city-district'},  prompt: @district
 
       .col-md-8
-        .well
-          = f.input :description, label: false, as: :pagedown, input_html: { preview: true, rows: 10 }
+        .panel
+          = f.input :description, label: false, input_html: { class: "tinymce", preview: true, rows: 20, cols: 120 }
+          = tinymce
 
   #job-form-actions.form-actions
     .row

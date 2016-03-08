@@ -37,12 +37,11 @@
   .row.job-body-section
     .col-md-7.col-md-offset-1
       .job-body-description
-        %pre.shadow-z-1.wmd-output
-          :preserve
-            #{sanitize(@job.description)}
+        .well.shadow-z-1
+          = raw@job.description
     .col-md-3
       .job-body-information
-        .list-group{"data-spy" => "affix", "data-offset-top" => "150"}
+        .list-group
           .list-group-item
             .list-group-content{data:{toggle:"tooltip", placement:"left", container: 'body'}, title: '時薪'}
               %i.fa.fa-2x.fa-usd
