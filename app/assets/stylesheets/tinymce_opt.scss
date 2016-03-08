@@ -5,9 +5,10 @@
 @import "bootstrap-material-design";
 @import "font-awesome";
 
-@import "oparttime";
-@import "admin";
-@import "devise";
-@import "jobs";
-@import "map_svg";
-@import "users";
+body {
+  background-color: white;
+  padding: 10px;
+  * {
+    font-family: 'Questrial', 'cwTeXHei', sans-serif;
+  }
+}
