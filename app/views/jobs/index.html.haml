@@ -23,7 +23,7 @@
           .panel-body
             .job-index-city-tab.clearfix
               %ul.nav.nav-pills
-                = city_tab_link_to "ALL", root_path, ""
+                = city_tab_link_to "ALL", jobs_path, ""
               %ul.nav.nav-pills
                 - @cities.each do |city|
                   = city_tab_link_to city[0], "", city[1]

@@ -29,7 +29,7 @@ module JobHelper
   def city_tab_link_to text, path, city_id
     count = jobs_count(city_id)
     
-    if path == "/"
+    if path == "/jobs"
       active = !@at_city ? :active : nil
       content_tag :li, link_to( trans_text(text), path), class: active
     else
