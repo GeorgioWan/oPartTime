@@ -9,7 +9,7 @@ namespace :production do
       if j.updated_at < 25.days.ago
         temp = j.title
         j.destroy # Out of 25 days, should be destroied
-        puts "[DESTROY] TITLE: #{temp}, its over 20 days."
+        puts "[DESTROY] TITLE: #{temp}, its over 25 days."
       else
         if j.accepted == "pass"     # Let public jobs off
           temp = j.updated_at       # Keep the current updated_at

@@ -14,7 +14,7 @@
       = link_to list.title, list, remote: true
     #job-index-list-sub-title
       %span
-        = "# 更新於 #{time_ago_in_words(list.updated_at)}前 by "
+        = "# 張貼於 #{time_ago_in_words(list.updated_at)}前 by "
         = link_to "#{list.user.name}", list.user
   .col-xs-2.col-md-1.job-index-list-menu
     %span.text-right
