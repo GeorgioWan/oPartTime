@@ -1,0 +1,13 @@
+applications:
+- name: oparttime
+  memory: 1GB
+  instances: 1
+  path: .
+  command: bundle exec rake dev:rebuild && bundle exec rails s -p $PORT
+  services:
+  #swap out the below for your own
+  #cf cs elephantsql turtle yourownname
+  #cf cs rediscloud 25mb yourownname
+  #redis cloud has different plans, check out cf marketplace for the plans
+    - postgres-myapp
+    - redis-myapp
