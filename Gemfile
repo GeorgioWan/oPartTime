@@ -45,8 +45,10 @@ gem 'babosa'
 gem 'cancancan', '~> 1.10'
 # Typed js
 gem 'typedjq-rails', '~> 0.1.1'
-# Sidekiq
+# Sidekiq, this gem will use Redis to perform jobs in queue
 gem 'sidekiq'
+# Clockwork, use this to schedule sidekiq daily job
+gem 'clockwork'
 
 group :development, :test do
   gem 'sqlite3'
