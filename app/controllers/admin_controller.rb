@@ -23,6 +23,6 @@ class AdminController < ApplicationController
   
   def set_jobs
     # 待審核狀態 = wait + 15日內送審者
-    @jobs = Job.where( "accepted = ? and updated_at > ?", 'wait', 15.days.ago ).order("updated_at DESC").page(params[:page]).per(10)
+    @jobs = Job.where( accepted: "wait" ).order("updated_at DESC").page(params[:page]).per(10)
   end
 end

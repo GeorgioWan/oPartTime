@@ -1,8 +1,7 @@
-namespace :production do
-  
-  desc "Manually task for updating posts(jobs) status."
-  task :update_jobs => :environment do
-    
+class DailyUpdateJob < ActiveJob::Base
+  queue_as :default
+
+  def perform(*args)
     jobs = Job.where(["updated_at < ?", 15.days.ago]) # Pick up jobs out of deadline
     
     jobs.each do |j|

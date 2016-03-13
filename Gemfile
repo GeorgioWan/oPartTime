@@ -45,6 +45,8 @@ gem 'babosa'
 gem 'cancancan', '~> 1.10'
 # Typed js
 gem 'typedjq-rails', '~> 0.1.1'
+# Sidekiq
+gem 'sidekiq'
 
 group :development, :test do
   gem 'sqlite3'
