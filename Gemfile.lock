@@ -71,6 +71,9 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
     choice (0.2.0)
+    clockwork (1.2.0)
+      activesupport
+      tzinfo
     coderay (1.1.0)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -80,6 +83,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
+    connection_pool (2.2.0)
     debug_inspector (0.0.2)
     devise (3.5.5)
       bcrypt (~> 3.0)
@@ -194,6 +198,7 @@ GEM
     rake (10.5.0)
     rdoc (4.2.1)
       json (~> 1.4)
+    redis (3.2.2)
     responders (2.1.1)
       railties (>= 4.2.0, < 5.1)
     rmagick (2.15.4)
@@ -208,6 +213,10 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sidekiq (4.1.1)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      redis (~> 3.2, >= 3.2.1)
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
@@ -261,6 +270,7 @@ DEPENDENCIES
   bootstrap-sass
   cancancan (~> 1.10)
   carrierwave
+  clockwork
   coffee-rails (~> 4.1.0)
   devise
   devise-i18n
@@ -283,6 +293,7 @@ DEPENDENCIES
   rmagick
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  sidekiq
   simple_form
   spring
   sqlite3

@@ -15,9 +15,9 @@ class UsersController < ApplicationController
 
   def set_jobs
     @jobs = params[:takenoff] ? 
-            @user.jobs.where( "jobs.accepted != ? or jobs.updated_at < ? ", 'pass', 15.days.ago ) # 未上架 = 審核未通過 or 上架超過15日者
+            @user.jobs.where( "jobs.accepted != ?", 'pass') # 未上架 = 審核未通過 or 上架超過15日者 (wait and failed)
             : 
-            @user.jobs.where( accepted: 'pass', updated_at: 15.days.ago..Time.now ) # 上架 = 審核通過 + 15日內審核通過者
+            @user.jobs.where( accepted: 'pass' ) # 上架 = 審核通過 + 15日內審核通過者 (pass)
             
     @jobs = @jobs.page(params[:page]).per(20)
     set_jobs_favorite_flag @jobs
