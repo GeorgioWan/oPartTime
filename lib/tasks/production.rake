@@ -1,5 +1,8 @@
 namespace :production do
   
+  desc "Depoly with admin"
+  task :init => ["db:migrate", "db:seed"]
+  
   desc "Manually task for updating posts(jobs) status."
   task :update_jobs => :environment do
     
