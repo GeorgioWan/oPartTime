@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   ###
 
   def guest_name
-    @name = cookies[:name].nil? ? ["頹廢浪人","絕世美女","武林高手","丐幫成員","神奇寶貝大師","文學青年","小王子"].sample : cookies[:name]
+    @name = cookies[:name].nil? ? ["絕世美女","武林高手","丐幫成員","神奇寶貝大師","文學青年","小王子","短髮公主","鍵盤柯南","特級廚師","打工達人"].sample : cookies[:name]
     cookies[:name] = { :value => @name, :expires => 1.minute.from_now }
   end
 
@@ -78,7 +78,7 @@ class ApplicationController < ActionController::Base
 
     site_name   = "oPartTime"
     title       = "兼差、短期打工、徵人才"
-    description = "oPartTime 讓打工變得更美好！"
+    description = "oPartTime 一起讓打工變得更美好！"
     image       = options[:image] || "your-default-image-url"
     current_url = request.url
 
