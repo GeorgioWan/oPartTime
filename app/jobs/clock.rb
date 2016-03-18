@@ -11,31 +11,16 @@ module Clockwork
     puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
     
     ## Without sidekiq
-    jobs = Job.where(["updated_at < ?", 15.days.ago]) # Pick up jobs out of deadline
+    Rails.application.load_tasks
+    Rake::Task["production:update_jobs"].invoke
     
-    if !jobs.empty?
-      jobs.each do |j|
-        if j.updated_at < 25.days.ago
-          temp = j.title
-          j.destroy # Out of 25 days, should be destroied
-          puts "[DESTROY] TITLE: #{temp}, its over 25 days."
-        else
-          if j.accepted == "pass"     # Let public jobs off
-            temp = j.updated_at       # Keep the current updated_at
-            j.update accepted: "wait" # Turn accepted to "wait"
-            j.update updated_at: temp # Set back updated_at
-            puts "[OFF] TITLE: #{j.title}, its over 15 days."
-          end
-        end
-      end
-    end
-    
+    puts "[DONE] #{job} is done!"
     ## with sidekiq
     # DailyUpdateJob.perform_later 
   end
 
   
-  # every 10.seconds, 'DailyUpdateJob'
+  #every 10.seconds, 'DailyUpdateJob'
   
   ## Perform every day at 04:00
   every(1.day, 'DailyUpdateJob', :at => '01:00')
