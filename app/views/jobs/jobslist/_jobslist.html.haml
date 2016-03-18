@@ -6,8 +6,8 @@
     = link_to '尚未公開', '?takenoff=show', class: 'btn btn-sm ' + (params[:takenoff] ? 'btn-primary' : 'btn-default')
       
 - if @jobs.empty?
-  - if request.path == "/user/favorite"
-    #job-index-empty.well.text-center.col-md-12
+  - if request.path == user_favorite_path
+    #job-index-empty.panel.text-center.col-md-12
       %span.empty-block
         %span.fa-stack
           %i.fa.fa-circle.fa-stack-2x
@@ -20,7 +20,7 @@
     #job-favorite-knowmore.text-center.col-md-12
       = image_tag "knowmore/favorite-add.gif", class: ""
   - else
-    #job-index-empty.well.text-center.col-md-12
+    #job-index-empty.panel.text-center.col-md-12
       %span.empty-block
         %i.fa.fa-2x.fa-exclamation-circle
         %span.text= params[:takenoff] ? "沒有已下架貼文！" : "目前沒有兼職工作喲！"
