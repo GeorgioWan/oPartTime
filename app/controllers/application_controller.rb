@@ -79,8 +79,8 @@ class ApplicationController < ActionController::Base
     site_name   = "oPartTime"
     title       = "兼差、短期打工、徵人才"
     description = "oPartTime 一起讓打工變得更美好！"
-    image       = options[:image] || "your-default-image-url"
     current_url = request.url
+    image       = current_url + view_context.image_path("landing/oPartTime_iPad_Mockups.png")
 
     # Let's prepare a nice set of defaults
 
