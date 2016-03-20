@@ -39,8 +39,11 @@ bower.json
 
 # Ignore spring file
 /spring
-/spring-*
+/spring-1000
 
 # Ignore rails-erd generates pdf or dot
 erd.pdf
 erd.dot
+
+# The email settings
+config/email.yml

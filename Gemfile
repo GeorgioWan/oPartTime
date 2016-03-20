@@ -59,6 +59,8 @@ group :development, :test do
   gem "binding_of_caller"
   # Generate ER diagram https://github.com/voormedia/rails-erd
   gem 'rails-erd'
+  # use mailcatcher
+  gem 'mailcatcher'
 end
 
 group :production do

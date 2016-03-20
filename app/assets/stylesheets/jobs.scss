@@ -26,17 +26,23 @@
   top: -30px;
 }
 #job-index-empty{
-  color: white;
-  background-color: #E57373;
+  color: #9E9E9E;
+  background-color: transparent;
+  border: 4px dashed #9E9E9E;
+  padding: 19px;
   .empty-block{
     font-size: 24px;
     display: inline-flex;
     line-height: 48px;
     .fa-empty{
-      color: #E57373;
+      color: #EEEEEE;
     }
     .text{
       padding-left: 10px;
+    }
+    @media screen and (max-width: 992px){
+      font-size: 16px;
+      line-height: 32px;
     }
   }
 }
