@@ -3,7 +3,7 @@ when "development"
   # TEST ACCOUNT
   User.create([name:  '9527',
                email: '9527@gmail.com',
-               password: '321321321', password_confirmation: '321321321',
+               password: '321321321', password_confirmation: '321321321', confirmed_at: DateTime.now,
                admin: true])
   puts '[DEVELOPMENT] Create admin account(email: 9527@gmail.com, password: 321321321)'
   
@@ -11,7 +11,7 @@ when "development"
   for i in 1..10 do
     User.create([name:  "喔趴態#{i}",
                  email: "#{('a'..'z').to_a[rand(26)]}_#{i}@gmail.com",
-                 password: '321321321', password_confirmation: '321321321'])
+                 password: '321321321', password_confirmation: '321321321', confirmed_at: DateTime.now])
   end
   puts '[DEVELOPMENT] Create 10 random users.'
   
@@ -36,7 +36,7 @@ when "development"
 when "production"
   User.create([name:  'oPartTime-Admin',
                email: 'admin@oparttime.com',
-               password: '321321321', password_confirmation: '321321321',
+               password: '321321321', password_confirmation: '321321321', confirmed_at: DateTime.now,
                admin: true])
   puts '[PRODUCTION] Create admin account(email: admin@oparttime.com, password: 321321321)'
 end
