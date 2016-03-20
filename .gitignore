@@ -39,7 +39,7 @@ bower.json
 
 # Ignore spring file
 /spring
-/spring-1000
+/spring-1000/*.pid
 
 # Ignore rails-erd generates pdf or dot
 erd.pdf
