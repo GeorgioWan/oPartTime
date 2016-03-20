@@ -12,16 +12,16 @@ module JobHelper
   ### 計算該 City 工作張貼數
   def jobs_count city_id
     if !city_id.blank?
-      count = Job.where(city: city_id,  updated_at: (Time.now - 15.days)..Time.now ).count
-      return count < 999 ? count : '999+'
+      count = Job.where(city: city_id, accepted: "pass" ).count
+      return count < 99 ? count : '99+'
     end
   end
   
   ### 計算該 District 工作張貼數
   def jobs_count_d district_id
     if !district_id.blank?
-      count = Job.where(district: district_id,  updated_at: (Time.now - 15.days)..Time.now ).count
-      return count < 999 ? count : '999+'
+      count = Job.where(district: district_id, accepted: "pass" ).count
+      return count < 99 ? count : '99+'
     end
   end
   
@@ -29,7 +29,7 @@ module JobHelper
   def city_tab_link_to text, path, city_id
     count = jobs_count(city_id)
     
-    if path == "/"
+    if path == "/jobs"
       active = !@at_city ? :active : nil
       content_tag :li, link_to( trans_text(text), path), class: active
     else

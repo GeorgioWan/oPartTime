@@ -24,7 +24,7 @@ class JobsController < ApplicationController
   def show
     # meta_tags
     @page_title = @job.title + " | oPartTime"
-    @page_description = "➧ 徵人單位：" + @job.company + "，地點：" + @city + @district + "，時薪：" + @job.pay + "元，詳述請點連結瞭解喲！by "  +  @job.user.name
+    @page_description = "※ 時薪：" + @job.pay + " 元" + "，地點：" + @city + @district + "，徵人單位：" + @job.company + "，由 "  +  @job.user.name + " 張貼。"
     @page_image = @job.user.avatar_url(:fist)
     prepare_meta_tags( og: { title: @page_title,
                              description: @page_description,
@@ -85,7 +85,7 @@ class JobsController < ApplicationController
     end
     
     # Only show the jobs updated in 15 days
-    @jobs = @jobs.where( updated_at: (Time.now - 15.days)..Time.now ).page(params[:page])
+    @jobs = @jobs.page(params[:page])
 
     set_jobs_favorite_flag @jobs
   end
