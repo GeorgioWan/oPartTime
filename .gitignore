@@ -46,4 +46,4 @@ erd.pdf
 erd.dot
 
 # The email settings
-config/email.yml
+#config/email.yml
