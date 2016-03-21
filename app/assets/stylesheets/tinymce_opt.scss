@@ -1,9 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Questrial);
 @import url(https://fonts.googleapis.com/earlyaccess/cwtexhei.css);
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "bootstrap-material-design";
-@import "font-awesome";
+
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// Core CSS
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
 
 body {
   background-color: white;
