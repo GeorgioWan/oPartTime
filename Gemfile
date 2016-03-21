@@ -68,4 +68,5 @@ group :production do
   gem 'puma'
   gem 'pg'
   gem 'rails_12factor'
+  gem 'sendgrid'
 end
