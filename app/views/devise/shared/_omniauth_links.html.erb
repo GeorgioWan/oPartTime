@@ -1,0 +1,9 @@
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-facebook' do %>
+      <i class="fa fa-facebook"></i>
+      <span><%= "使用 #{provider.to_s.titleize} " + (controller_name == 'sessions' ? '登入' : '註冊') %></span>
+    <% end %>
+    <p>哈囉！您也可以使用 Facebook 輕鬆<%= controller_name == 'sessions' ? '登入' : '註冊' %>，我們將只會取得您的「<b>姓名</b>」、「<b>Email</b>」及「<b>大頭貼</b>」資訊，請您放心使用。</p>
+  <% end -%>
+<% end -%>

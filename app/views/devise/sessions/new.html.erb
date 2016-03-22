@@ -7,22 +7,35 @@
 </div>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4 well">
-        <%= f.input :email, label: false, required: false, autofocus: true, placeholder: '登入帳號 (Email)' %>
-        <%= f.input :password, label: false, required: false, placeholder: '密碼' %>
-        <div class="text-right">
-          <%= f.input_field :remember_me, inline_label: '記住我' ,as: :boolean if devise_mapping.rememberable? %>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1 devise-sign-block">
+      <div class="devise-sign-form">
+        <div class="form-inputs">
+          <div class="well">
+            <%= f.input :email, label: false, required: false, autofocus: true, placeholder: '登入帳號 (Email)' %>
+            <%= f.input :password, label: false, required: false, placeholder: '密碼' %>
+            <div class="text-right">
+              <%= f.input_field :remember_me, inline_label: '記住我' ,as: :boolean if devise_mapping.rememberable? %>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-actions">
+          <div class="text-right"><%= f.button :submit, "登入", class: 'btn btn-primary' %></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="form-actions">
+    <div class="col-md-6">
+      <div class="devise-sign-oauth">
+        <%= render "devise/shared/omniauth_links" %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="devise-links">
     <div class="row">
-      <div class="col-xs-11 col-md-4 col-md-offset-4 text-right">
-        <div><%= f.button :submit, "登入", class: 'btn btn-primary' %></div>
+      <div class="col-md-4 col-md-offset-4 text-center">
         <div><%= render "devise/shared/links" %></div>
       </div>
     </div>
