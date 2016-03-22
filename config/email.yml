@@ -1,0 +1,11 @@
+development:
+  address: "localhost"
+  port: "1025"
+production:
+  address: "smtp.sendgrid.net"
+  port: "587"
+  domain: ENV['DOMAIN']
+  authentication: "plain"
+  user_name: ENV['SENDGRID_USERNAME']
+  password: ENV['SENDGRID_PASSWORD']
+  enable_starttls_auto: true

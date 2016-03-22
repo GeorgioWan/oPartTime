@@ -49,6 +49,9 @@ gem 'typedjq-rails', '~> 0.1.1'
 gem 'sidekiq'
 # Clockwork, use this to schedule sidekiq daily job
 gem 'clockwork'
+# omniauth facebook
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'sqlite3'
