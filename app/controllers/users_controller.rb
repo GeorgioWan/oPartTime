@@ -24,9 +24,9 @@ class UsersController < ApplicationController
   end
 
   def set_value
-    @twitter = @user.twitter.nil? ? "#" : @user.twitter
-    @facebook = @user.facebook.nil? ? "#" : @user.facebook
-    @googleplus = @user.googleplus.nil? ? "#" : @user.googleplus
-    @website = @user.website.nil? ? "#" : @user.website
+    @twitter    = @user.twitter.blank?    ? "#" : @user.twitter
+    @facebook   = @user.facebook.blank?   ? "#" : @user.facebook
+    @googleplus = @user.googleplus.blank? ? "#" : @user.googleplus
+    @website    = @user.website.blank?    ? "#" : @user.website
   end
 end
