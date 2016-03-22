@@ -1,14 +1,3 @@
-.fb-root
-:javascript
-  $(function() {
-    $('.wmd-output').each(function(i) {
-      var content, converter;
-      converter = new Markdown.Converter;
-      content = $(this).html();
-      $(this).html(converter.makeHtml(content));
-    });
-  });
-  
 .job-show-container
   .row.job-head-section
     .col-md-7.col-md-offset-1

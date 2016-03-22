@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112094616) do
+ActiveRecord::Schema.define(version: 20160321091822) do
 
   create_table "favorite_jobs", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -74,17 +74,21 @@ ActiveRecord::Schema.define(version: 20160112094616) do
     t.datetime "updated_at",                             null: false
     t.string   "name",                   default: ""
     t.string   "avatar"
-    t.string   "twitter"
-    t.string   "facebook"
-    t.string   "googleplus"
-    t.string   "website"
+    t.string   "twitter",                default: "",    null: false
+    t.string   "facebook",               default: "",    null: false
+    t.string   "googleplus",             default: "",    null: false
+    t.string   "website",                default: "",    null: false
     t.string   "slug"
     t.boolean  "admin",                  default: false, null: false
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["provider"], name: "index_users_on_provider"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true
+  add_index "users", ["uid"], name: "index_users_on_uid"
 
 end

@@ -7,3 +7,50 @@
     transition: color 0.3s ease;
   }
 }
+
+.devise-sign-block{
+  border-right: 3px dashed #B5B5B5;
+  @media screen and (max-width: 768px){
+    border-bottom: 3px dashed #b5b5b5;
+    padding-bottom: 30px;
+  }
+}
+.devise-sign-form{
+  @media screen and (min-width: 992px){
+    width: 75%;
+    margin: 20px auto 10px;
+  }
+}
+.devise-sign-oauth{
+  width: 75%;
+  margin: 60px auto 0;
+  text-align: center;
+  p{
+    color: #A7A7A7;
+    margin-top: 5px;
+  }
+}
+.devise-links{
+  margin: 50px auto;
+}
+
+.btn.btn-facebook{
+  &:not(.btn-link):not(.btn-flat){
+    color: white;
+    background-color: #3B5998;
+    &:hover{
+      background-color: #4866A7;
+    }
+  }
+  .fa-facebook{
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 36px;
+    width: 36px;
+    border-right: 1px solid rgb(94, 116, 162);
+  }
+  span{
+    padding-left: 25px;
+  }
+}
