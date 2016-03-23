@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.1)
       execjs
@@ -133,6 +134,10 @@ GEM
     kaminari-i18n (0.3.2)
       kaminari
       rails
+    koala (2.2.0)
+      addressable
+      faraday
+      multi_json
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -327,6 +332,7 @@ DEPENDENCIES
   js_cookie_rails
   kaminari
   kaminari-i18n
+  koala (~> 2.2)
   mailcatcher
   meta-tags
   omniauth
