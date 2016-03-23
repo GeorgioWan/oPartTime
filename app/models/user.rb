@@ -43,4 +43,9 @@ class User < ActiveRecord::Base
   validates_format_of :twitter, :facebook, :googleplus, :website,
                       with: /(^$)|(^(http|https):\/\/[a-z0-9]+([\_\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix,
                       message: "URL 格式不正確"
+                      
+  before_save :skip_confirm
+  def skip_confirm
+    self.skip_confirmation! #if Rails.env.development?
+  end
 end
