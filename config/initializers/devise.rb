@@ -239,8 +239,7 @@ Devise.setup do |config|
   config.omniauth :facebook, ENV['FB_KEY'], ENV['FB_SECRET'], 
                   scope:        'email', 
                   info_fields:  'email, name, link',
-                  image_size:   'large', secure_image_url: true,
-                  display:      'popup'
+                  image_size:   'large', secure_image_url: true
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
