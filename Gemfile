@@ -52,6 +52,7 @@ gem 'clockwork'
 # omniauth facebook
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem "koala", "~> 2.2"
 
 group :development, :test do
   gem 'sqlite3'
