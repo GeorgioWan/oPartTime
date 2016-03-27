@@ -222,9 +222,11 @@ body{
   }
 }
 .btn-findjobs{
+  background-color: #FF686B !important;
   color: white !important;
   border-radius: 10px !important;
-  min-width: 172px;
+  min-width: 183px;
+  text-align: left;
   
   transition: transform 0.3s ease !important;
   &:hover{
