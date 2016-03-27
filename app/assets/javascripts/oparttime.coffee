@@ -9,25 +9,28 @@ navbarColor = ->
   return
   
 # Typing slogan via TypedJQ-rails gem 
+sloganShowUp = ->
+  $("h2.oparttime-slogan-static").fadeIn "slow", ->
+    $("h4.oparttime-slogan-static").fadeIn "slow", ->
+      $(".btn-findjobs").fadeIn "slow", ->
+        $(".oparttime-landing-img").addClass("in-view")
+        sloganTypedAnimation()
+        
 sloganTypedAnimation = ->
   $("#oparttime-slogan-typed").typed
-    strings: ["哈囉！打工仔！^1500<br><br>
-              oPartTime 讓你<strong>「免費查找、張貼」</strong>打工資訊喔！^1500<br><br>
-              趕緊加入我們吧！"]
+    strings: ["找頭路", "徵人才", "兼差", "加入！"]
     cursorChar: "｜"
-    startDelay: 1000
-    callback: ->
-      $("#oparttime-slogan").delay(1800).fadeOut "slow", ->
-        $("h2.oparttime-slogan-static").fadeIn "slow", ->
-          $("h4.oparttime-slogan-static").fadeIn "slow", ->
-            $(".btn-findjobs").fadeIn "slow", ->
-              $(".oparttime-landing-img").addClass("in-view")
+    typeSpeed : 150
+    backSpeed : 50
+    startDelay: 500
+    backDelay : 1000
+    loop      : true
 
 $ ->
   $.material.init()
   
   $('.body-landing').hide(0).delay(500).fadeIn 'fast', ->
-    sloganTypedAnimation()
+    sloganShowUp()
     return
     
 
