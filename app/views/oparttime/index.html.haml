@@ -3,12 +3,13 @@
     .oparttime-landing-container
       .row
         .col-md-12.text-center
-          %h2#oparttime-slogan
-            %span#oparttime-slogan-typed
-            
           #oparttime-landing-info
             = image_tag "landing/oPartTime_Mockups.png", class: "oparttime-landing-img fadeInUp"
             %h2.oparttime-slogan-static{style: "display: none;"}= "兼差‧短期打工‧徵人才"
-            %h4.oparttime-slogan-static{style: "display: none;"}
-              = "讓尋找打工與徵找人才變得更方便、更快速、更美好！"
-            = link_to '馬上找頭路', jobs_path, class: "btn btn-default btn-raised btn-lg btn-findjobs", style: "display: none"
+            %h4.oparttime-slogan-static{style: "display: none;"}              
+              = "一起讓打工徵才與尋找打工變得更方便、更快速、更美好！"
+            = link_to jobs_path, class: "btn btn-default btn-raised btn-lg btn-findjobs", style: "display: none;" do
+              %span
+                = "馬上"
+              %span#oparttime-slogan-typed
+              
