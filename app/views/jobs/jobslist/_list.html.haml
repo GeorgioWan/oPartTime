@@ -3,7 +3,7 @@
     #job-index-list-information
       %span{id: (params[:takenoff] ? 'job-index-list-pay-takenoff' : 'job-index-list-pay')}
         %i.fa.fa-usd
-        = list.pay
+        = list.pay.to_i
       %span{id: (params[:takenoff] ? 'job-index-list-location-takenoff' : 'job-index-list-location')}
         %i.fa.fa-map-marker
         = get_location(list)
