@@ -11,6 +11,7 @@
 .devise-sign-block{
   border-right: 3px dashed #B5B5B5;
   @media screen and (max-width: 768px){
+    border-right: 0;
     border-bottom: 3px dashed #b5b5b5;
     padding-bottom: 30px;
   }
