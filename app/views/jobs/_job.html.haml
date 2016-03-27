@@ -34,7 +34,7 @@
           .list-group-item
             .list-group-content{data:{toggle:"tooltip", placement:"left", container: 'body'}, title: '時薪'}
               %i.fa.fa-2x.fa-usd
-                %sapn.list-body-information-price= @job.pay
+                %sapn.list-body-information-price= @job.pay.to_i
           .list-group-item
             .list-group-content{data:{toggle:"tooltip", placement:"left", container: 'body'}, title: '徵人單位'}
               %i.fa.fa-building
