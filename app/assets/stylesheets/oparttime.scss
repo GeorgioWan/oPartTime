@@ -207,7 +207,7 @@ body{
 }
 .oparttime-landing-container{
   height: 100vh;
-  padding: 24vh 30px;
+  padding: 20vh 30px;
   @media screen and (max-width: 768px){
     padding: 20vh 10px;  
   }
@@ -224,11 +224,15 @@ body{
 .btn-findjobs{
   color: white !important;
   border-radius: 10px !important;
+  min-width: 172px;
   
   transition: transform 0.3s ease !important;
   &:hover{
     transform: scale(1.1);
   }
+}
+#oparttime-slogan-typed{
+  font-size: 22px;
 }
 
 /**************************
