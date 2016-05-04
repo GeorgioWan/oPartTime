@@ -26,3 +26,5 @@ cscope*
 doc/*
 
 .jira-url
+
+/public/uploads
