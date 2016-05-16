@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
+
 //= require jquery_ujs
 //= require js.cookie
 //= require bootstrap-sprockets
@@ -20,5 +20,5 @@
 //= require tinymce-jquery
 //= require alertify
 //= require typed
-//= require turbolinks
+
 //= require_tree .
