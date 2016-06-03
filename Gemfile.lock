@@ -37,6 +37,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    ads-rails (0.2.3)
+      rails (>= 4.0.0, < 4.3.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.1)
       execjs
@@ -310,6 +312,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ads-rails
   awesome_rails_console
   babosa
   bcrypt (~> 3.1.7)
