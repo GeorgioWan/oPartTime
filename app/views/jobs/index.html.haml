@@ -36,8 +36,8 @@
                       - get_districts(city[1]).each do |district|
                         = district_tab_link_to district[0], city[1], district[1]
                         
-      .google-ads-side                  
-        = google_adsense_include_tag(client: 'pub-7791761299318764', slot: '3420739736')
+      .google-ads-side
+        = adsense_tag(client: 7791761299318764, slot: 3420739736)
                   
   .col-xs-12.col-md-8
     = render 'jobs/jobslist/jobslist'
