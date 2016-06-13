@@ -53,8 +53,6 @@ gem 'clockwork'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem "koala", "~> 2.2"
-# Google Ads
-gem 'ads-rails'
 
 group :development, :test do
   gem 'sqlite3'
